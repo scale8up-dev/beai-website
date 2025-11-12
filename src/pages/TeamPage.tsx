@@ -2,49 +2,28 @@ import { ImageWithFallback } from '../components/figma/ImageWithFallback';
 import { Plus } from 'lucide-react';
 import { Badge } from '../components/ui/badge';
 import { ScrollReveal } from '../components/ScrollReveal';
+import domingoImg from 'figma:asset/c1702c3bbf4b11c549686258235545d1fd3b9704.png';
+import hamzaImg from 'figma:asset/009922434533b2c2eb51c901a0d68dac8999e920.png';
+import gregImg from 'figma:asset/53da58e197f5b7fc2785eb6c426e642485020f99.png';
 
 const teamMembers = [
   {
-    name: 'Sienna Hewitt',
-    role: 'Founder & CEO',
-    image: 'https://images.unsplash.com/photo-1581065178047-8ee15951ede6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjB3b21hbiUyMHBvcnRyYWl0fGVufDF8fHx8MTc2MTcwMzg3MXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    bio: 'Former co-founder of Opendoor. Early staff at Spotify and Clearbit.',
+    name: 'Domingo M. Silvas III',
+    role: 'CEO & Founder',
+    image: domingoImg,
+    bio: 'Visionary entrepreneur who has built and scaled ventures to eight-figure valuations across global markets.',
   },
   {
     name: 'Hamza Adnan',
-    role: 'Engineering Manager',
-    image: 'https://images.unsplash.com/photo-1672685667592-0392f458f46f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBtYW4lMjBwb3J0cmFpdHxlbnwxfHx8fDE3NjE3NDYxMzV8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    bio: 'Lead engineering teams at Netflix, Pitch, and Protocol Labs.',
+    role: 'CTO and Founder',
+    image: hamzaImg,
+    bio: 'Machine Learning Engineer expert in GenAI, LLMs, and MLOps. AWS Solutions Architect building scalable AI-powered systems.',
   },
   {
-    name: 'Caitlyn King',
-    role: 'Product Designer',
-    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx5b3VuZyUyMHByb2Zlc3Npb25hbCUyMHdvbWFufGVufDF8fHx8MTc2MTgwNzE4NXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    bio: 'Founding design team at Figma. Former Pleo, Stripe, and Tile.',
-  },
-  {
-    name: 'Owen Garcia',
-    role: 'Frontend Developer',
-    image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxidXNpbmVzcyUyMG1hbiUyMGhlYWRzaG90fGVufDF8fHx8MTc2MTgxNzczOXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    bio: 'Former frontend dev for Linear, Coinbase, and Postscript.',
-  },
-  {
-    name: 'Natalie Wilson',
-    role: 'Backend Developer',
-    image: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxidXNpbmVzcyUyMHdvbWFuJTIwaGVhZHNob3R8ZW58MXx8fHwxNzYxODA1NjEzfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    bio: 'Built scalable systems at Google, Amazon, and Microsoft.',
-  },
-  {
-    name: 'Marcus Thompson',
-    role: 'AI Researcher',
-    image: 'https://images.unsplash.com/photo-1752859951149-7d3fc700a7ec?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZWNoJTIwcHJvZmVzc2lvbmFsJTIwcG9ydHJhaXR8ZW58MXx8fHwxNzYxNzQ4NTE2fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    bio: 'Machine learning expert with PhD from Stanford. Published research in NLP.',
-  },
-  {
-    name: 'Sophia Chen',
-    role: 'UX Researcher',
-    image: 'https://images.unsplash.com/photo-1737575655055-e3967cbefd03?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkZXZlbG9wZXIlMjBwb3J0cmFpdCUyMGNhc3VhbHxlbnwxfHx8fDE3NjE4MjQ0MTd8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    bio: 'User research specialist focused on creating data-driven experiences.',
+    name: 'Gregory Vaughn',
+    role: 'COO - Director of Operations',
+    image: gregImg,
+    bio: 'Over 30 years of leadership in large-scale project management, ensuring operational excellence and scalable AI solutions with measurable impact.',
   },
 ];
 
