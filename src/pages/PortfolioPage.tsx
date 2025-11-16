@@ -6,13 +6,44 @@ import { ExternalLink, ChevronRight } from 'lucide-react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
+import strategicDivorceImg from 'figma:asset/6d628b01b07f53f94a53f2dc1a14257265a2ec50.png';
+import jvDirectoryImg from 'figma:asset/e140d4bc1bbaa0732a2f09b308bfac27b77f881f.png';
+import castlrImg from 'figma:asset/526716b7215e7e465e441bddff05c46469bc2800.png';
+import securRoomImg from 'figma:asset/60a105d9b0ebbed3c0d43cf45ec660a179cd7c94.png';
+import prepForIndependenceImg from 'figma:asset/2a4edcceac6e7ba4c47bcd03ca73da2458e2687c.png';
+import scale8upImg from 'figma:asset/585993eb048073908597f033499919a26ed91474.png';
+import onyxFlowImg from 'figma:asset/a897fe10edd8cf83a0c1fa41f3f65759ca2c6ec5.png';
 
 const allProjects = [
+  {
+    category: 'Web Solutions',
+    title: 'Strategic Divorce Directory',
+    description: 'With the Strategic Divorce Directory, you have one place to find the experts and resources that support you in taking control of today and building your tomorrow.',
+    image: strategicDivorceImg,
+    technologies: ['React', 'Node.js', 'PostgreSQL', 'AWS'],
+    metrics: { completion: '100%', duration: '5 months', team: '7 people' },
+  },
+  {
+    category: 'Web Solutions',
+    title: 'JV Directory',
+    description: 'The leading platform connecting joint venture partners, affiliates, and influencers in the self-improvement industry.',
+    image: jvDirectoryImg,
+    technologies: ['React', 'Express', 'MongoDB', 'Redis'],
+    metrics: { completion: '100%', duration: '4 months', team: '6 people' },
+  },
+  {
+    category: 'Mobile Apps',
+    title: 'CastlR',
+    description: 'CastlR connects your community with professional security teams through instant incident reporting, real-time alerts, and comprehensive documentation.',
+    image: castlrImg,
+    technologies: ['React Native', 'Firebase', 'Real-time', 'Maps API'],
+    metrics: { completion: '100%', duration: '6 months', team: '8 people' },
+  },
   {
     category: 'AI Projects',
     title: 'SecurRoom AI',
     description: 'Streamline your M&A workflow with AI-powered due diligence, document analysis, and automated redaction.',
-    image: 'https://images.unsplash.com/photo-1653038417367-8a090dd47717?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhaSUyMHNlY3VyaXR5JTIwZG9jdW1lbnR8ZW58MXx8fHwxNzYxODI0MTgzfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+    image: securRoomImg,
     technologies: ['Python', 'TensorFlow', 'NLP', 'React'],
     metrics: { completion: '95%', duration: '6 months', team: '8 people' },
   },
@@ -35,24 +66,24 @@ const allProjects = [
   {
     category: 'AI Projects',
     title: 'PrepForIndependence AI',
-    description: 'Leverage the power of artificial intelligence with our cutting-edge solutions. From machine learning to natural language processing.',
-    image: 'https://images.unsplash.com/photo-1619918456525-7d41ade7300b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlZHVjYXRpb24lMjBsZWFybmluZyUyMGluZGVwZW5kZW5jZXxlbnwxfHx8fDE3NjE4MjQxODV8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+    description: 'Empowering families with essential life skills through AI-powered financial literacy, responsibility, and growth programs designed for real-life success.',
+    image: prepForIndependenceImg,
     technologies: ['React', 'Python', 'AWS', 'ML'],
     metrics: { completion: '90%', duration: '7 months', team: '10 people' },
   },
   {
     category: 'AI Projects',
     title: 'Scale8UP AI',
-    description: 'Custom web solutions that combine stunning design with powerful functionality. We create responsive, scalable, and secure applications.',
-    image: 'https://images.unsplash.com/photo-1705234384679-119488a72a2b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxidXNpbmVzcyUyMGdyb3d0aCUyMHNjYWxlfGVufDF8fHx8MTc2MTgyNDE4NXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+    description: 'AI that finds and fixes your business\'s weakest link—so you can scale faster. Diagnoses bottlenecks and builds data-driven action plans.',
+    image: scale8upImg,
     technologies: ['Next.js', 'AI', 'Stripe', 'Vercel'],
     metrics: { completion: '100%', duration: '3 months', team: '5 people' },
   },
   {
     category: 'Mobile Apps',
     title: 'OnyxFlow',
-    description: 'Native and cross-platform mobile applications that deliver exceptional user experiences. We build apps that users love and businesses trust.',
-    image: 'https://images.unsplash.com/photo-1760952851538-17a59f691efe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3b3JrZmxvdyUyMGF1dG9tYXRpb24lMjBwcm9jZXNzfGVufDF8fHx8MTc2MTgyNDE4NXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+    description: 'Supercharge enterprise execution. Changes how businesses handle repetitive tasks, fragmented systems, and manual approvals for streamlined operations.',
+    image: onyxFlowImg,
     technologies: ['React Native', 'Firebase', 'Redux'],
     metrics: { completion: '100%', duration: '5 months', team: '6 people' },
   },

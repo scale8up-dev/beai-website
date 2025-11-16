@@ -135,7 +135,7 @@ export function Header() {
                 <Facebook className="w-5 h-5" />
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/company/business-evolution-ai-be-ai/about/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-600 hover:text-blue-700 transition-colors"
@@ -239,7 +239,7 @@ export function Header() {
                   <Facebook className="w-5 h-5" />
                 </a>
                 <a
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/company/business-evolution-ai-be-ai/about/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-600 hover:text-blue-700"

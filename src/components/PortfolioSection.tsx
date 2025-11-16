@@ -3,14 +3,49 @@ import { ScrollReveal } from './ScrollReveal';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { ArrowRight, ExternalLink } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import strategicDivorceImg from 'figma:asset/6d628b01b07f53f94a53f2dc1a14257265a2ec50.png';
+import jvDirectoryImg from 'figma:asset/e140d4bc1bbaa0732a2f09b308bfac27b77f881f.png';
+import castlrImg from 'figma:asset/526716b7215e7e465e441bddff05c46469bc2800.png';
+import securRoomImg from 'figma:asset/60a105d9b0ebbed3c0d43cf45ec660a179cd7c94.png';
+import prepForIndependenceImg from 'figma:asset/2a4edcceac6e7ba4c47bcd03ca73da2458e2687c.png';
+import scale8upImg from 'figma:asset/585993eb048073908597f033499919a26ed91474.png';
+import onyxFlowImg from 'figma:asset/a897fe10edd8cf83a0c1fa41f3f65759ca2c6ec5.png';
 
 const projects = [
+  {
+    category: 'Web Solutions',
+    title: 'Strategic Divorce Directory',
+    description: 'With the Strategic Divorce Directory, you have one place to find the experts and resources that support you in taking control of today and building your tomorrow.',
+    image: strategicDivorceImg,
+    tags: ['React', 'Node.js', 'PostgreSQL'],
+  },
+  {
+    category: 'Web Solutions',
+    title: 'JV Directory',
+    description: 'The leading platform connecting joint venture partners, affiliates, and influencers in the self-improvement industry.',
+    image: jvDirectoryImg,
+    tags: ['React', 'Express', 'MongoDB'],
+  },
+  {
+    category: 'Mobile Apps',
+    title: 'CastlR',
+    description: 'CastlR connects your community with professional security teams through instant incident reporting, real-time alerts, and comprehensive documentation.',
+    image: castlrImg,
+    tags: ['React Native', 'Firebase', 'Real-time'],
+  },
   {
     category: 'AI Projects',
     title: 'SecurRoom AI',
     description: 'AI-powered due diligence and document analysis for M&A workflows.',
-    image: 'https://images.unsplash.com/photo-1653038417367-8a090dd47717?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhaSUyMHNlY3VyaXR5JTIwZG9jdW1lbnR8ZW58MXx8fHwxNzYxODI0MTgzfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+    image: securRoomImg,
     tags: ['Python', 'TensorFlow', 'NLP'],
+  },
+  {
+    category: 'AI Projects',
+    title: 'PrepForIndependence AI',
+    description: 'Empowering families with essential life skills through AI-powered financial literacy, responsibility, and growth programs.',
+    image: prepForIndependenceImg,
+    tags: ['React', 'Python', 'AI'],
   },
   {
     category: 'Web Solutions',
@@ -25,27 +60,6 @@ const projects = [
     description: 'Self-service HR platform with AI-powered assistance.',
     image: 'https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxociUyMGh1bWFuJTIwcmVzb3VyY2VzfGVufDF8fHx8MTc2MTgxMTE2OXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
     tags: ['Vue.js', 'PostgreSQL', 'AI'],
-  },
-  {
-    category: 'AI Projects',
-    title: 'Scale8UP AI',
-    description: 'Scalable business growth platform powered by AI analytics.',
-    image: 'https://images.unsplash.com/photo-1705234384679-119488a72a2b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxidXNpbmVzcyUyMGdyb3d0aCUyMHNjYWxlfGVufDF8fHx8MTc2MTgyNDE4NXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    tags: ['Next.js', 'AI', 'Analytics'],
-  },
-  {
-    category: 'Mobile Apps',
-    title: 'OnyxFlow',
-    description: 'Cross-platform workflow automation mobile application.',
-    image: 'https://images.unsplash.com/photo-1760952851538-17a59f691efe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3b3JrZmxvdyUyMGF1dG9tYXRpb24lMjBwcm9jZXNzfGVufDF8fHx8MTc2MTgyNDE4NXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    tags: ['Flutter', 'Firebase', 'GraphQL'],
-  },
-  {
-    category: 'AI Projects',
-    title: 'Foreclosurebid AI',
-    description: 'Real estate auction platform with predictive analytics.',
-    image: 'https://images.unsplash.com/photo-1583916011819-e4b81836bb57?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxyZWFsJTIwZXN0YXRlJTIwYXVjdGlvbnxlbnwxfHx8fDE3NjE4MjQxODV8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    tags: ['React', 'Python', 'ML'],
   },
 ];
 
