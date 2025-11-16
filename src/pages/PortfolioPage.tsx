@@ -97,7 +97,7 @@ const allProjects = [
     image: onyxFlowImg,
     technologies: ['React Native', 'Firebase', 'Redux'],
     metrics: { completion: '100%', duration: '5 months', team: '6 people' },
-    url: 'https://onyx.gytworkz.com/flow',
+    url: 'https://onyxflowai.com/',
   },
   {
     category: 'AI Projects',
