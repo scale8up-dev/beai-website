@@ -13,6 +13,9 @@ import securRoomImg from 'figma:asset/60a105d9b0ebbed3c0d43cf45ec660a179cd7c94.p
 import prepForIndependenceImg from 'figma:asset/2a4edcceac6e7ba4c47bcd03ca73da2458e2687c.png';
 import scale8upImg from 'figma:asset/585993eb048073908597f033499919a26ed91474.png';
 import onyxFlowImg from 'figma:asset/a897fe10edd8cf83a0c1fa41f3f65759ca2c6ec5.png';
+import fitAIImg from 'figma:asset/d9bd7a79352ba941877ec6e9cd4a3fcc52679b25.png';
+import foreclosurebidAIImg from 'figma:asset/e04d3a6ad333c96c220a47216b8e8e60524d4cd8.png';
+import envisionHRImg from 'figma:asset/0efa6c9cd886b1d937302980b8f69dff22f09a41.png';
 
 const allProjects = [
   {
@@ -22,6 +25,7 @@ const allProjects = [
     image: strategicDivorceImg,
     technologies: ['React', 'Node.js', 'PostgreSQL', 'AWS'],
     metrics: { completion: '100%', duration: '5 months', team: '7 people' },
+    url: 'https://stage.strategicdivorcedirectory.com/',
   },
   {
     category: 'Web Solutions',
@@ -30,6 +34,7 @@ const allProjects = [
     image: jvDirectoryImg,
     technologies: ['React', 'Express', 'MongoDB', 'Redis'],
     metrics: { completion: '100%', duration: '4 months', team: '6 people' },
+    url: 'https://jvdirectoryfinder.com/',
   },
   {
     category: 'Mobile Apps',
@@ -38,6 +43,7 @@ const allProjects = [
     image: castlrImg,
     technologies: ['React Native', 'Firebase', 'Real-time', 'Maps API'],
     metrics: { completion: '100%', duration: '6 months', team: '8 people' },
+    url: 'https://stage.castlr.com/',
   },
   {
     category: 'AI Projects',
@@ -46,22 +52,25 @@ const allProjects = [
     image: securRoomImg,
     technologies: ['Python', 'TensorFlow', 'NLP', 'React'],
     metrics: { completion: '95%', duration: '6 months', team: '8 people' },
+    url: 'https://nexplutus.com/',
   },
   {
-    category: 'Web Solutions',
+    category: 'AI Projects',
     title: 'FitAI Coach',
     description: 'Get hyper-personalized workout plans that adapt to your progress. Experience the precision of a personal trainer powered by intelligent AI.',
-    image: 'https://images.unsplash.com/photo-1549576490-b0b4831ef60a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmaXRuZXNzJTIwd29ya291dCUyMHRyYWluaW5nfGVufDF8fHx8MTc2MTgyMzE4NHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+    image: fitAIImg,
     technologies: ['React', 'Node.js', 'MongoDB', 'AI'],
     metrics: { completion: '100%', duration: '4 months', team: '6 people' },
+    url: 'https://primeagefit.com/',
   },
   {
     category: 'Web Solutions',
     title: 'Envision HR 360',
     description: 'Empower your SMB with self-service HR resources, AI-powered assistance, and on-demand access to human expertise.',
-    image: 'https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxociUyMGh1bWFuJTIwcmVzb3VyY2VzfGVufDF8fHx8MTc2MTgxMTE2OXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+    image: envisionHRImg,
     technologies: ['Vue.js', 'Express', 'PostgreSQL', 'AI'],
     metrics: { completion: '100%', duration: '5 months', team: '7 people' },
+    url: 'https://envisionhr360.com/',
   },
   {
     category: 'AI Projects',
@@ -70,6 +79,7 @@ const allProjects = [
     image: prepForIndependenceImg,
     technologies: ['React', 'Python', 'AWS', 'ML'],
     metrics: { completion: '90%', duration: '7 months', team: '10 people' },
+    url: null,
   },
   {
     category: 'AI Projects',
@@ -78,6 +88,7 @@ const allProjects = [
     image: scale8upImg,
     technologies: ['Next.js', 'AI', 'Stripe', 'Vercel'],
     metrics: { completion: '100%', duration: '3 months', team: '5 people' },
+    url: 'https://www.scale8upmethod.com/',
   },
   {
     category: 'Mobile Apps',
@@ -86,22 +97,16 @@ const allProjects = [
     image: onyxFlowImg,
     technologies: ['React Native', 'Firebase', 'Redux'],
     metrics: { completion: '100%', duration: '5 months', team: '6 people' },
+    url: 'https://onyx.gytworkz.com/flow',
   },
   {
     category: 'AI Projects',
     title: 'Foreclosurebid AI',
-    description: 'User-centered design solutions that create engaging and intuitive interfaces. Our designs combine aesthetics with functionality.',
-    image: 'https://images.unsplash.com/photo-1583916011819-e4b81836bb57?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxyZWFsJTIwZXN0YXRlJTIwYXVjdGlvbnxlbnwxfHx8fDE3NjE4MjQxODV8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+    description: 'Discover profitable foreclosure opportunities nationwide with AI-driven property rankings, comprehensive risk analysis, and real-time market insights.',
+    image: foreclosurebidAIImg,
     technologies: ['Python', 'AI', 'Real Estate API', 'React'],
     metrics: { completion: '85%', duration: '8 months', team: '9 people' },
-  },
-  {
-    category: 'Web Solutions',
-    title: 'Analytics Dashboard Pro',
-    description: 'Advanced data visualization and analytics platform that transforms complex data into actionable insights for business growth.',
-    image: 'https://images.unsplash.com/photo-1761593280919-766a4acbcfca?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBkYXNoYm9hcmQlMjBpbnRlcmZhY2V8ZW58MXx8fHwxNzYxODAwODAzfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    technologies: ['React', 'D3.js', 'Python', 'FastAPI'],
-    metrics: { completion: '100%', duration: '4 months', team: '7 people' },
+    url: 'https://foreclosurebidai.com/',
   },
 ];
 
@@ -214,12 +219,26 @@ export function PortfolioPage() {
                       <div className="absolute inset-0 bg-gradient-to-t from-blue-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                       
                       {/* Hover Button */}
-                      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <button className="px-6 py-2.5 bg-white text-blue-700 rounded-full flex items-center gap-2 shadow-lg transform -translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-                          View Project
-                          <ExternalLink className="w-4 h-4" />
-                        </button>
-                      </div>
+                      {project.url ? (
+                        <a
+                          href={project.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                        >
+                          <button className="px-6 py-2.5 bg-white text-blue-700 rounded-full flex items-center gap-2 shadow-lg transform -translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                            View Project
+                            <ExternalLink className="w-4 h-4" />
+                          </button>
+                        </a>
+                      ) : (
+                        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                          <button className="px-6 py-2.5 bg-white text-blue-700 rounded-full flex items-center gap-2 shadow-lg transform -translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                            View Project
+                            <ExternalLink className="w-4 h-4" />
+                          </button>
+                        </div>
+                      )}
                     </div>
 
                     {/* Project Details */}

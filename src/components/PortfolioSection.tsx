@@ -10,6 +10,9 @@ import securRoomImg from 'figma:asset/60a105d9b0ebbed3c0d43cf45ec660a179cd7c94.p
 import prepForIndependenceImg from 'figma:asset/2a4edcceac6e7ba4c47bcd03ca73da2458e2687c.png';
 import scale8upImg from 'figma:asset/585993eb048073908597f033499919a26ed91474.png';
 import onyxFlowImg from 'figma:asset/a897fe10edd8cf83a0c1fa41f3f65759ca2c6ec5.png';
+import fitAIImg from 'figma:asset/d9bd7a79352ba941877ec6e9cd4a3fcc52679b25.png';
+import foreclosurebidAIImg from 'figma:asset/e04d3a6ad333c96c220a47216b8e8e60524d4cd8.png';
+import envisionHRImg from 'figma:asset/0efa6c9cd886b1d937302980b8f69dff22f09a41.png';
 
 const projects = [
   {
@@ -18,6 +21,7 @@ const projects = [
     description: 'With the Strategic Divorce Directory, you have one place to find the experts and resources that support you in taking control of today and building your tomorrow.',
     image: strategicDivorceImg,
     tags: ['React', 'Node.js', 'PostgreSQL'],
+    url: 'https://stage.strategicdivorcedirectory.com/',
   },
   {
     category: 'Web Solutions',
@@ -25,6 +29,7 @@ const projects = [
     description: 'The leading platform connecting joint venture partners, affiliates, and influencers in the self-improvement industry.',
     image: jvDirectoryImg,
     tags: ['React', 'Express', 'MongoDB'],
+    url: 'https://jvdirectoryfinder.com/',
   },
   {
     category: 'Mobile Apps',
@@ -32,6 +37,7 @@ const projects = [
     description: 'CastlR connects your community with professional security teams through instant incident reporting, real-time alerts, and comprehensive documentation.',
     image: castlrImg,
     tags: ['React Native', 'Firebase', 'Real-time'],
+    url: 'https://stage.castlr.com/',
   },
   {
     category: 'AI Projects',
@@ -39,6 +45,7 @@ const projects = [
     description: 'AI-powered due diligence and document analysis for M&A workflows.',
     image: securRoomImg,
     tags: ['Python', 'TensorFlow', 'NLP'],
+    url: 'https://nexplutus.com/',
   },
   {
     category: 'AI Projects',
@@ -46,20 +53,31 @@ const projects = [
     description: 'Empowering families with essential life skills through AI-powered financial literacy, responsibility, and growth programs.',
     image: prepForIndependenceImg,
     tags: ['React', 'Python', 'AI'],
+    url: null,
   },
   {
-    category: 'Web Solutions',
+    category: 'AI Projects',
     title: 'FitAI Coach',
     description: 'Hyper-personalized workout plans powered by intelligent AI.',
-    image: 'https://images.unsplash.com/photo-1549576490-b0b4831ef60a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmaXRuZXNzJTIwd29ya291dCUyMHRyYWluaW5nfGVufDF8fHx8MTc2MTgyMzE4NHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+    image: fitAIImg,
     tags: ['React', 'Node.js', 'AI'],
+    url: 'https://primeagefit.com/',
+  },
+  {
+    category: 'AI Projects',
+    title: 'Foreclosurebid AI',
+    description: 'Discover profitable foreclosure opportunities nationwide with AI-driven property rankings, comprehensive risk analysis, and real-time market insights.',
+    image: foreclosurebidAIImg,
+    tags: ['Python', 'AI', 'Real Estate API', 'React'],
+    url: 'https://foreclosurebidai.com/',
   },
   {
     category: 'Web Solutions',
     title: 'Envision HR 360',
     description: 'Self-service HR platform with AI-powered assistance.',
-    image: 'https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxociUyMGh1bWFuJTIwcmVzb3VyY2VzfGVufDF8fHx8MTc2MTgxMTE2OXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+    image: envisionHRImg,
     tags: ['Vue.js', 'PostgreSQL', 'AI'],
+    url: 'https://envisionhr360.com/',
   },
 ];
 
@@ -90,11 +108,24 @@ export function PortfolioSection() {
                   <div className="absolute inset-0 bg-gradient-to-t from-blue-900/60 to-transparent"></div>
                   
                   {/* Hover Overlay */}
-                  <div className="absolute inset-0 bg-blue-700/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                      <ExternalLink className="w-12 h-12 text-white" />
+                  {project.url ? (
+                    <a
+                      href={project.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="absolute inset-0 bg-blue-700/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
+                    >
+                      <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                        <ExternalLink className="w-12 h-12 text-white" />
+                      </div>
+                    </a>
+                  ) : (
+                    <div className="absolute inset-0 bg-blue-700/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                      <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                        <ExternalLink className="w-12 h-12 text-white" />
+                      </div>
                     </div>
-                  </div>
+                  )}
                 </div>
 
                 {/* Project Details */}

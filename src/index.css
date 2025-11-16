@@ -816,8 +816,8 @@
     field-sizing: content;
   }
 
-  .aspect-\[3\/4\] {
-    aspect-ratio: 3 / 4;
+  .aspect-square {
+    aspect-ratio: 1;
   }
 
   .aspect-video {
@@ -1266,6 +1266,10 @@
 
   .overflow-hidden {
     overflow: hidden;
+  }
+
+  .rounded {
+    border-radius: .25rem;
   }
 
   .rounded-2xl {
