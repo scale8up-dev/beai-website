@@ -12,10 +12,13 @@ import castlrImg from 'figma:asset/526716b7215e7e465e441bddff05c46469bc2800.png'
 import securRoomImg from 'figma:asset/60a105d9b0ebbed3c0d43cf45ec660a179cd7c94.png';
 import prepForIndependenceImg from 'figma:asset/2a4edcceac6e7ba4c47bcd03ca73da2458e2687c.png';
 import scale8upImg from 'figma:asset/585993eb048073908597f033499919a26ed91474.png';
-import onyxFlowImg from 'figma:asset/a897fe10edd8cf83a0c1fa41f3f65759ca2c6ec5.png';
+import onyxFlowImg from 'figma:asset/onyx.png';
 import fitAIImg from 'figma:asset/d9bd7a79352ba941877ec6e9cd4a3fcc52679b25.png';
 import foreclosurebidAIImg from 'figma:asset/e04d3a6ad333c96c220a47216b8e8e60524d4cd8.png';
 import envisionHRImg from 'figma:asset/0efa6c9cd886b1d937302980b8f69dff22f09a41.png';
+import PapiChatImg from 'figma:asset/PapiChat.png';
+import LifeAppImg from 'figma:asset/LifeApp.png';
+import DTTImg from 'figma:asset/DTT.png';
 
 const allProjects = [
   {
@@ -79,7 +82,7 @@ const allProjects = [
     image: prepForIndependenceImg,
     technologies: ['React', 'Python', 'AWS', 'ML'],
     metrics: { completion: '90%', duration: '7 months', team: '10 people' },
-    url: null,
+    url: 'https://www.prepforindependence.ai/',
   },
   {
     category: 'AI Projects',
@@ -107,6 +110,33 @@ const allProjects = [
     technologies: ['Python', 'AI', 'Real Estate API', 'React'],
     metrics: { completion: '85%', duration: '8 months', team: '9 people' },
     url: 'https://foreclosurebidai.com/',
+  },
+  {
+    category: 'AI Projects',
+    title: 'Papi Chat',
+    description: 'Awaken Your Untapped Creative Power.',
+    image: PapiChatImg,
+    technologies: ['Python', 'AI', 'Real Estate API', 'React'],
+    metrics: { completion: '100%', duration: '8 months', team: '9 people' },
+    url: 'https://chat.papimindsetcoach.com/',
+  },
+  {
+    category: 'AI Projects',
+    title: 'Life App',
+    description: 'Personalized guidance, progress tracking, and educational support for your joint and skin health journey.',
+    image: LifeAppImg,
+    technologies: ['Python', 'AI', 'Real Estate API', 'React'],
+    metrics: { completion: '100%', duration: '8 months', team: '9 people' },
+    url: 'https://app.beautyandhealthfromwithin.com/',
+  },
+  {
+    category: 'AI Projects',
+    title: 'Do The Thing',
+    description: 'Create daily challenges that keep your community active, motivated, and connected. From fitness goals to team building—all automated.',
+    image: DTTImg,
+    technologies: ['Python', 'AI', 'Real Estate API', 'React'],
+    metrics: { completion: '100%', duration: '8 months', team: '9 people' },
+    url: 'https://stage.challengeapp.businessevolutionai.com/',
   },
 ];
 
