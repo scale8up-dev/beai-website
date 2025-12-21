@@ -16,17 +16,46 @@ export function ContactPage() {
     subject: '',
     message: '',
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    toast.success('Message sent successfully! We\'ll get back to you soon.');
-    setFormData({
-      firstName: '',
-      lastName: '',
-      email: '',
-      subject: '',
-      message: '',
-    });
+    setIsSubmitting(true);
+
+    const form = e.currentTarget;
+    const formDataToSend = new FormData(form);
+
+    try {
+      const response = await fetch('https://formspree.io/f/xnnloyna', {
+        method: 'POST',
+        body: formDataToSend,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        toast.success('Message sent successfully! We\'ll get back to you soon.');
+        setFormData({
+          firstName: '',
+          lastName: '',
+          email: '',
+          subject: '',
+          message: '',
+        });
+      } else {
+        const data = await response.json();
+        if (data.errors) {
+          toast.error(data.errors.map((error: any) => error.message).join(', '));
+        } else {
+          toast.error('Oops! There was a problem submitting your form');
+        }
+      }
+    } catch (error) {
+      toast.error('Oops! There was a problem submitting your form');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (
@@ -224,9 +253,10 @@ export function ContactPage() {
                     type="submit"
                     className="w-full bg-blue-700 hover:bg-blue-800"
                     size="lg"
+                    disabled={isSubmitting}
                   >
                     <Send className="w-4 h-4 mr-2" />
-                    Send Message
+                    {isSubmitting ? 'Sending...' : 'Send Message'}
                   </Button>
                 </form>
               </div>
