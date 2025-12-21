@@ -12,13 +12,13 @@ import castlrImg from 'figma:asset/526716b7215e7e465e441bddff05c46469bc2800.png'
 import securRoomImg from 'figma:asset/60a105d9b0ebbed3c0d43cf45ec660a179cd7c94.png';
 import prepForIndependenceImg from 'figma:asset/2a4edcceac6e7ba4c47bcd03ca73da2458e2687c.png';
 import scale8upImg from 'figma:asset/585993eb048073908597f033499919a26ed91474.png';
-import onyxFlowImg from 'figma:asset/onyx.png';
+import onyxFlowImg from "../assets/onyx.png";
 import fitAIImg from 'figma:asset/d9bd7a79352ba941877ec6e9cd4a3fcc52679b25.png';
 import foreclosurebidAIImg from 'figma:asset/e04d3a6ad333c96c220a47216b8e8e60524d4cd8.png';
 import envisionHRImg from 'figma:asset/0efa6c9cd886b1d937302980b8f69dff22f09a41.png';
-import PapiChatImg from 'figma:asset/PapiChat.png';
-import LifeAppImg from 'figma:asset/LifeApp.png';
-import DTTImg from 'figma:asset/DTT.png';
+import PapiChatImg from '../assets/PapiChat.png';
+import LifeAppImg from '../assets/LifeApp.png';
+import DTTImg from '../assets/DTT.png';
 
 const allProjects = [
   {
