@@ -6,19 +6,23 @@ import { ExternalLink, ChevronRight } from 'lucide-react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
-import strategicDivorceImg from 'figma:asset/6d628b01b07f53f94a53f2dc1a14257265a2ec50.png';
-import jvDirectoryImg from 'figma:asset/e140d4bc1bbaa0732a2f09b308bfac27b77f881f.png';
-import castlrImg from 'figma:asset/526716b7215e7e465e441bddff05c46469bc2800.png';
-import securRoomImg from 'figma:asset/60a105d9b0ebbed3c0d43cf45ec660a179cd7c94.png';
-import prepForIndependenceImg from 'figma:asset/2a4edcceac6e7ba4c47bcd03ca73da2458e2687c.png';
-import scale8upImg from 'figma:asset/585993eb048073908597f033499919a26ed91474.png';
-import onyxFlowImg from "../assets/onyx.png";
-import fitAIImg from 'figma:asset/d9bd7a79352ba941877ec6e9cd4a3fcc52679b25.png';
-import foreclosurebidAIImg from 'figma:asset/e04d3a6ad333c96c220a47216b8e8e60524d4cd8.png';
-import envisionHRImg from 'figma:asset/0efa6c9cd886b1d937302980b8f69dff22f09a41.png';
+
+// ✅ FIXED: use real asset paths instead of figma:asset/...
+import strategicDivorceImg from '../assets/6d628b01b07f53f94a53f2dc1a14257265a2ec50.png';
+import jvDirectoryImg from '../assets/e140d4bc1bbaa0732a2f09b308bfac27b77f881f.png';
+import castlrImg from '../assets/526716b7215e7e465e441bddff05c46469bc2800.png';
+import securRoomImg from '../assets/60a105d9b0ebbed3c0d43cf45ec660a179cd7c94.png';
+import prepForIndependenceImg from '../assets/2a4edcceac6e7ba4c47bcd03ca73da2458e2687c.png';
+import scale8upImg from '../assets/585993eb048073908597f033499919a26ed91474.png';
+import fitAIImg from '../assets/d9bd7a79352ba941877ec6e9cd4a3fcc52679b25.png';
+import foreclosurebidAIImg from '../assets/e04d3a6ad333c96c220a47216b8e8e60524d4cd8.png';
+import envisionHRImg from '../assets/0efa6c9cd886b1d937302980b8f69dff22f09a41.png';
+
+import onyxFlowImg from '../assets/onyx.png';
 import PapiChatImg from '../assets/PapiChat.png';
 import LifeAppImg from '../assets/LifeApp.png';
 import DTTImg from '../assets/DTT.png';
+
 
 const allProjects = [
   {
