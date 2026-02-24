@@ -37,7 +37,7 @@ const projects = [
     description: 'CastlR connects your community with professional security teams through instant incident reporting, real-time alerts, and comprehensive documentation.',
     image: castlrImg,
     tags: ['React Native', 'Firebase', 'Real-time'],
-    url: 'https://stage.castlr.com/',
+    url: 'https://castlr.com/',
   },
   {
     category: 'AI Projects',

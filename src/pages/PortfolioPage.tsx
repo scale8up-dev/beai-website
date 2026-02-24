@@ -7,7 +7,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 
-// ✅ FIXED: use real asset paths instead of figma:asset/...
+
 import strategicDivorceImg from '../assets/6d628b01b07f53f94a53f2dc1a14257265a2ec50.png';
 import jvDirectoryImg from '../assets/e140d4bc1bbaa0732a2f09b308bfac27b77f881f.png';
 import castlrImg from '../assets/526716b7215e7e465e441bddff05c46469bc2800.png';
@@ -22,6 +22,11 @@ import onyxFlowImg from '../assets/onyx.png';
 import PapiChatImg from '../assets/PapiChat.png';
 import LifeAppImg from '../assets/LifeApp.png';
 import DTTImg from '../assets/DTT.png';
+import castlrMobileImg from '../assets/castlr.png';
+import papiChatImg from '../assets/papimob.png';
+import faceAnalyzerImg from '../assets/faceana.png';
+import praxisMediaImg from '../assets/praxis.png';
+import venntureImg from '../assets/vennture.png';
 
 
 const allProjects = [
@@ -31,7 +36,7 @@ const allProjects = [
     description: 'With the Strategic Divorce Directory, you have one place to find the experts and resources that support you in taking control of today and building your tomorrow.',
     image: strategicDivorceImg,
     technologies: ['React', 'Node.js', 'PostgreSQL', 'AWS'],
-    metrics: { completion: '100%', duration: '5 months', team: '7 people' },
+    metrics: { completion: '100%', duration: '3 months', team: '2 people' },
     url: 'https://stage.strategicdivorcedirectory.com/',
   },
   {
@@ -40,17 +45,35 @@ const allProjects = [
     description: 'The leading platform connecting joint venture partners, affiliates, and influencers in the self-improvement industry.',
     image: jvDirectoryImg,
     technologies: ['React', 'Express', 'MongoDB', 'Redis'],
-    metrics: { completion: '100%', duration: '4 months', team: '6 people' },
+    metrics: { completion: '100%', duration: '4 months', team: '3 people' },
     url: 'https://jvdirectoryfinder.com/',
   },
   {
-    category: 'Mobile Apps',
+    category: 'Web Solutions',
     title: 'CastlR',
     description: 'CastlR connects your community with professional security teams through instant incident reporting, real-time alerts, and comprehensive documentation.',
     image: castlrImg,
     technologies: ['React Native', 'Firebase', 'Real-time', 'Maps API'],
-    metrics: { completion: '100%', duration: '6 months', team: '8 people' },
-    url: 'https://stage.castlr.com/',
+    metrics: { completion: '100%', duration: '3 months', team: '3 people' },
+    url: 'https://castlr.com/',
+  },
+  {
+    category: 'AI Projects',
+    title: 'Praxis Media',
+    description: 'Never Read Alone Again. Transform every book into an interactive conversation with instant answers, deep insights, and personalized AI guidance as you read.',
+    image: praxisMediaImg,
+    technologies: ['React', 'AI', 'NLP', 'Node.js'],
+    metrics: { completion: '100%', duration: '3 months', team: '3 people' },
+    url: 'https://praxisaimedia.com/',
+  },
+  {
+    category: 'AI Projects',
+    title: 'Vennture',
+    description: 'AI-powered growth planning platform that helps you nurture meaningful relationships, plan strategies with purpose, and expand your emotional intelligence for business success.',
+    image: venntureImg,
+    technologies: ['React', 'AI', 'Data Analytics', 'Node.js'],
+    metrics: { completion: '100%', duration: '4 months', team: '3 people' },
+    url: 'https://dev-membership.vennture.com/',
   },
   {
     category: 'AI Projects',
@@ -58,7 +81,7 @@ const allProjects = [
     description: 'Streamline your M&A workflow with AI-powered due diligence, document analysis, and automated redaction.',
     image: securRoomImg,
     technologies: ['Python', 'TensorFlow', 'NLP', 'React'],
-    metrics: { completion: '95%', duration: '6 months', team: '8 people' },
+    metrics: { completion: '100%', duration: '3 months', team: '2 people' },
     url: 'https://nexplutus.com/',
   },
   {
@@ -67,7 +90,7 @@ const allProjects = [
     description: 'Get hyper-personalized workout plans that adapt to your progress. Experience the precision of a personal trainer powered by intelligent AI.',
     image: fitAIImg,
     technologies: ['React', 'Node.js', 'MongoDB', 'AI'],
-    metrics: { completion: '100%', duration: '4 months', team: '6 people' },
+    metrics: { completion: '100%', duration: '4 months', team: '2 people' },
     url: 'https://primeagefit.com/',
   },
   {
@@ -76,8 +99,8 @@ const allProjects = [
     description: 'Empower your SMB with self-service HR resources, AI-powered assistance, and on-demand access to human expertise.',
     image: envisionHRImg,
     technologies: ['Vue.js', 'Express', 'PostgreSQL', 'AI'],
-    metrics: { completion: '100%', duration: '5 months', team: '7 people' },
-    url: 'https://envisionhr360.com/',
+    metrics: { completion: '100%', duration: '4 months', team: '3 people' },
+    url: 'https://www.envisionsola.com/',
   },
   {
     category: 'AI Projects',
@@ -85,7 +108,7 @@ const allProjects = [
     description: 'Empowering families with essential life skills through AI-powered financial literacy, responsibility, and growth programs designed for real-life success.',
     image: prepForIndependenceImg,
     technologies: ['React', 'Python', 'AWS', 'ML'],
-    metrics: { completion: '90%', duration: '7 months', team: '10 people' },
+    metrics: { completion: '100%', duration: '4 months', team: '3 people' },
     url: 'https://www.prepforindependence.ai/',
   },
   {
@@ -94,7 +117,7 @@ const allProjects = [
     description: 'AI that finds and fixes your business\'s weakest link—so you can scale faster. Diagnoses bottlenecks and builds data-driven action plans.',
     image: scale8upImg,
     technologies: ['Next.js', 'AI', 'Stripe', 'Vercel'],
-    metrics: { completion: '100%', duration: '3 months', team: '5 people' },
+    metrics: { completion: '100%', duration: '3 months', team: '4 people' },
     url: 'https://www.scale8upmethod.com/',
   },
   {
@@ -103,7 +126,7 @@ const allProjects = [
     description: 'Supercharge enterprise execution. Changes how businesses handle repetitive tasks, fragmented systems, and manual approvals for streamlined operations.',
     image: onyxFlowImg,
     technologies: ['React Native', 'Firebase', 'Redux'],
-    metrics: { completion: '100%', duration: '5 months', team: '6 people' },
+    metrics: { completion: '100%', duration: '4 months', team: '3 people' },
     url: 'https://onyxflowai.com/',
   },
   {
@@ -112,7 +135,7 @@ const allProjects = [
     description: 'Discover profitable foreclosure opportunities nationwide with AI-driven property rankings, comprehensive risk analysis, and real-time market insights.',
     image: foreclosurebidAIImg,
     technologies: ['Python', 'AI', 'Real Estate API', 'React'],
-    metrics: { completion: '85%', duration: '8 months', team: '9 people' },
+    metrics: { completion: '100%', duration: '4 months', team: '3 people' },
     url: 'https://foreclosurebidai.com/',
   },
   {
@@ -121,7 +144,7 @@ const allProjects = [
     description: 'Awaken Your Untapped Creative Power.',
     image: PapiChatImg,
     technologies: ['Python', 'AI', 'Real Estate API', 'React'],
-    metrics: { completion: '100%', duration: '8 months', team: '9 people' },
+    metrics: { completion: '100%', duration: '4 months', team: '2 people' },
     url: 'https://chat.papimindsetcoach.com/',
   },
   {
@@ -130,7 +153,7 @@ const allProjects = [
     description: 'Personalized guidance, progress tracking, and educational support for your joint and skin health journey.',
     image: LifeAppImg,
     technologies: ['Python', 'AI', 'Real Estate API', 'React'],
-    metrics: { completion: '100%', duration: '8 months', team: '9 people' },
+    metrics: { completion: '100%', duration: '3 months', team: '3 people' },
     url: 'https://app.beautyandhealthfromwithin.com/',
   },
   {
@@ -139,8 +162,34 @@ const allProjects = [
     description: 'Create daily challenges that keep your community active, motivated, and connected. From fitness goals to team building—all automated.',
     image: DTTImg,
     technologies: ['Python', 'AI', 'Real Estate API', 'React'],
-    metrics: { completion: '100%', duration: '8 months', team: '9 people' },
+    metrics: { completion: '100%', duration: '3 months', team: '3 people' },
     url: 'https://stage.challengeapp.businessevolutionai.com/',
+  },
+  {
+    category: 'Mobile Apps',
+    title: 'CastlR Mobile',
+    description: 'CastlR Mobile connects your community with professional security teams through instant incident reporting, real-time alerts, and comprehensive documentation.',
+    image: castlrMobileImg,
+    technologies: ['React Native', 'Firebase', 'Real-time', 'Maps API'],
+    metrics: { completion: '100%', duration: '4 months', team: '2 people' },
+    url: 'https://apps.apple.com/us/app/castlr-community-management/id6757694056',
+  },
+  {
+    category: 'Mobile Apps',
+    title: 'PapiChat AI',
+    description: 'AI-powered conversational platform with premium features, longer sessions, and premium voice capabilities. Your personal AI companion for meaningful conversations.',
+    image: papiChatImg,
+    technologies: ['React Native', 'AI', 'NLP', 'Firebase'],
+    metrics: { completion: '100%', duration: '3 months', team: '2 people' },
+    url: 'https://apps.apple.com/us/app/papichat-ai/id6758587419',
+  },
+  {  category: 'AI Projects',
+    title: 'Face Analyzer',
+    description: 'Know Your Prospect Before You Say Hello. Use AI-driven Western Physiognomy to decode personality, decision-making styles, and build instant rapport.',
+    image: faceAnalyzerImg,
+    technologies: ['Python', 'AI', 'Facial Recognition', 'React'],
+    metrics: { completion: '100%', duration: '4 months', team: '2 people' },
+    url: 'https://face-analyzer.businessevolutionai.com/',
   },
 ];
 
