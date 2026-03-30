@@ -72,18 +72,7 @@ export function TestimonialsSection() {
           ))}
         </div>
 
-        {/* Trust Badges */}
-        <ScrollReveal variant="fadeUp" delay={0.4}>
-          <div className="mt-16 text-center">
-            <p className="text-sm text-gray-500 mb-6">Trusted by leading companies worldwide</p>
-            <div className="flex flex-wrap justify-center items-center gap-12 opacity-40">
-              <div className="text-2xl text-gray-400">Company A</div>
-              <div className="text-2xl text-gray-400">Company B</div>
-              <div className="text-2xl text-gray-400">Company C</div>
-              <div className="text-2xl text-gray-400">Company D</div>
-            </div>
-          </div>
-        </ScrollReveal>
+
       </div>
     </section>
   );
