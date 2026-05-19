@@ -13,6 +13,8 @@ import onyxFlowImg from 'figma:asset/a897fe10edd8cf83a0c1fa41f3f65759ca2c6ec5.pn
 import fitAIImg from 'figma:asset/d9bd7a79352ba941877ec6e9cd4a3fcc52679b25.png';
 import foreclosurebidAIImg from 'figma:asset/e04d3a6ad333c96c220a47216b8e8e60524d4cd8.png';
 import envisionHRImg from 'figma:asset/0efa6c9cd886b1d937302980b8f69dff22f09a41.png';
+import coryAIImg from '../assets/cory_ai.png';
+import scalingCoachImg from '../assets/scaling_coach.png';
 
 const projects = [
   {
@@ -70,6 +72,22 @@ const projects = [
     image: foreclosurebidAIImg,
     tags: ['Python', 'AI', 'Real Estate API', 'React'],
     url: 'https://foreclosurebidai.com/',
+  },
+  {
+    category: 'AI Projects',
+    title: 'CORY AI Premium Intelligence',
+    description: 'Premium intelligence operating environment that turns methodology, decisions, and action into a guided system for clear execution.',
+    image: coryAIImg,
+    tags: ['React', 'AI', 'Automation', 'Integrations'],
+    url: 'https://coryai.io/',
+  },
+  {
+    category: 'AI Projects',
+    title: 'ScalingCoach.ai',
+    description: 'Premium growth OS for coaches to define offers, generate conversion assets, and execute a research-backed 90-day growth plan.',
+    image: scalingCoachImg,
+    tags: ['React', 'AI', 'Growth OS', 'Content'],
+    url: 'https://scalingcoach.ai/',
   },
   {
     category: 'Web Solutions',

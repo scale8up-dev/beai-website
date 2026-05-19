@@ -6,7 +6,7 @@ import { Label } from '../components/ui/label';
 import { Badge } from '../components/ui/badge';
 import { ScrollReveal } from '../components/ScrollReveal';
 import { useState } from 'react';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 
 export function ContactPage() {
   const [formData, setFormData] = useState({

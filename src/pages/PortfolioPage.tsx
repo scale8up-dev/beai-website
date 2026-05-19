@@ -27,6 +27,8 @@ import papiChatImg from '../assets/papimob.png';
 import faceAnalyzerImg from '../assets/faceana.png';
 import praxisMediaImg from '../assets/praxis.png';
 import venntureImg from '../assets/vennture.png';
+import coryAIImg from '../assets/cory_ai.png';
+import scalingCoachImg from '../assets/scaling_coach.png';
 
 
 const allProjects = [
@@ -119,6 +121,24 @@ const allProjects = [
     technologies: ['Next.js', 'AI', 'Stripe', 'Vercel'],
     metrics: { completion: '100%', duration: '3 months', team: '4 people' },
     url: 'https://www.scale8upmethod.com/',
+  },
+  {
+    category: 'AI Projects',
+    title: 'CORY AI Premium Intelligence',
+    description: 'Premium intelligence for clear execution. An operating environment designed to turn methodology, decisions, and action into a guided system with fewer loose prompts and more clarity, feedback, and execution.',
+    image: coryAIImg,
+    technologies: ['React', 'AI', 'Automation', 'Integrations'],
+    metrics: { completion: '100%', duration: '3 months', team: '3 people' },
+    url: 'https://coryai.io/',
+  },
+  {
+    category: 'AI Projects',
+    title: 'ScalingCoach.ai',
+    description: 'Premium growth OS for coaches ready to scale like a premium brand. Define your offer, generate conversion assets, and execute a research-backed 90-day growth plan without the noise.',
+    image: scalingCoachImg,
+    technologies: ['React', 'AI', 'Growth OS', 'Content Strategy'],
+    metrics: { completion: '100%', duration: '3 months', team: '3 people' },
+    url: 'https://scalingcoach.ai/',
   },
   {
     category: 'Mobile Apps',
