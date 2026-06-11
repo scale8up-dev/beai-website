@@ -10,11 +10,13 @@ import securRoomImg from 'figma:asset/60a105d9b0ebbed3c0d43cf45ec660a179cd7c94.p
 import prepForIndependenceImg from 'figma:asset/2a4edcceac6e7ba4c47bcd03ca73da2458e2687c.png';
 import scale8upImg from 'figma:asset/585993eb048073908597f033499919a26ed91474.png';
 import onyxFlowImg from 'figma:asset/a897fe10edd8cf83a0c1fa41f3f65759ca2c6ec5.png';
-import fitAIImg from 'figma:asset/d9bd7a79352ba941877ec6e9cd4a3fcc52679b25.png';
 import foreclosurebidAIImg from 'figma:asset/e04d3a6ad333c96c220a47216b8e8e60524d4cd8.png';
 import envisionHRImg from 'figma:asset/0efa6c9cd886b1d937302980b8f69dff22f09a41.png';
 import coryAIImg from '../assets/cory_ai.png';
 import scalingCoachImg from '../assets/scaling_coach.png';
+import primeAgeFitImg from '../assets/primeagefit.jpg';
+import astrologyAIImg from '../assets/astrology_ai.jpg';
+import clickAIImg from '../assets/clickai.jpg';
 
 const projects = [
   {
@@ -59,10 +61,10 @@ const projects = [
   },
   {
     category: 'AI Projects',
-    title: 'FitAI Coach',
-    description: 'Hyper-personalized workout plans powered by intelligent AI.',
-    image: fitAIImg,
-    tags: ['React', 'Node.js', 'AI'],
+    title: 'PrimeAgeFit',
+    description: 'Hyper-personalized fitness and wellness coaching powered by intelligent AI.',
+    image: primeAgeFitImg,
+    tags: ['React', 'Node.js', 'AI', 'Fitness'],
     url: 'https://primeagefit.com/',
   },
   {
@@ -88,6 +90,22 @@ const projects = [
     image: scalingCoachImg,
     tags: ['React', 'AI', 'Growth OS', 'Content'],
     url: 'https://scalingcoach.ai/',
+  },
+  {
+    category: 'AI Projects',
+    title: 'Astrology AI',
+    description: 'AI-powered astrology experience that delivers personalized insights through an elegant guided interface.',
+    image: astrologyAIImg,
+    tags: ['React', 'AI', 'Personalization', 'Astrology'],
+    url: 'https://astrology-ai.businessevolutionai.com/',
+  },
+  {
+    category: 'AI Projects',
+    title: 'ClickAI',
+    description: 'AI-powered marketing and conversion workspace built to sharpen execution and accelerate campaign decisions.',
+    image: clickAIImg,
+    tags: ['React', 'AI', 'Marketing', 'Automation'],
+    url: 'https://click-ai.businessevolutionai.com/',
   },
   {
     category: 'Web Solutions',

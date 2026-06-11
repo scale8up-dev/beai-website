@@ -14,21 +14,21 @@ import castlrImg from '../assets/526716b7215e7e465e441bddff05c46469bc2800.png';
 import securRoomImg from '../assets/60a105d9b0ebbed3c0d43cf45ec660a179cd7c94.png';
 import prepForIndependenceImg from '../assets/2a4edcceac6e7ba4c47bcd03ca73da2458e2687c.png';
 import scale8upImg from '../assets/585993eb048073908597f033499919a26ed91474.png';
-import fitAIImg from '../assets/d9bd7a79352ba941877ec6e9cd4a3fcc52679b25.png';
 import foreclosurebidAIImg from '../assets/e04d3a6ad333c96c220a47216b8e8e60524d4cd8.png';
 import envisionHRImg from '../assets/0efa6c9cd886b1d937302980b8f69dff22f09a41.png';
 
-import onyxFlowImg from '../assets/onyx.png';
-import PapiChatImg from '../assets/PapiChat.png';
+import onyxFlowImg from '../assets/onyxflow_new.jpg';
 import LifeAppImg from '../assets/LifeApp.png';
 import DTTImg from '../assets/DTT.png';
 import castlrMobileImg from '../assets/castlr.png';
-import papiChatImg from '../assets/papimob.png';
 import faceAnalyzerImg from '../assets/faceana.png';
-import praxisMediaImg from '../assets/praxis.png';
+import praxisMediaImg from '../assets/praxis_new.jpg';
 import venntureImg from '../assets/vennture.png';
 import coryAIImg from '../assets/cory_ai.png';
 import scalingCoachImg from '../assets/scaling_coach.png';
+import primeAgeFitImg from '../assets/primeagefit.jpg';
+import astrologyAIImg from '../assets/astrology_ai.jpg';
+import clickAIImg from '../assets/clickai.jpg';
 
 
 const allProjects = [
@@ -88,9 +88,9 @@ const allProjects = [
   },
   {
     category: 'AI Projects',
-    title: 'FitAI Coach',
-    description: 'Get hyper-personalized workout plans that adapt to your progress. Experience the precision of a personal trainer powered by intelligent AI.',
-    image: fitAIImg,
+    title: 'PrimeAgeFit',
+    description: 'Get hyper-personalized fitness and wellness plans that adapt to your progress. Experience the precision of a personal trainer powered by intelligent AI.',
+    image: primeAgeFitImg,
     technologies: ['React', 'Node.js', 'MongoDB', 'AI'],
     metrics: { completion: '100%', duration: '4 months', team: '2 people' },
     url: 'https://primeagefit.com/',
@@ -141,6 +141,24 @@ const allProjects = [
     url: 'https://scalingcoach.ai/',
   },
   {
+    category: 'AI Projects',
+    title: 'Astrology AI',
+    description: 'AI-powered astrology experience that delivers personalized insights through an elegant guided interface.',
+    image: astrologyAIImg,
+    technologies: ['React', 'AI', 'Personalization', 'Astrology'],
+    metrics: { completion: '100%', duration: '3 months', team: '2 people' },
+    url: 'https://astrology-ai.businessevolutionai.com/',
+  },
+  {
+    category: 'AI Projects',
+    title: 'ClickAI',
+    description: 'AI-powered marketing and conversion workspace built to sharpen execution, generate direction, and accelerate campaign decisions.',
+    image: clickAIImg,
+    technologies: ['React', 'AI', 'Marketing', 'Automation'],
+    metrics: { completion: '100%', duration: '3 months', team: '2 people' },
+    url: 'https://click-ai.businessevolutionai.com/',
+  },
+  {
     category: 'Mobile Apps',
     title: 'OnyxFlow',
     description: 'Supercharge enterprise execution. Changes how businesses handle repetitive tasks, fragmented systems, and manual approvals for streamlined operations.',
@@ -157,15 +175,6 @@ const allProjects = [
     technologies: ['Python', 'AI', 'Real Estate API', 'React'],
     metrics: { completion: '100%', duration: '4 months', team: '3 people' },
     url: 'https://foreclosurebidai.com/',
-  },
-  {
-    category: 'AI Projects',
-    title: 'Papi Chat',
-    description: 'Awaken Your Untapped Creative Power.',
-    image: PapiChatImg,
-    technologies: ['Python', 'AI', 'Real Estate API', 'React'],
-    metrics: { completion: '100%', duration: '4 months', team: '2 people' },
-    url: 'https://chat.papimindsetcoach.com/',
   },
   {
     category: 'AI Projects',
@@ -193,15 +202,6 @@ const allProjects = [
     technologies: ['React Native', 'Firebase', 'Real-time', 'Maps API'],
     metrics: { completion: '100%', duration: '4 months', team: '2 people' },
     url: 'https://apps.apple.com/us/app/castlr-community-management/id6757694056',
-  },
-  {
-    category: 'Mobile Apps',
-    title: 'PapiChat AI',
-    description: 'AI-powered conversational platform with premium features, longer sessions, and premium voice capabilities. Your personal AI companion for meaningful conversations.',
-    image: papiChatImg,
-    technologies: ['React Native', 'AI', 'NLP', 'Firebase'],
-    metrics: { completion: '100%', duration: '3 months', team: '2 people' },
-    url: 'https://apps.apple.com/us/app/papichat-ai/id6758587419',
   },
   {  category: 'AI Projects',
     title: 'Face Analyzer',
