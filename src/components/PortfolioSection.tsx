@@ -31,7 +31,7 @@ const projects = [
     description: 'The leading platform connecting joint venture partners, affiliates, and influencers in the self-improvement industry.',
     image: jvDirectoryImg,
     tags: ['React', 'Express', 'MongoDB'],
-    url: 'https://jvdirectoryfinder.com/',
+    url: 'https://jvdirectory.com/',
   },
   {
     category: 'Mobile Apps',

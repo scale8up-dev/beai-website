@@ -48,7 +48,7 @@ const allProjects = [
     image: jvDirectoryImg,
     technologies: ['React', 'Express', 'MongoDB', 'Redis'],
     metrics: { completion: '100%', duration: '4 months', team: '3 people' },
-    url: 'https://jvdirectoryfinder.com/',
+    url: 'https://jvdirectory.com/',
   },
   {
     category: 'Web Solutions',
