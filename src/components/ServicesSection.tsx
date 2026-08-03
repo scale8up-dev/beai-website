@@ -17,8 +17,8 @@ const services = [
   },
   {
     icon: TrendingUp,
-    title: 'Growth Systems',
-    description: 'Connected GHL, funnel, CRM, paid media, email, and SMS systems that turn attention into measurable growth.',
+    title: 'Marketing & Growth Systems',
+    description: 'Lead generation, paid media, funnels, GoHighLevel, CRM automation, email and SMS nurture, conversion tracking, attribution, and reporting in one connected system.',
     gradient: 'from-blue-600 to-indigo-600',
   },
   {
@@ -37,7 +37,7 @@ export function ServicesSection() {
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl mb-4">Our Services</h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              One team for strategy, development, growth, and long-term success.
+              Four connected divisions take your business from strategy to software, demand generation, conversion, and long-term optimization.
             </p>
           </div>
         </ScrollReveal>

@@ -25,7 +25,7 @@ export function HeroSection() {
               transition={{ duration: 0.6 }}
             >
               <Badge variant="secondary" className="mb-6 bg-blue-50 text-blue-700 border-blue-200">
-                Strategy · Development · Growth Systems
+                Four divisions. One accountable team.
               </Badge>
             </motion.div>
 
@@ -47,7 +47,7 @@ export function HeroSection() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-lg md:text-xl text-gray-600 mb-8 max-w-xl"
             >
-              We combine AI strategy, custom development, connected growth systems, and hands-on client success to move your business from idea to measurable execution.
+              We combine AI strategy, custom development, full-funnel marketing and growth systems, and hands-on client success to move your business from idea to measurable execution.
             </motion.p>
 
             <motion.div

@@ -24,8 +24,8 @@ const services = [
     href: '/services#ai-development',
   },
   {
-    title: 'Growth Systems',
-    description: 'GHL, Funnels, CRM, Paid Media, Email and SMS',
+    title: 'Marketing & Growth Systems',
+    description: 'Lead Generation, Paid Media, Funnels, GHL, CRM, Nurture and Attribution',
     href: '/services#growth-systems',
   },
   {

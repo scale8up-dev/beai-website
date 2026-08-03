@@ -38,17 +38,19 @@ const serviceDetails = [
   {
     id: 'growth-systems',
     icon: TrendingUp,
-    title: 'Growth Systems',
-    description: 'We connect your marketing and sales tools into one operating system designed to capture demand, nurture leads, and improve conversion.',
+    title: 'Marketing & Growth Systems',
+    description: 'We build and manage the connected marketing engine behind predictable growth, from demand generation and lead capture through nurture, sales conversion, attribution, and reporting.',
     image: 'https://images.unsplash.com/photo-1529078155058-5d716f45d604?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtYWNoaW5lJTIwbGVhcm5pbmclMjBkYXRhfGVufDF8fHx8MTc2MTc2NDg5NHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
     features: [
       'GoHighLevel Setup and Optimization',
+      'Lead Generation and Paid Media',
       'Funnels and Conversion Journeys',
       'CRM and Pipeline Automation',
-      'Paid Media Systems',
       'Email and SMS Nurture',
+      'Conversion Rate Optimization',
+      'Attribution, Dashboards, and Reporting',
     ],
-    stats: { platform: 'GHL + CRM', channels: 'Email/SMS', focus: 'Conversion' },
+    stats: { platform: 'GHL + CRM', journey: 'Lead to Sale', focus: 'ROI' },
   },
   {
     id: 'client-success',
@@ -111,7 +113,7 @@ export function ServicesPage() {
             
             <ScrollReveal variant="fadeUp" delay={0.2}>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                Strategy, development, growth systems, and client success work together under one roof so ideas move into execution without handoff gaps.
+                AI strategy, AI development, marketing and growth systems, and client success work together under one roof so ideas move into execution without handoff gaps.
               </p>
             </ScrollReveal>
           </div>
