@@ -9,7 +9,7 @@ import { GradientBackground } from './GradientBackground';
 const faqs = [
   {
     question: 'What services does Business Evolution AI provide?',
-    answer: 'We operate across four connected divisions: AI Strategy, AI Development, Marketing & Growth Systems, and Client Success. That includes discovery and roadmaps, custom software and automation, lead generation, paid media, funnels, GoHighLevel and CRM systems, email and SMS nurture, conversion optimization, attribution, reporting, implementation, support, and ongoing optimization.',
+    answer: 'We operate across four connected divisions: AI & Software Development, AI Strategy, Marketing & Growth Systems, and Client Success. AI and software development is our core specialty, including machine learning, generative AI, web and mobile products, UI/UX, cloud architecture, DevOps, MLOps, integrations, automation, and quality engineering. We also deliver roadmaps, lead generation, paid media, funnels, GoHighLevel and CRM systems, nurture, attribution, implementation, support, and ongoing optimization.',
   },
   {
     question: 'How long does a typical project take to complete?',

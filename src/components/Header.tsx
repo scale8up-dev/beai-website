@@ -14,14 +14,14 @@ import logo from 'figma:asset/0060126a687649727c47565e908d44fe39a5e3a5.png';
 
 const services = [
   {
+    title: 'AI & Software Development',
+    description: 'ML, Web and Mobile, UI/UX, Cloud, DevOps, Integrations and Automation',
+    href: '/services#ai-development',
+  },
+  {
     title: 'AI Strategy',
     description: 'Discovery, Roadmaps, AI Consulting, Transformation Strategy',
     href: '/services#ai-strategy',
-  },
-  {
-    title: 'AI Development',
-    description: 'Custom Software, AI Solutions, Integrations, Automations',
-    href: '/services#ai-development',
   },
   {
     title: 'Marketing & Growth Systems',

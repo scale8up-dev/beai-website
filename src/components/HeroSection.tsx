@@ -47,7 +47,7 @@ export function HeroSection() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-lg md:text-xl text-gray-600 mb-8 max-w-xl"
             >
-              We combine AI strategy, custom development, full-funnel marketing and growth systems, and hands-on client success to move your business from idea to measurable execution.
+              AI and software development is our core specialty, spanning machine learning, web and mobile products, UI/UX, cloud, and DevOps, supported by strategy, growth systems, and hands-on client success.
             </motion.p>
 
             <motion.div

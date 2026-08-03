@@ -4,16 +4,16 @@ import { Link } from 'react-router-dom';
 
 const services = [
   {
+    icon: Brain,
+    title: 'AI & Software Development',
+    description: 'Our core specialty: AI and machine learning, web and mobile products, UI/UX, cloud architecture, DevOps, integrations, and automation.',
+    gradient: 'from-cyan-600 to-blue-600',
+  },
+  {
     icon: Target,
     title: 'AI Strategy',
     description: 'Discovery, roadmaps, and practical consulting that connect AI investment to a clear business outcome.',
     gradient: 'from-blue-600 to-cyan-600',
-  },
-  {
-    icon: Brain,
-    title: 'AI Development',
-    description: 'Custom software, AI solutions, integrations, and automations built around the way your business works.',
-    gradient: 'from-cyan-600 to-blue-600',
   },
   {
     icon: TrendingUp,
@@ -37,7 +37,7 @@ export function ServicesSection() {
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl mb-4">Our Services</h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Four connected divisions take your business from strategy to software, demand generation, conversion, and long-term optimization.
+              AI and software development is at the center, supported by strategy, marketing and growth systems, and long-term client success.
             </p>
           </div>
         </ScrollReveal>

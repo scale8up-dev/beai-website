@@ -6,6 +6,24 @@ import { Link } from 'react-router-dom';
 
 const serviceDetails = [
   {
+    id: 'ai-development',
+    icon: Brain,
+    title: 'AI & Software Development',
+    description: 'Our core specialty is designing, building, deploying, and operating complete digital products and AI systems, from machine learning models and user experience through cloud infrastructure and production delivery.',
+    image: 'https://images.unsplash.com/photo-1593720213681-e9a8778330a7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWIlMjBkZXZlbG9wbWVudCUyMGNvZGluZ3xlbnwxfHx8fDE3NjE3OTYzMjV8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+    features: [
+      'Machine Learning, GenAI, NLP, and Computer Vision',
+      'Custom Web and Mobile Product Development',
+      'UI/UX Research, Prototyping, and Design Systems',
+      'Cloud Architecture, DevOps, and CI/CD',
+      'MLOps, Model Deployment, and Monitoring',
+      'APIs, Platform Integrations, and Automation',
+      'Data Engineering and Predictive Analytics',
+      'Quality Engineering, Security, and Performance',
+    ],
+    stats: { specialty: 'AI + Software', delivery: '4-12 weeks', scope: 'End to End' },
+  },
+  {
     id: 'ai-strategy',
     icon: Target,
     title: 'AI Strategy',
@@ -19,21 +37,6 @@ const serviceDetails = [
       'Product and Workflow Definition',
     ],
     stats: { start: 'Discovery', plan: 'Roadmap', outcome: 'Alignment' },
-  },
-  {
-    id: 'ai-development',
-    icon: Brain,
-    title: 'AI Development',
-    description: 'We build custom software and practical AI systems that connect your tools, reduce manual work, and support better decisions.',
-    image: 'https://images.unsplash.com/photo-1593720213681-e9a8778330a7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWIlMjBkZXZlbG9wbWVudCUyMGNvZGluZ3xlbnwxfHx8fDE3NjE3OTYzMjV8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    features: [
-      'Custom AI Software',
-      'Web and Mobile Products',
-      'Workflow Automations',
-      'Platform Integrations',
-      'Testing and Deployment',
-    ],
-    stats: { delivery: '4-12 weeks', team: 'Lean', approach: 'Agile' },
   },
   {
     id: 'growth-systems',
@@ -113,7 +116,7 @@ export function ServicesPage() {
             
             <ScrollReveal variant="fadeUp" delay={0.2}>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                AI strategy, AI development, marketing and growth systems, and client success work together under one roof so ideas move into execution without handoff gaps.
+                AI and software development is our main specialty, backed by strategy, marketing and growth systems, and client success so products move from concept to production without handoff gaps.
               </p>
             </ScrollReveal>
           </div>
