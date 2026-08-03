@@ -14,34 +14,24 @@ import logo from 'figma:asset/0060126a687649727c47565e908d44fe39a5e3a5.png';
 
 const services = [
   {
+    title: 'AI Strategy',
+    description: 'Discovery, Roadmaps, AI Consulting, Transformation Strategy',
+    href: '/services#ai-strategy',
+  },
+  {
     title: 'AI Development',
-    description: 'Machine Learning, NLP, Computer Vision, Predictive Analytics',
+    description: 'Custom Software, AI Solutions, Integrations, Automations',
     href: '/services#ai-development',
   },
   {
-    title: 'Web Development',
-    description: 'Custom Web Applications, E-commerce, CMS Development',
-    href: '/services#web-development',
+    title: 'Growth Systems',
+    description: 'GHL, Funnels, CRM, Paid Media, Email and SMS',
+    href: '/services#growth-systems',
   },
   {
-    title: 'Mobile App Development',
-    description: 'iOS & Android Apps, React Native, Flutter Development',
-    href: '/services#mobile-development',
-  },
-  {
-    title: 'UI/UX Design',
-    description: 'User Research, Prototyping, Visual Design, Usability Testing',
-    href: '/services#ui-ux-design',
-  },
-  {
-    title: 'Cloud & DevOps',
-    description: 'Cloud Migration, Infrastructure as Code, CI/CD Pipelines',
-    href: '/services#cloud-devops',
-  },
-  {
-    title: 'Machine Learning',
-    description: 'Data Analysis, Pattern Recognition, Recommendation Systems',
-    href: '/services#machine-learning',
+    title: 'Client Success',
+    description: 'Implementation, Support, Optimization, Account Management',
+    href: '/services#client-success',
   },
 ];
 

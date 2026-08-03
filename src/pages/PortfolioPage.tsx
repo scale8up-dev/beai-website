@@ -1,217 +1,11 @@
 import { Badge } from '../components/ui/badge';
-import { Button } from '../components/ui/button';
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';
 import { ScrollReveal } from '../components/ScrollReveal';
 import { ExternalLink, ChevronRight } from 'lucide-react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
-
-
-import strategicDivorceImg from '../assets/6d628b01b07f53f94a53f2dc1a14257265a2ec50.png';
-import jvDirectoryImg from '../assets/e140d4bc1bbaa0732a2f09b308bfac27b77f881f.png';
-import castlrImg from '../assets/526716b7215e7e465e441bddff05c46469bc2800.png';
-import securRoomImg from '../assets/60a105d9b0ebbed3c0d43cf45ec660a179cd7c94.png';
-import prepForIndependenceImg from '../assets/2a4edcceac6e7ba4c47bcd03ca73da2458e2687c.png';
-import scale8upImg from '../assets/585993eb048073908597f033499919a26ed91474.png';
-import foreclosurebidAIImg from '../assets/e04d3a6ad333c96c220a47216b8e8e60524d4cd8.png';
-import envisionHRImg from '../assets/0efa6c9cd886b1d937302980b8f69dff22f09a41.png';
-
-import onyxFlowImg from '../assets/onyxflow_new.jpg';
-import LifeAppImg from '../assets/LifeApp.png';
-import DTTImg from '../assets/DTT.png';
-import castlrMobileImg from '../assets/castlr.png';
-import faceAnalyzerImg from '../assets/faceana.png';
-import praxisMediaImg from '../assets/praxis_new.jpg';
-import venntureImg from '../assets/vennture.png';
-import coryAIImg from '../assets/cory_ai.png';
-import scalingCoachImg from '../assets/scaling_coach.png';
-import primeAgeFitImg from '../assets/primeagefit.jpg';
-import astrologyAIImg from '../assets/astrology_ai.jpg';
-import clickAIImg from '../assets/clickai.jpg';
-
-
-const allProjects = [
-  {
-    category: 'Web Solutions',
-    title: 'Strategic Divorce Directory',
-    description: 'With the Strategic Divorce Directory, you have one place to find the experts and resources that support you in taking control of today and building your tomorrow.',
-    image: strategicDivorceImg,
-    technologies: ['React', 'Node.js', 'PostgreSQL', 'AWS'],
-    metrics: { completion: '100%', duration: '3 months', team: '2 people' },
-    url: 'https://stage.strategicdivorcedirectory.com/',
-  },
-  {
-    category: 'Web Solutions',
-    title: 'JV Directory',
-    description: 'The leading platform connecting joint venture partners, affiliates, and influencers in the self-improvement industry.',
-    image: jvDirectoryImg,
-    technologies: ['React', 'Express', 'MongoDB', 'Redis'],
-    metrics: { completion: '100%', duration: '4 months', team: '3 people' },
-    url: 'https://jvdirectory.com/',
-  },
-  {
-    category: 'Web Solutions',
-    title: 'CastlR',
-    description: 'CastlR connects your community with professional security teams through instant incident reporting, real-time alerts, and comprehensive documentation.',
-    image: castlrImg,
-    technologies: ['React Native', 'Firebase', 'Real-time', 'Maps API'],
-    metrics: { completion: '100%', duration: '3 months', team: '3 people' },
-    url: 'https://castlr.com/',
-  },
-  {
-    category: 'AI Projects',
-    title: 'Praxis Media',
-    description: 'Never Read Alone Again. Transform every book into an interactive conversation with instant answers, deep insights, and personalized AI guidance as you read.',
-    image: praxisMediaImg,
-    technologies: ['React', 'AI', 'NLP', 'Node.js'],
-    metrics: { completion: '100%', duration: '3 months', team: '3 people' },
-    url: 'https://praxisaimedia.com/',
-  },
-  {
-    category: 'AI Projects',
-    title: 'Vennture',
-    description: 'AI-powered growth planning platform that helps you nurture meaningful relationships, plan strategies with purpose, and expand your emotional intelligence for business success.',
-    image: venntureImg,
-    technologies: ['React', 'AI', 'Data Analytics', 'Node.js'],
-    metrics: { completion: '100%', duration: '4 months', team: '3 people' },
-    url: 'https://dev-membership.vennture.com/',
-  },
-  {
-    category: 'AI Projects',
-    title: 'SecurRoom AI',
-    description: 'Streamline your M&A workflow with AI-powered due diligence, document analysis, and automated redaction.',
-    image: securRoomImg,
-    technologies: ['Python', 'TensorFlow', 'NLP', 'React'],
-    metrics: { completion: '100%', duration: '3 months', team: '2 people' },
-    url: 'https://nexplutus.com/',
-  },
-  {
-    category: 'AI Projects',
-    title: 'PrimeAgeFit',
-    description: 'Get hyper-personalized fitness and wellness plans that adapt to your progress. Experience the precision of a personal trainer powered by intelligent AI.',
-    image: primeAgeFitImg,
-    technologies: ['React', 'Node.js', 'MongoDB', 'AI'],
-    metrics: { completion: '100%', duration: '4 months', team: '2 people' },
-    url: 'https://primeagefit.com/',
-  },
-  {
-    category: 'Web Solutions',
-    title: 'Envision HR 360',
-    description: 'Empower your SMB with self-service HR resources, AI-powered assistance, and on-demand access to human expertise.',
-    image: envisionHRImg,
-    technologies: ['Vue.js', 'Express', 'PostgreSQL', 'AI'],
-    metrics: { completion: '100%', duration: '4 months', team: '3 people' },
-    url: 'https://www.envisionsola.com/',
-  },
-  {
-    category: 'AI Projects',
-    title: 'PrepForIndependence AI',
-    description: 'Empowering families with essential life skills through AI-powered financial literacy, responsibility, and growth programs designed for real-life success.',
-    image: prepForIndependenceImg,
-    technologies: ['React', 'Python', 'AWS', 'ML'],
-    metrics: { completion: '100%', duration: '4 months', team: '3 people' },
-    url: 'https://www.prepforindependence.ai/',
-  },
-  {
-    category: 'AI Projects',
-    title: 'Scale8UP AI',
-    description: 'AI that finds and fixes your business\'s weakest link—so you can scale faster. Diagnoses bottlenecks and builds data-driven action plans.',
-    image: scale8upImg,
-    technologies: ['Next.js', 'AI', 'Stripe', 'Vercel'],
-    metrics: { completion: '100%', duration: '3 months', team: '4 people' },
-    url: 'https://www.scale8upmethod.com/',
-  },
-  {
-    category: 'AI Projects',
-    title: 'CORY AI Premium Intelligence',
-    description: 'Premium intelligence for clear execution. An operating environment designed to turn methodology, decisions, and action into a guided system with fewer loose prompts and more clarity, feedback, and execution.',
-    image: coryAIImg,
-    technologies: ['React', 'AI', 'Automation', 'Integrations'],
-    metrics: { completion: '100%', duration: '3 months', team: '3 people' },
-    url: 'https://coryai.io/',
-  },
-  {
-    category: 'AI Projects',
-    title: 'ScalingCoach.ai',
-    description: 'Premium growth OS for coaches ready to scale like a premium brand. Define your offer, generate conversion assets, and execute a research-backed 90-day growth plan without the noise.',
-    image: scalingCoachImg,
-    technologies: ['React', 'AI', 'Growth OS', 'Content Strategy'],
-    metrics: { completion: '100%', duration: '3 months', team: '3 people' },
-    url: 'https://scalingcoach.ai/',
-  },
-  {
-    category: 'AI Projects',
-    title: 'Astrology AI',
-    description: 'AI-powered astrology experience that delivers personalized insights through an elegant guided interface.',
-    image: astrologyAIImg,
-    technologies: ['React', 'AI', 'Personalization', 'Astrology'],
-    metrics: { completion: '100%', duration: '3 months', team: '2 people' },
-    url: 'https://astrology-ai.businessevolutionai.com/',
-  },
-  {
-    category: 'AI Projects',
-    title: 'ClickAI',
-    description: 'AI-powered marketing and conversion workspace built to sharpen execution, generate direction, and accelerate campaign decisions.',
-    image: clickAIImg,
-    technologies: ['React', 'AI', 'Marketing', 'Automation'],
-    metrics: { completion: '100%', duration: '3 months', team: '2 people' },
-    url: 'https://click-ai.businessevolutionai.com/',
-  },
-  {
-    category: 'Mobile Apps',
-    title: 'OnyxFlow',
-    description: 'Supercharge enterprise execution. Changes how businesses handle repetitive tasks, fragmented systems, and manual approvals for streamlined operations.',
-    image: onyxFlowImg,
-    technologies: ['React Native', 'Firebase', 'Redux'],
-    metrics: { completion: '100%', duration: '4 months', team: '3 people' },
-    url: 'https://onyxflowai.com/',
-  },
-  {
-    category: 'AI Projects',
-    title: 'Foreclosurebid AI',
-    description: 'Discover profitable foreclosure opportunities nationwide with AI-driven property rankings, comprehensive risk analysis, and real-time market insights.',
-    image: foreclosurebidAIImg,
-    technologies: ['Python', 'AI', 'Real Estate API', 'React'],
-    metrics: { completion: '100%', duration: '4 months', team: '3 people' },
-    url: 'https://foreclosurebidai.com/',
-  },
-  {
-    category: 'AI Projects',
-    title: 'Life App',
-    description: 'Personalized guidance, progress tracking, and educational support for your joint and skin health journey.',
-    image: LifeAppImg,
-    technologies: ['Python', 'AI', 'Real Estate API', 'React'],
-    metrics: { completion: '100%', duration: '3 months', team: '3 people' },
-    url: 'https://app.beautyandhealthfromwithin.com/',
-  },
-  {
-    category: 'AI Projects',
-    title: 'Do The Thing',
-    description: 'Create daily challenges that keep your community active, motivated, and connected. From fitness goals to team building—all automated.',
-    image: DTTImg,
-    technologies: ['Python', 'AI', 'Real Estate API', 'React'],
-    metrics: { completion: '100%', duration: '3 months', team: '3 people' },
-    url: 'https://stage.challengeapp.businessevolutionai.com/',
-  },
-  {
-    category: 'Mobile Apps',
-    title: 'CastlR Mobile',
-    description: 'CastlR Mobile connects your community with professional security teams through instant incident reporting, real-time alerts, and comprehensive documentation.',
-    image: castlrMobileImg,
-    technologies: ['React Native', 'Firebase', 'Real-time', 'Maps API'],
-    metrics: { completion: '100%', duration: '4 months', team: '2 people' },
-    url: 'https://apps.apple.com/us/app/castlr-community-management/id6757694056',
-  },
-  {  category: 'AI Projects',
-    title: 'Face Analyzer',
-    description: 'Know Your Prospect Before You Say Hello. Use AI-driven Western Physiognomy to decode personality, decision-making styles, and build instant rapport.',
-    image: faceAnalyzerImg,
-    technologies: ['Python', 'AI', 'Facial Recognition', 'React'],
-    metrics: { completion: '100%', duration: '4 months', team: '2 people' },
-    url: 'https://face-analyzer.businessevolutionai.com/',
-  },
-];
+import { projects } from '../data/projects';
 
 const categories = ['All', 'AI Projects', 'Web Solutions', 'Mobile Apps'];
 
@@ -226,8 +20,8 @@ export function PortfolioPage() {
   const [selectedCategory, setSelectedCategory] = useState('All');
 
   const filteredProjects = selectedCategory === 'All'
-    ? allProjects
-    : allProjects.filter(project => project.category === selectedCategory);
+    ? projects
+    : projects.filter(project => project.category === selectedCategory);
 
   return (
     <div className="min-h-screen bg-white">
@@ -243,13 +37,13 @@ export function PortfolioPage() {
             
             <ScrollReveal variant="fadeUp" delay={0.1}>
               <h1 className="text-4xl lg:text-5xl mb-6">
-                Building the Future, One Project at a Time
+                Useful Systems, Built for Real Momentum
               </h1>
             </ScrollReveal>
             
             <ScrollReveal variant="fadeUp" delay={0.2}>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                Explore our portfolio of successful projects where we've helped businesses transform through innovative AI solutions and cutting-edge technology.
+                Explore digital products, AI systems, web platforms, and mobile experiences designed around real users and meaningful business outcomes.
               </p>
             </ScrollReveal>
           </div>
@@ -310,7 +104,7 @@ export function PortfolioPage() {
               className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto"
             >
               {filteredProjects.map((project, index) => (
-                <ScrollReveal key={`${selectedCategory}-${index}`} variant="fadeUp" delay={index * 0.05}>
+                <ScrollReveal key={`${selectedCategory}-${project.title}`} variant="fadeUp" delay={index * 0.05}>
                   <div className="group bg-white rounded-2xl overflow-hidden border border-gray-100 hover:border-blue-200 transition-all duration-300 hover:shadow-xl">
                     {/* Project Image */}
                     <div className="relative h-56 overflow-hidden bg-gray-100">
@@ -387,6 +181,15 @@ export function PortfolioPage() {
                           <div className="text-xs text-gray-500">Team Size</div>
                         </div>
                       </div>
+                      <a
+                        href={project.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-5 inline-flex items-center text-sm text-blue-700 hover:text-blue-800"
+                      >
+                        View project
+                        <ExternalLink className="w-4 h-4 ml-2" />
+                      </a>
                     </div>
                   </div>
                 </ScrollReveal>
@@ -414,15 +217,15 @@ export function PortfolioPage() {
                   ))}
                 </div>
                 <blockquote className="text-xl lg:text-2xl text-gray-700 mb-6">
-                  "Business Evolution AI transformed our vision into reality. Their expertise in AI and dedication to excellence resulted in a product that exceeded our expectations."
+                  "The team at Business Evolution AI was incredible to work with. Domingo’s leadership, Hamza’s technical brilliance, Greg’s responsiveness, and Michael’s GoHighLevel mastery made everything come together beautifully."
                 </blockquote>
                 <div className="flex items-center justify-center gap-4">
                   <div className="w-12 h-12 bg-blue-700 rounded-full flex items-center justify-center text-white">
                     JD
                   </div>
                   <div className="text-left">
-                    <div className="text-gray-900">Jennifer Davis</div>
-                    <div className="text-sm text-gray-600">CEO, TechStart Inc</div>
+                    <div className="text-gray-900">Susan Ann Marion, M.S.</div>
+                    <div className="text-sm text-gray-600">Founder of Prep For Independence</div>
                   </div>
                 </div>
               </div>
@@ -440,7 +243,7 @@ export function PortfolioPage() {
                 Ready to Start Your Project?
               </h2>
               <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-                Let's work together to bring your vision to life with cutting-edge AI solutions and innovative technology.
+                Bring us the business problem. We’ll shape the strategy, build the right system, and help it perform after launch.
               </p>
               <div className="flex flex-wrap gap-4 justify-center">
                 <Link

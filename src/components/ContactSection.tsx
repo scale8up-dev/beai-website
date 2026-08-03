@@ -3,8 +3,9 @@ import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
 import { Label } from './ui/label';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { toast } from 'sonner@2.0.3';
+import { useForm, ValidationError } from '@formspree/react';
 
 export function ContactSection() {
   const [formData, setFormData] = useState({
@@ -15,18 +16,14 @@ export function ContactSection() {
     message: '',
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Mock form submission
-    toast.success('Message sent successfully! We\'ll get back to you soon.');
-    setFormData({
-      firstName: '',
-      lastName: '',
-      email: '',
-      subject: '',
-      message: '',
-    });
-  };
+  const [formState, submitForm] = useForm('xnnloyna');
+
+  useEffect(() => {
+    if (!formState.succeeded) return;
+
+    toast.success('Message sent. We’ll get back to you soon.');
+    setFormData({ firstName: '', lastName: '', email: '', subject: '', message: '' });
+  }, [formState.succeeded]);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -60,7 +57,9 @@ export function ContactSection() {
                   </div>
                   <h3>EMAIL US:</h3>
                 </div>
-                <p className="text-gray-600 ml-15">info@businessevolutionai.com</p>
+                <a className="text-gray-600 ml-15 hover:text-blue-700" href="mailto:domingo@oneenterprise.ai">
+                  domingo@oneenterprise.ai
+                </a>
               </div>
 
               <div>
@@ -93,11 +92,12 @@ export function ContactSection() {
           <div className="bg-gradient-to-br from-sky-50 to-white p-8 rounded-2xl shadow-lg border border-sky-100">
             <h3 className="mb-6">Send us a message</h3>
             <p className="text-gray-600 mb-6">
-              Have a project in mind? Let's discuss how we can help you achieve your goals.
+              Tell us what you’re building, improving, or trying to grow. We’ll help you find the right next move.
             </p>
 
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="grid grid-cols-2 gap-4">
+            <form onSubmit={submitForm} className="space-y-4">
+              <input type="hidden" name="_subject" value="New Business Evolution AI project inquiry" />
+              <div className="grid md:grid-cols-2 gap-4">
                 <div>
                   <Label htmlFor="firstName">
                     First Name <span className="text-red-500">*</span>
@@ -105,6 +105,7 @@ export function ContactSection() {
                   <Input
                     id="firstName"
                     name="firstName"
+                    autoComplete="given-name"
                     value={formData.firstName}
                     onChange={handleChange}
                     required
@@ -118,6 +119,7 @@ export function ContactSection() {
                   <Input
                     id="lastName"
                     name="lastName"
+                    autoComplete="family-name"
                     value={formData.lastName}
                     onChange={handleChange}
                     required
@@ -134,11 +136,13 @@ export function ContactSection() {
                   id="email"
                   name="email"
                   type="email"
+                  autoComplete="email"
                   value={formData.email}
                   onChange={handleChange}
                   required
                   className="mt-1"
                 />
+                <ValidationError prefix="Email" field="email" errors={formState.errors} />
               </div>
 
               <div>
@@ -168,13 +172,21 @@ export function ContactSection() {
                   rows={4}
                   className="mt-1"
                 />
+                <ValidationError prefix="Message" field="message" errors={formState.errors} />
               </div>
+
+              {formState.errors ? (
+                <p className="text-sm text-red-600" role="alert">
+                  We couldn’t send your message. Review the form and try again, or email us directly.
+                </p>
+              ) : null}
 
               <Button
                 type="submit"
                 className="w-full bg-blue-700 hover:bg-blue-800"
+                disabled={formState.submitting}
               >
-                Send Message
+                {formState.submitting ? 'Sending...' : 'Start the Conversation'}
                 <svg
                   className="w-4 h-4 ml-2"
                   fill="none"

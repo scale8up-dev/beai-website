@@ -15,17 +15,17 @@ export function CTASection() {
         <ScrollReveal variant="fadeUp">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl lg:text-4xl mb-6">
-              Ready to Transform Your Business?
+              Ready to Build What Moves the Business Forward?
             </h2>
             
             <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-              Let's discuss how our AI-powered solutions and innovative technology can help you achieve your business goals and drive measurable results.
+              Tell us about the opportunity, bottleneck, or growth target. We’ll connect the strategy, technology, and execution needed to move it forward.
             </p>
             
             <div className="flex flex-wrap gap-4 justify-center">
               <Link to="/contact">
                 <button className="inline-flex items-center justify-center px-8 py-3 bg-white text-blue-700 rounded-lg hover:bg-blue-50 transition-colors">
-                  Get Started Today
+                  Start a Project
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </button>
               </Link>

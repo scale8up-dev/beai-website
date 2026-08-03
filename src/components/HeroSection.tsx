@@ -25,7 +25,7 @@ export function HeroSection() {
               transition={{ duration: 0.6 }}
             >
               <Badge variant="secondary" className="mb-6 bg-blue-50 text-blue-700 border-blue-200">
-                AI-Powered Solutions
+                Strategy · Development · Growth Systems
               </Badge>
             </motion.div>
 
@@ -47,7 +47,7 @@ export function HeroSection() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-lg md:text-xl text-gray-600 mb-8 max-w-xl"
             >
-              We deliver cutting-edge AI solutions and innovative technology that drive real results for your business. From concept to deployment, we're with you every step of the way.
+              We combine AI strategy, custom development, connected growth systems, and hands-on client success to move your business from idea to measurable execution.
             </motion.p>
 
             <motion.div
@@ -60,7 +60,7 @@ export function HeroSection() {
                 to="/contact"
                 className="inline-flex items-center justify-center px-8 py-3 bg-blue-700 text-white rounded-lg hover:bg-blue-800 transition-colors"
               >
-                Get Started
+                Start a Project
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Link>
               <Link

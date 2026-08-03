@@ -1,28 +1,29 @@
 import { Star } from 'lucide-react';
-import { ImageWithFallback } from './figma/ImageWithFallback';
 import { ScrollReveal } from './ScrollReveal';
 
 const testimonials = [
   {
-    quote: 'Business Evolution AI transformed our business with their innovative AI solutions. The team\'s expertise and dedication to our project exceeded all expectations.',
-    name: 'Jennifer Davis',
-    role: 'CEO, TechStart Inc',
+    quote: 'The team at Business Evolution AI was incredible to work with. Domingo’s leadership, Hamza’s technical brilliance, Greg’s responsiveness, and Michael’s GoHighLevel mastery made everything come together beautifully. I couldn’t have asked for a better team.',
+    name: 'Susan Ann Marion, M.S.',
+    role: 'Founder of Prep For Independence',
     rating: 5,
-    image: 'https://images.unsplash.com/photo-1581065178047-8ee15951ede6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjB3b21hbiUyMHBvcnRyYWl0fGVufDF8fHx8MTc2MTcwMzg3MXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+    initials: 'SM',
   },
   {
-    quote: 'The web development team delivered beyond our expectations. Their attention to detail and commitment to quality is truly outstanding. Highly recommended!',
-    name: 'Marcus Thompson',
-    role: 'CTO, Digital Innovations',
+    quote: 'Working with the team has been simple, easy, and such a positive experience. They quickly understood what I wanted, suggested possible options, and helped me to see the full potential of the website. The Business Evolution AI team is quick to respond to questions and has managed the project ahead of schedule and with features that enhance the user-experience. As a non-tech person, I was worried about working directly with a development team, but they are absolutely fantastic. Everything is explained in detail, and they are very open to answering questions, listening to my ideas, and implementing them in the project. I would highly recommend the Business Evolution AI team to anyone looking for a custom designed website that offers automation and unique features and options.',
+    name: 'Mardi Winder',
+    role: 'Be Your Success · Positive Communication Systems, LLC',
     rating: 5,
-    image: 'https://images.unsplash.com/photo-1672685667592-0392f458f46f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBtYW4lMjBwb3J0cmFpdHxlbnwxfHx8fDE3NjE3NDYxMzV8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+    initials: 'MW',
+    details: ['www.poscs.com', 'www.divorcecoach4women.com'],
   },
   {
-    quote: 'Working with them on our mobile app development was a game-changer. Their expertise in cross-platform development saved us significant time and resources.',
-    name: 'Sarah Mitchell',
-    role: 'Product Manager, AppVenture',
+    quote: 'Before meeting Domingo and the team, I had no knowledge of how to implement my idea at creating an AI driven fitness and nutrition app. I wanted to create something unique to the market and for people over 40. There are a ton of fitness apps out there, but none that do all that our app does. After the initial meeting with Domingo, I knew this was the company that could make this happen. The entire team has been very professional. They have always met deadlines and stayed exactly on budget. Their work is fantastic and because of them, my idea has become a reality. To anyone checking these guys out, they are the real deal and can most definitely help you to bring your vision to reality.',
+    name: 'Michael Evors',
+    role: 'Owner, Prime Age Fit, LLC',
     rating: 5,
-    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx5b3VuZyUyMHByb2Zlc3Npb25hbCUyMHdvbWFufGVufDF8fHx8MTc2MTgwNzE4NXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+    initials: 'ME',
+    details: ['AI-driven fitness and nutrition app'],
   },
 ];
 
@@ -34,7 +35,7 @@ export function TestimonialsSection() {
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl mb-4">What Our Clients Say</h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Don't just take our word for it - hear from the businesses we've helped transform
+              Hear from the founders who trusted us to turn their ideas into working products and systems.
             </p>
           </div>
         </ScrollReveal>
@@ -57,14 +58,15 @@ export function TestimonialsSection() {
 
                 {/* Author */}
                 <div className="flex items-center gap-4 pt-6 border-t border-gray-100">
-                  <ImageWithFallback
-                    src={testimonial.image}
-                    alt={testimonial.name}
-                    className="w-14 h-14 rounded-full object-cover"
-                  />
+                  <div className="w-14 h-14 rounded-full bg-blue-700 text-white flex items-center justify-center flex-shrink-0" aria-hidden="true">
+                    {testimonial.initials}
+                  </div>
                   <div>
                     <h4 className="text-gray-900 mb-1">{testimonial.name}</h4>
                     <p className="text-sm text-gray-600">{testimonial.role}</p>
+                    {testimonial.details?.map((detail) => (
+                      <p key={detail} className="text-xs text-gray-500 mt-1">{detail}</p>
+                    ))}
                   </div>
                 </div>
               </div>

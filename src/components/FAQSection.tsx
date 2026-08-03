@@ -9,11 +9,11 @@ import { GradientBackground } from './GradientBackground';
 const faqs = [
   {
     question: 'What services does Business Evolution AI provide?',
-    answer: 'We provide a comprehensive range of technology services including AI Development, Web Development, Mobile App Development, UI/UX Design, Cloud & DevOps solutions, and Machine Learning implementations. Our goal is to deliver end-to-end technology solutions that transform your business.',
+    answer: 'We operate across four connected divisions: AI Strategy, AI Development, Growth Systems, and Client Success. That includes discovery and roadmaps, custom software and automation, GHL and CRM systems, funnels, paid media, email and SMS, implementation, support, and ongoing optimization.',
   },
   {
     question: 'How long does a typical project take to complete?',
-    answer: 'Project timelines vary depending on scope and complexity. A simple web application might take 4-8 weeks, while complex AI solutions can take 3-6 months. We provide detailed timelines during our initial consultation and keep you updated throughout the development process.',
+    answer: 'Most focused projects are delivered in 4-8 weeks. Larger, more complex systems can take up to 12 weeks. We define the scope and timeline during discovery, then provide clear progress updates throughout delivery.',
   },
   {
     question: 'What is your development process?',
@@ -29,7 +29,7 @@ const faqs = [
   },
   {
     question: 'What technologies do you work with?',
-    answer: 'We work with cutting-edge technologies including Python, JavaScript/TypeScript, React, Node.js, TensorFlow, PyTorch for AI/ML, AWS and Azure for cloud solutions, and modern DevOps tools. We stay updated with the latest technology trends to deliver the best solutions.',
+    answer: 'We work with Python, JavaScript and TypeScript, React, Node.js, modern AI models, AWS and Azure, GoHighLevel, leading CRM platforms, and automation tools. We select the stack around the business requirement rather than forcing every project into the same solution.',
   },
 ];
 

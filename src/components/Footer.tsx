@@ -58,7 +58,9 @@ export function Footer() {
           <div>
             <h3 className="mb-4">Contact</h3>
             <div className="space-y-2 text-gray-400">
-              <p>info@businessevolutionai.com</p>
+              <a href="mailto:domingo@oneenterprise.ai" className="hover:text-white transition-colors">
+                domingo@oneenterprise.ai
+              </a>
               <p>561-542-0047</p>
               <p>
                 30 N Gould Street<br />

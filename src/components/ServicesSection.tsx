@@ -1,43 +1,31 @@
-import { Brain, Globe, Smartphone, Palette, Cloud, TrendingUp, ArrowRight } from 'lucide-react';
+import { Brain, Target, TrendingUp, Users, ArrowRight } from 'lucide-react';
 import { ScrollReveal } from './ScrollReveal';
 import { Link } from 'react-router-dom';
 
 const services = [
   {
+    icon: Target,
+    title: 'AI Strategy',
+    description: 'Discovery, roadmaps, and practical consulting that connect AI investment to a clear business outcome.',
+    gradient: 'from-blue-600 to-cyan-600',
+  },
+  {
     icon: Brain,
     title: 'AI Development',
-    description: 'Leverage the power of artificial intelligence with cutting-edge machine learning and NLP solutions.',
-    gradient: 'from-blue-600 to-cyan-600',
-  },
-  {
-    icon: Globe,
-    title: 'Web Development',
-    description: 'Custom web solutions that combine stunning design with powerful, scalable functionality.',
+    description: 'Custom software, AI solutions, integrations, and automations built around the way your business works.',
     gradient: 'from-cyan-600 to-blue-600',
-  },
-  {
-    icon: Smartphone,
-    title: 'Mobile Apps',
-    description: 'Native and cross-platform mobile applications that deliver exceptional user experiences.',
-    gradient: 'from-blue-600 to-indigo-600',
-  },
-  {
-    icon: Palette,
-    title: 'UI/UX Design',
-    description: 'User-centered design solutions that create engaging and intuitive interfaces.',
-    gradient: 'from-indigo-600 to-blue-600',
-  },
-  {
-    icon: Cloud,
-    title: 'Cloud & DevOps',
-    description: 'Streamline operations with cloud solutions and DevOps practices for better efficiency.',
-    gradient: 'from-blue-600 to-cyan-600',
   },
   {
     icon: TrendingUp,
-    title: 'Machine Learning',
-    description: 'Advanced ML solutions for data-driven decisions and predictive analytics.',
-    gradient: 'from-cyan-600 to-blue-600',
+    title: 'Growth Systems',
+    description: 'Connected GHL, funnel, CRM, paid media, email, and SMS systems that turn attention into measurable growth.',
+    gradient: 'from-blue-600 to-indigo-600',
+  },
+  {
+    icon: Users,
+    title: 'Client Success',
+    description: 'Implementation, support, optimization, and account management that keep every system moving forward.',
+    gradient: 'from-indigo-600 to-blue-600',
   },
 ];
 
@@ -49,12 +37,12 @@ export function ServicesSection() {
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl mb-4">Our Services</h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Comprehensive technology solutions designed to drive your business forward and deliver measurable results
+              One team for strategy, development, growth, and long-term success.
             </p>
           </div>
         </ScrollReveal>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
           {services.map((service, index) => {
             const Icon = service.icon;
             return (

@@ -1,93 +1,69 @@
 import { Badge } from '../components/ui/badge';
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';
 import { ScrollReveal } from '../components/ScrollReveal';
-import { Brain, Globe, Smartphone, Palette, Cloud, TrendingUp, Check, ArrowRight } from 'lucide-react';
+import { Brain, Target, TrendingUp, Users, Check, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const serviceDetails = [
   {
-    icon: Brain,
-    title: 'AI Development',
-    description: 'Leverage the power of artificial intelligence with our cutting-edge solutions. From machine learning to natural language processing, we help you stay ahead in the AI revolution.',
+    id: 'ai-strategy',
+    icon: Target,
+    title: 'AI Strategy',
+    description: 'We identify where AI can create meaningful value, define the priorities, and turn them into a practical roadmap your team can execute.',
     image: 'https://images.unsplash.com/photo-1717501219716-b93a67d2f7b2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhaSUyMHRlY2hub2xvZ3klMjBuZXR3b3JrfGVufDF8fHx8MTc2MTgxMzUzMnww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
     features: [
-      'Machine Learning Models',
-      'Natural Language Processing',
-      'Computer Vision',
-      'Predictive Analytics',
+      'AI Opportunity Discovery',
+      'Prioritized AI Roadmaps',
       'AI Strategy Consulting',
+      'Transformation Planning',
+      'Product and Workflow Definition',
     ],
-    stats: { projects: '25+', accuracy: '95%', time: '6 months' },
+    stats: { start: 'Discovery', plan: 'Roadmap', outcome: 'Alignment' },
   },
   {
-    icon: Globe,
-    title: 'Web Development',
-    description: 'Custom web solutions that combine stunning design with powerful functionality. We create responsive, scalable, and secure web applications that drive your business forward.',
+    id: 'ai-development',
+    icon: Brain,
+    title: 'AI Development',
+    description: 'We build custom software and practical AI systems that connect your tools, reduce manual work, and support better decisions.',
     image: 'https://images.unsplash.com/photo-1593720213681-e9a8778330a7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWIlMjBkZXZlbG9wbWVudCUyMGNvZGluZ3xlbnwxfHx8fDE3NjE3OTYzMjV8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
     features: [
-      'Responsive Web Design',
-      'Progressive Web Apps',
-      'E-commerce Solutions',
-      'CMS Development',
-      'API Integration',
+      'Custom AI Software',
+      'Web and Mobile Products',
+      'Workflow Automations',
+      'Platform Integrations',
+      'Testing and Deployment',
     ],
-    stats: { projects: '40+', clients: '35+', uptime: '99.9%' },
+    stats: { delivery: '4-12 weeks', team: 'Lean', approach: 'Agile' },
   },
   {
-    icon: Smartphone,
-    title: 'Mobile App Development',
-    description: 'Native and cross-platform mobile applications that deliver exceptional user experiences. We build apps that users love and businesses trust.',
-    image: 'https://images.unsplash.com/photo-1609921212029-bb5a28e60960?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2JpbGUlMjBhcHAlMjBkZXNpZ258ZW58MXx8fHwxNzYxNzQ3MzgyfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    features: [
-      'iOS & Android Apps',
-      'React Native Development',
-      'Flutter Development',
-      'App Store Deployment',
-      'Mobile UI/UX Design',
-    ],
-    stats: { apps: '30+', downloads: '500K+', rating: '4.8/5' },
-  },
-  {
-    icon: Palette,
-    title: 'UI/UX Design',
-    description: 'User-centered design solutions that create engaging and intuitive interfaces. Our designs combine aesthetics with functionality to deliver memorable experiences.',
-    image: 'https://images.unsplash.com/photo-1618761714954-0b8cd0026356?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx1eCUyMGRlc2lnbiUyMGludGVyZmFjZXxlbnwxfHx8fDE3NjE3NjQyNDB8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    features: [
-      'User Research',
-      'Wireframing & Prototyping',
-      'Visual Design',
-      'Usability Testing',
-      'Design Systems',
-    ],
-    stats: { designs: '100+', satisfaction: '98%', iterations: 'Unlimited' },
-  },
-  {
-    icon: Cloud,
-    title: 'Cloud & DevOps',
-    description: 'Streamline your operations with our cloud solutions and DevOps practices. We ensure your infrastructure is scalable, secure, and efficient.',
-    image: 'https://images.unsplash.com/photo-1667984390553-7f439e6ae401?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjbG91ZCUyMGNvbXB1dGluZyUyMHRlY2hub2xvZ3l8ZW58MXx8fHwxNzYxNzI0ODk4fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    features: [
-      'Cloud Migration',
-      'Infrastructure as Code',
-      'CI/CD Pipelines',
-      'Container Orchestration',
-      'Cloud Security',
-    ],
-    stats: { migrations: '20+', uptime: '99.9%', cost: '-40%' },
-  },
-  {
+    id: 'growth-systems',
     icon: TrendingUp,
-    title: 'Machine Learning',
-    description: 'Advanced ML solutions that help you make data-driven decisions. From pattern recognition to predictive analytics, we unlock the power of your data.',
+    title: 'Growth Systems',
+    description: 'We connect your marketing and sales tools into one operating system designed to capture demand, nurture leads, and improve conversion.',
     image: 'https://images.unsplash.com/photo-1529078155058-5d716f45d604?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtYWNoaW5lJTIwbGVhcm5pbmclMjBkYXRhfGVufDF8fHx8MTc2MTc2NDg5NHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
     features: [
-      'Data Analysis',
-      'Pattern Recognition',
-      'Recommendation Systems',
-      'Anomaly Detection',
-      'Model Training & Deployment',
+      'GoHighLevel Setup and Optimization',
+      'Funnels and Conversion Journeys',
+      'CRM and Pipeline Automation',
+      'Paid Media Systems',
+      'Email and SMS Nurture',
     ],
-    stats: { models: '50+', accuracy: '94%', insights: '1000+' },
+    stats: { platform: 'GHL + CRM', channels: 'Email/SMS', focus: 'Conversion' },
+  },
+  {
+    id: 'client-success',
+    icon: Users,
+    title: 'Client Success',
+    description: 'We stay accountable after launch with implementation support, proactive optimization, and clear ownership of the work ahead.',
+    image: 'https://images.unsplash.com/photo-1667984390553-7f439e6ae401?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjbG91ZCUyMGNvbXB1dGluZyUyMHRlY2hub2xvZ3l8ZW58MXx8fHwxNzYxNzI0ODk4fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+    features: [
+      'Guided Implementation',
+      'Ongoing Technical Support',
+      'Performance Optimization',
+      'Account Management',
+      'Continuous Improvement',
+    ],
+    stats: { support: 'Ongoing', cadence: 'Proactive', focus: 'Optimization' },
   },
 ];
 
@@ -105,7 +81,7 @@ const process = [
   {
     step: '03',
     title: 'Development',
-    description: 'Our expert team brings your vision to life with cutting-edge technology.',
+    description: 'A focused team builds, integrates, and tests the solution in short, visible delivery cycles.',
   },
   {
     step: '04',
@@ -129,13 +105,13 @@ export function ServicesPage() {
             
             <ScrollReveal variant="fadeUp" delay={0.1}>
               <h1 className="text-4xl lg:text-5xl mb-6">
-                Comprehensive Solutions for Your Digital Success
+                Four Divisions. One Connected Growth Engine.
               </h1>
             </ScrollReveal>
             
             <ScrollReveal variant="fadeUp" delay={0.2}>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                From AI development to web and mobile solutions, we provide end-to-end services that transform your business and drive measurable results.
+                Strategy, development, growth systems, and client success work together under one roof so ideas move into execution without handoff gaps.
               </p>
             </ScrollReveal>
           </div>
@@ -153,6 +129,7 @@ export function ServicesPage() {
               return (
                 <div
                   key={index}
+                  id={service.id}
                   className={`grid lg:grid-cols-2 gap-12 items-center ${
                     !isEven ? 'lg:grid-flow-dense' : ''
                   }`}
@@ -225,7 +202,7 @@ export function ServicesPage() {
               <div className="text-center mb-16">
                 <h2 className="text-3xl lg:text-4xl mb-4">Our Process</h2>
                 <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                  A streamlined approach that ensures quality results and client satisfaction
+                  A clear delivery path that keeps business goals, product decisions, software, and growth in the same conversation.
                 </p>
               </div>
             </ScrollReveal>
@@ -275,7 +252,7 @@ export function ServicesPage() {
                     Ready to Transform Your Business?
                   </h2>
                   <p className="text-lg text-blue-100 mb-8 max-w-2xl mx-auto">
-                    Let's discuss how our services can help you achieve your goals and drive innovation in your industry.
+                    Tell us where the business needs to move. We’ll help define the right strategy, system, and growth path.
                   </p>
                   <div className="flex flex-wrap gap-4 justify-center">
                     <Link

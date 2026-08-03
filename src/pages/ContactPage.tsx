@@ -5,8 +5,9 @@ import { Textarea } from '../components/ui/textarea';
 import { Label } from '../components/ui/label';
 import { Badge } from '../components/ui/badge';
 import { ScrollReveal } from '../components/ScrollReveal';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { toast } from 'sonner';
+import { useForm, ValidationError } from '@formspree/react';
 
 export function ContactPage() {
   const [formData, setFormData] = useState({
@@ -16,47 +17,14 @@ export function ContactPage() {
     subject: '',
     message: '',
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formState, submitForm] = useForm('xnnloyna');
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setIsSubmitting(true);
+  useEffect(() => {
+    if (!formState.succeeded) return;
 
-    const form = e.currentTarget;
-    const formDataToSend = new FormData(form);
-
-    try {
-      const response = await fetch('https://formspree.io/f/xnnloyna', {
-        method: 'POST',
-        body: formDataToSend,
-        headers: {
-          'Accept': 'application/json'
-        }
-      });
-
-      if (response.ok) {
-        toast.success('Message sent successfully! We\'ll get back to you soon.');
-        setFormData({
-          firstName: '',
-          lastName: '',
-          email: '',
-          subject: '',
-          message: '',
-        });
-      } else {
-        const data = await response.json();
-        if (data.errors) {
-          toast.error(data.errors.map((error: any) => error.message).join(', '));
-        } else {
-          toast.error('Oops! There was a problem submitting your form');
-        }
-      }
-    } catch (error) {
-      toast.error('Oops! There was a problem submitting your form');
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
+    toast.success('Message sent. We’ll get back to you soon.');
+    setFormData({ firstName: '', lastName: '', email: '', subject: '', message: '' });
+  }, [formState.succeeded]);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -71,7 +39,7 @@ export function ContactPage() {
     {
       icon: Mail,
       title: 'Email Us',
-      details: 'info@businessevolutionai.com',
+      details: 'domingo@oneenterprise.ai',
       description: 'Send us an email anytime',
       gradient: 'from-blue-600 to-cyan-600',
     },
@@ -113,13 +81,13 @@ export function ContactPage() {
             
             <ScrollReveal variant="fadeUp" delay={0.1}>
               <h1 className="text-4xl lg:text-5xl mb-6">
-                Get in Touch With Us
+                Let’s Build the Right System
               </h1>
             </ScrollReveal>
             
             <ScrollReveal variant="fadeUp" delay={0.2}>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                Have a project in mind or questions about our services? We'd love to hear from you. Our team is ready to help bring your ideas to life.
+                Tell us about the opportunity, bottleneck, or growth goal. We’ll help identify the right strategy and turn it into a practical digital solution.
               </p>
             </ScrollReveal>
           </div>
@@ -170,7 +138,8 @@ export function ContactPage() {
 
             <ScrollReveal variant="fadeUp" delay={0.1}>
               <div className="bg-white p-8 lg:p-12 rounded-2xl shadow-lg border border-gray-100">
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={submitForm} className="space-y-6">
+                  <input type="hidden" name="_subject" value="New Business Evolution AI project inquiry" />
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
                       <Label htmlFor="firstName">
@@ -179,6 +148,7 @@ export function ContactPage() {
                       <Input
                         id="firstName"
                         name="firstName"
+                        autoComplete="given-name"
                         value={formData.firstName}
                         onChange={handleChange}
                         required
@@ -193,6 +163,7 @@ export function ContactPage() {
                       <Input
                         id="lastName"
                         name="lastName"
+                        autoComplete="family-name"
                         value={formData.lastName}
                         onChange={handleChange}
                         required
@@ -210,12 +181,14 @@ export function ContactPage() {
                       id="email"
                       name="email"
                       type="email"
+                      autoComplete="email"
                       value={formData.email}
                       onChange={handleChange}
                       required
                       className="mt-2"
                       placeholder="john.doe@example.com"
                     />
+                    <ValidationError prefix="Email" field="email" errors={formState.errors} />
                   </div>
 
                   <div>
@@ -247,16 +220,23 @@ export function ContactPage() {
                       className="mt-2"
                       placeholder="Tell us more about your project..."
                     />
+                    <ValidationError prefix="Message" field="message" errors={formState.errors} />
                   </div>
+
+                  {formState.errors ? (
+                    <p className="text-sm text-red-600" role="alert">
+                      We couldn’t send your message. Review the form and try again, or email us directly.
+                    </p>
+                  ) : null}
 
                   <Button
                     type="submit"
                     className="w-full bg-blue-700 hover:bg-blue-800"
                     size="lg"
-                    disabled={isSubmitting}
+                    disabled={formState.submitting}
                   >
                     <Send className="w-4 h-4 mr-2" />
-                    {isSubmitting ? 'Sending...' : 'Send Message'}
+                    {formState.submitting ? 'Sending...' : 'Start the Conversation'}
                   </Button>
                 </form>
               </div>
