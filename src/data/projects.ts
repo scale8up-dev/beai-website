@@ -92,7 +92,7 @@ export const projects: Project[] = [
     image: motherAIImg,
     technologies: ['React', 'AI', 'Education', 'Personalization'],
     metrics: { completion: '100%', duration: '6 weeks', team: '2 people' },
-    url: 'https://motherai.businessevolutionai.com/',
+    url: 'https://itsmotherai.com/',
     featured: true,
   },
   {
