@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+@theme {
+  --color-light: #E0DED9;
+  --color-dark: #323232;
+  --color-accent: #0197D1;
+  --color-grey: #5D5D5D;
+
+  --font-bebas: var(--font-bebas-neue), 'Bebas Neue', sans-serif;
+  --font-ibm-mono: var(--font-ibm-plex-mono), 'IBM Plex Mono', monospace;
+  --font-jakarta: var(--font-plus-jakarta-sans), 'Plus Jakarta Sans', sans-serif;
+}
+
+.font-bebas {
+  font-family: var(--font-bebas-neue), 'Bebas Neue', sans-serif;
+}
+
+.font-jakarta {
+  font-family: var(--font-plus-jakarta-sans), 'Plus Jakarta Sans', sans-serif;
+}
+
+.font-ibm-mono {
+  font-family: var(--font-ibm-plex-mono), 'IBM Plex Mono', monospace;
+}
+
+.text-grey {
+  color: #5D5D5D;
+}
+
+:root {
+  --light: #E0DED9;
+  --dark: #323232;
+  --accent: #0197D1;
+  --grey: #5D5D5D;
+}
+
+body {
+  background-color: var(--dark);
+  color: var(--light);
+  font-family: var(--font-jakarta);
+  min-height: 100vh;
+}
+
+/* Custom Text Selection Styling */
+::selection {
+  background-color: var(--color-accent, #0197D1);
+  color: var(--color-light, #E0DED9);
+}
+
+::-moz-selection {
+  background-color: var(--color-accent, #0197D1);
+  color: var(--color-light, #E0DED9);
+}
+
+/* Static Grain.png Overlay over the entire website */
+.grain-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.08;
+  mix-blend-mode: overlay;
+  background-image: url('/grain.png');
+  background-repeat: repeat;
+}
+
+/* Hero Continuous Right-to-Left Linear Slideshow Keyframes */
+@keyframes heroSlideshow {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.animate-hero-slideshow {
+  animation: heroSlideshow 35s linear infinite;
+  will-change: transform;
+}
