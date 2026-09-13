@@ -15,6 +15,18 @@ export default function CursorFollower() {
     const isPointerFine = window.matchMedia('(pointer: fine)').matches;
     if (!isPointerFine) return;
 
+    const checkCursorTextAtPoint = (x: number, y: number) => {
+      if (x < 0 || y < 0) return;
+      const elementAtPoint = document.elementFromPoint(x, y) as HTMLElement | null;
+      const target = elementAtPoint?.closest<HTMLElement>('[data-cursor-text]');
+      if (target) {
+        const text = target.getAttribute('data-cursor-text');
+        setCursorText(text || '');
+      } else {
+        setCursorText('');
+      }
+    };
+
     const handleMouseMove = (e: MouseEvent) => {
       targetPos.current = { x: e.clientX, y: e.clientY };
       if (!isVisible) {
@@ -22,14 +34,7 @@ export default function CursorFollower() {
         setIsVisible(true);
       }
 
-      // Check if mouse is over an element with data-cursor-text
-      const target = (e.target as HTMLElement)?.closest<HTMLElement>('[data-cursor-text]');
-      if (target) {
-        const text = target.getAttribute('data-cursor-text');
-        setCursorText(text || '');
-      } else {
-        setCursorText('');
-      }
+      checkCursorTextAtPoint(e.clientX, e.clientY);
     };
 
     const handleMouseLeave = () => {
@@ -44,6 +49,17 @@ export default function CursorFollower() {
     window.addEventListener('mousemove', handleMouseMove, { passive: true });
     document.body.addEventListener('mouseleave', handleMouseLeave);
     document.body.addEventListener('mouseenter', handleMouseEnter);
+
+    // MutationObserver to react INSTANTLY when data-cursor-text attribute changes on click/render
+    const observer = new MutationObserver(() => {
+      checkCursorTextAtPoint(targetPos.current.x, targetPos.current.y);
+    });
+
+    observer.observe(document.body, {
+      attributes: true,
+      subtree: true,
+      attributeFilter: ['data-cursor-text'],
+    });
 
     const lerp = (start: number, end: number, factor: number) => {
       return start + (end - start) * factor;
@@ -69,6 +85,7 @@ export default function CursorFollower() {
       window.removeEventListener('mousemove', handleMouseMove);
       document.body.removeEventListener('mouseleave', handleMouseLeave);
       document.body.removeEventListener('mouseenter', handleMouseEnter);
+      observer.disconnect();
       if (animationFrameId.current) {
         cancelAnimationFrame(animationFrameId.current);
       }
@@ -86,12 +103,12 @@ export default function CursorFollower() {
         isVisible ? 'opacity-100' : 'opacity-0'
       } ${
         isExpanded
-          ? 'px-3 py-1.5 rounded-md shadow-sm'
+          ? 'w-[72px] h-[30px] rounded-md shadow-sm'
           : 'w-3.5 h-3.5 rounded-sm'
       }`}
     >
       {cursorText && (
-        <span className="font-bebas text-base sm:text-lg leading-none tracking-wider uppercase text-black text-center select-none whitespace-nowrap translate-y-[1.5px] animate-fadeIn">
+        <span className="font-bebas text-base sm:text-lg leading-none tracking-wider uppercase text-black text-center select-none whitespace-nowrap translate-y-[1.5px]">
           {cursorText}
         </span>
       )}

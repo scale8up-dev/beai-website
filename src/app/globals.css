@@ -3,7 +3,7 @@
 @theme {
   --color-light: #E0DED9;
   --color-dark: #111111;
-  --color-accent: #0197D1;
+  --color-accent: #9EC0C5;
   --color-grey: #5D5D5D;
   --color-dark-grey: #454545;
 
@@ -35,7 +35,7 @@
 :root {
   --light: #E0DED9;
   --dark: #111111;
-  --accent: #0197D1;
+  --accent: #9EC0C5;
   --grey: #5D5D5D;
   --dark-grey: #454545;
 }
@@ -49,27 +49,66 @@ body {
 
 /* Custom Text Selection Styling */
 ::selection {
-  background-color: var(--color-accent, #0197D1);
+  background-color: var(--color-accent, #9EC0C5);
   color: var(--color-light, #E0DED9);
 }
 
 ::-moz-selection {
-  background-color: var(--color-accent, #0197D1);
+  background-color: var(--color-accent, #9EC0C5);
   color: var(--color-light, #E0DED9);
 }
 
-/* Static Grain.png Overlay over the entire website */
+/* Animated Film Grain Overlay over the entire website */
+@keyframes grainAnimation {
+  0% {
+    transform: translate3d(0, 0, 0) scaleX(1) scaleY(1);
+  }
+  10% {
+    transform: translate3d(-1%, -1%, 0) scaleX(-1) scaleY(1);
+  }
+  20% {
+    transform: translate3d(1%, 2%, 0) scaleX(1) scaleY(-1);
+  }
+  30% {
+    transform: translate3d(-2%, 1%, 0) scaleX(-1) scaleY(-1);
+  }
+  40% {
+    transform: translate3d(2%, -2%, 0) scaleX(1) scaleY(1);
+  }
+  50% {
+    transform: translate3d(-1%, 2%, 0) scaleX(-1) scaleY(1);
+  }
+  60% {
+    transform: translate3d(1%, -1%, 0) scaleX(1) scaleY(-1);
+  }
+  70% {
+    transform: translate3d(2%, 1%, 0) scaleX(-1) scaleY(-1);
+  }
+  80% {
+    transform: translate3d(-2%, -2%, 0) scaleX(1) scaleY(1);
+  }
+  90% {
+    transform: translate3d(1%, 2%, 0) scaleX(-1) scaleY(1);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scaleX(1) scaleY(1);
+  }
+}
+
 .grain-overlay {
   position: fixed;
-  inset: 0;
-  width: 100vw;
-  height: 100vh;
+  top: -10vh;
+  left: -10vw;
+  width: 120vw;
+  height: 120vh;
   pointer-events: none;
   z-index: 9999;
-  opacity: 0.08;
+  opacity: 0.14;
   mix-blend-mode: overlay;
   background-image: url('/grain.png');
   background-repeat: repeat;
+  animation: grainAnimation 0.8s steps(1) infinite;
+  will-change: transform;
 }
 
 /* Hero Continuous Right-to-Left Linear Slideshow Keyframes */

@@ -3,11 +3,11 @@
 import { useState } from 'react';
 
 const COLORS = [
-  { name: 'Light', hex: '#E0DED9', bgClass: 'bg-[#E0DED9]' },
-  { name: 'Dark', hex: '#111111', bgClass: 'bg-[#111111]' },
-  { name: 'Accent', hex: '#0197D1', bgClass: 'bg-[#0197D1]' },
-  { name: 'Grey', hex: '#5D5D5D', bgClass: 'bg-[#5D5D5D]' },
-  { name: 'Dark Grey', hex: '#454545', bgClass: 'bg-[#454545]' },
+  { name: 'Light', cssVar: '--color-light', bgClass: 'bg-light' },
+  { name: 'Dark', cssVar: '--color-dark', bgClass: 'bg-dark' },
+  { name: 'Accent', cssVar: '--color-accent', bgClass: 'bg-accent' },
+  { name: 'Grey', cssVar: '--color-grey', bgClass: 'bg-grey' },
+  { name: 'Dark Grey', cssVar: '--color-dark-grey', bgClass: 'bg-dark-grey' },
 ];
 
 const FONTS = [
@@ -33,19 +33,22 @@ const SAMPLE_TEXT = 'The quick brown fox jumps over the lazy dog. 0123456789';
 
 export default function DevToolbar() {
   const [isFontModalOpen, setIsFontModalOpen] = useState(false);
-  const [copiedHex, setCopiedHex] = useState<string | null>(null);
+  const [copiedColor, setCopiedColor] = useState<string | null>(null);
   const [fontCases, setFontCases] = useState<Record<string, 'upper' | 'lower'>>({
     'Plus Jakarta Sans': 'upper',
     'Bebas Neue': 'upper',
     'IBM Plex Mono': 'lower',
   });
 
-  const handleCopyColor = (hex: string) => {
-    navigator.clipboard.writeText(hex);
-    setCopiedHex(hex);
-    setTimeout(() => {
-      setCopiedHex(null);
-    }, 2000);
+  const handleCopyColor = (colorName: string, cssVar: string) => {
+    const hex = getComputedStyle(document.documentElement).getPropertyValue(cssVar).trim();
+    if (hex) {
+      navigator.clipboard.writeText(hex);
+      setCopiedColor(colorName);
+      setTimeout(() => {
+        setCopiedColor(null);
+      }, 2000);
+    }
   };
 
   const toggleFontCase = (fontName: string) => {
@@ -62,15 +65,15 @@ export default function DevToolbar() {
         {COLORS.map((color) => (
           <button
             key={color.name}
-            onClick={() => handleCopyColor(color.hex)}
+            onClick={() => handleCopyColor(color.name, color.cssVar)}
             className="group relative flex items-center justify-center cursor-pointer transition-transform duration-200 hover:scale-125 focus:outline-none"
-            title={`${color.name} (${color.hex}) - Click to copy`}
+            title={`${color.name} - Click to copy hex`}
           >
             <span
               className={`w-5 h-5 rounded-full border border-white/20 shadow-inner ${color.bgClass}`}
             />
-            {copiedHex === color.hex && (
-              <span className="absolute right-full mr-2.5 px-2 py-0.5 rounded bg-[#0197D1] text-white text-[10px] font-sans font-medium whitespace-nowrap shadow-lg animate-fadeIn">
+            {copiedColor === color.name && (
+              <span className="absolute right-full mr-2.5 px-2 py-0.5 rounded bg-accent text-dark text-[10px] font-sans font-medium whitespace-nowrap shadow-lg animate-fadeIn">
                 Copied {color.name}!
               </span>
             )}
@@ -82,7 +85,7 @@ export default function DevToolbar() {
         {/* Round Font Showcase Button with "A" */}
         <button
           onClick={() => setIsFontModalOpen(true)}
-          className="group relative flex items-center justify-center w-5 h-5 rounded-full bg-[#0197D1] hover:bg-[#017fb0] text-white font-bebas text-sm leading-none font-bold transition-transform duration-200 hover:scale-125 focus:outline-none shadow-md cursor-pointer pt-[1px]"
+          className="group relative flex items-center justify-center w-5 h-5 rounded-full bg-accent hover:opacity-85 text-dark font-bebas text-sm leading-none font-bold transition-transform duration-200 hover:scale-125 focus:outline-none shadow-md cursor-pointer pt-[1px]"
           title="Font Showcase"
         >
           A
@@ -126,7 +129,7 @@ export default function DevToolbar() {
                     className="p-4 rounded-xl bg-black/30 border border-[#E0DED9]/10 space-y-3"
                   >
                     <div className="flex items-center justify-between border-b border-white/10 pb-2">
-                      <span className="text-xs font-mono font-medium text-[#0197D1] uppercase tracking-wider">
+                      <span className="text-xs font-mono font-medium text-accent uppercase tracking-wider">
                         {font.name}
                       </span>
                       <div className="flex items-center gap-3">
@@ -136,11 +139,11 @@ export default function DevToolbar() {
                         {!font.isAllCaps && (
                           <button
                             onClick={() => toggleFontCase(font.name)}
-                            className="px-2 py-0.5 rounded border border-[#0197D1]/40 bg-[#0197D1]/15 hover:bg-[#0197D1]/30 text-[10px] font-mono font-medium text-white transition-all cursor-pointer flex items-center gap-1 active:scale-95"
+                            className="px-2 py-0.5 rounded border border-accent/40 bg-accent/15 hover:bg-accent/30 text-[10px] font-mono font-medium text-white transition-all cursor-pointer flex items-center gap-1 active:scale-95"
                             title="Toggle Uppercase / Lowercase"
                           >
                             <span className="text-white/60">Case:</span>
-                            <span className="font-bold text-[#0197D1]">
+                            <span className="font-bold text-accent">
                               {isUpper ? 'CAPS' : 'lower'}
                             </span>
                           </button>

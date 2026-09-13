@@ -1,0 +1,27 @@
+[
+  {
+    "id": "services",
+    "question": "What services does BEAI offer?",
+    "answer": "We specialize in custom AI integration, high-performance enterprise software development, modern web applications, and digital transformation strategy tailored to your business goals."
+  },
+  {
+    "id": "timeline",
+    "question": "How long does a typical project take?",
+    "answer": "Project timelines depend on overall scope and complexity. Most custom digital platforms and AI solutions are delivered within 4 to 8 weeks, with structured milestones throughout."
+  },
+  {
+    "id": "pricing",
+    "question": "How does your fixed pricing model work?",
+    "answer": "We provide transparent, fixed-price proposals before any work begins. You'll know the exact cost upfront with no hidden fees or unexpected billing surprises."
+  },
+  {
+    "id": "content-updates",
+    "question": "Can we update the website content ourselves after launch?",
+    "answer": "Absolutely. Every website and web app we build is engineered for intuitive content management, enabling your team to update text, media, and pages easily without writing code."
+  },
+  {
+    "id": "post-launch-support",
+    "question": "What kind of ongoing support do you provide?",
+    "answer": "We stay by your side after launch with comprehensive support options, including system maintenance, security updates, performance monitoring, and continuous feature upgrades."
+  }
+]

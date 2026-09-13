@@ -7,12 +7,12 @@ export default function ProjectsSection() {
     <section
       id="projects"
       data-theme="light"
-      className="w-full min-h-screen flex flex-col justify-start items-start bg-light text-dark relative z-20 pt-0 pb-24 px-4"
+      className="w-full h-auto flex flex-col justify-start items-start bg-light text-dark relative z-20 pt-0 pb-8 md:pb-12 px-4"
     >
       {/* Outer row fit content */}
       <div className="w-full h-auto flex flex-col justify-start items-start -mx-4">
         {/* Dark Row Aligned to Top, 100vw wide, 50px high with rounded borders */}
-        <div className="w-screen h-[50px] bg-dark rounded-b-3xl md:rounded-b-[40px]" />
+        <div data-theme="dark" className="w-screen h-[50px] bg-dark rounded-b-3xl md:rounded-b-[40px]" />
       </div>
 
       <div className="w-full text-left flex flex-col gap-6 max-w-5xl pt-12 md:pt-16">
