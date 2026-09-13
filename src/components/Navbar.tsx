@@ -62,10 +62,11 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = document.querySelectorAll('section[data-theme]');
+      const sections = document.querySelectorAll('[data-theme]');
       const sampleY = 40; // Navbar center line in viewport pixels
 
-      for (let i = 0; i < sections.length; i++) {
+      // Iterate in reverse order so overlapping stacked sections take theme priority over sticky background sections
+      for (let i = sections.length - 1; i >= 0; i--) {
         const section = sections[i];
         const rect = section.getBoundingClientRect();
         if (rect.top <= sampleY && rect.bottom > sampleY) {
@@ -104,7 +105,7 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="sticky top-0 z-50 w-full flex items-center justify-between px-4 py-4 bg-transparent transition-colors duration-300 relative">
+      <header className="fixed top-0 left-0 z-50 w-full flex items-center justify-between px-4 py-4 bg-transparent transition-colors duration-300">
         {/* Left side: Icon & Text Logo (Slides in from Left, Click reloads clean home URL) */}
         <a
           href="/"

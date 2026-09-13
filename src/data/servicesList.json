@@ -1,0 +1,42 @@
+[
+  {
+    "id": "design",
+    "title": "Design",
+    "description": "Every successful website starts with a clear plan. Guided by this plan, I design websites that evoke emotions, build trust, and strategically turn visitors into customers.",
+    "list": [
+      "Customer Journey",
+      "Design Concept",
+      "Responsive Design"
+    ]
+  },
+  {
+    "id": "development",
+    "title": "Development",
+    "description": "I transform the design into a living, fluid web experience. With Framer, I build everything to load fast, run stable, and allow you to update content yourself anytime.",
+    "list": [
+      "Framer Development",
+      "CMS Integration",
+      "Custom Interactions"
+    ]
+  },
+  {
+    "id": "seo",
+    "title": "SEO",
+    "description": "Your website shouldn't just look good, but it should also be found. I optimize your website so you generate more organic traffic and reach your target audience.",
+    "list": [
+      "Technical SEO",
+      "On-Page Optimization",
+      "Keyword Research"
+    ]
+  },
+  {
+    "id": "automation",
+    "title": "AI & Automation",
+    "description": "We integrate cutting-edge AI features and custom automated workflows into your applications to save hours of manual effort and skyrocket productivity.",
+    "list": [
+      "AI Workflow Integration",
+      "Custom LLM Pipelines",
+      "Process Automation"
+    ]
+  }
+]

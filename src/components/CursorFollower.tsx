@@ -7,6 +7,7 @@ export default function CursorFollower() {
   const targetPos = useRef({ x: -100, y: -100 });
   const currentPos = useRef({ x: -100, y: -100 });
   const [isVisible, setIsVisible] = useState(false);
+  const [cursorText, setCursorText] = useState<string>('');
   const animationFrameId = useRef<number | null>(null);
 
   useEffect(() => {
@@ -20,10 +21,20 @@ export default function CursorFollower() {
         currentPos.current = { x: e.clientX, y: e.clientY };
         setIsVisible(true);
       }
+
+      // Check if mouse is over an element with data-cursor-text
+      const target = (e.target as HTMLElement)?.closest<HTMLElement>('[data-cursor-text]');
+      if (target) {
+        const text = target.getAttribute('data-cursor-text');
+        setCursorText(text || '');
+      } else {
+        setCursorText('');
+      }
     };
 
     const handleMouseLeave = () => {
       setIsVisible(false);
+      setCursorText('');
     };
 
     const handleMouseEnter = () => {
@@ -39,12 +50,14 @@ export default function CursorFollower() {
     };
 
     const updatePosition = () => {
-      const ease = 0.08; // Increased staggered drag delay
+      const ease = 0.12; // Eased follow speed
       currentPos.current.x = lerp(currentPos.current.x, targetPos.current.x, ease);
       currentPos.current.y = lerp(currentPos.current.y, targetPos.current.y, ease);
 
       if (followerRef.current) {
-        followerRef.current.style.transform = `translate3d(${currentPos.current.x}px, ${currentPos.current.y}px, 0) translate(-50%, -50%)`;
+        const isExpanded = followerRef.current.dataset.expanded === 'true';
+        const translateY = isExpanded ? '-120%' : '-50%';
+        followerRef.current.style.transform = `translate3d(${currentPos.current.x}px, ${currentPos.current.y}px, 0) translate(-50%, ${translateY})`;
       }
 
       animationFrameId.current = requestAnimationFrame(updatePosition);
@@ -62,13 +75,26 @@ export default function CursorFollower() {
     };
   }, [isVisible]);
 
+  const isExpanded = Boolean(cursorText);
+
   return (
     <div
       ref={followerRef}
       aria-hidden="true"
-      className={`pointer-events-none fixed top-0 left-0 z-[99999] w-3.5 h-3.5 rounded-sm bg-white mix-blend-difference transform-gpu transition-opacity duration-300 ${
+      data-expanded={isExpanded}
+      className={`pointer-events-none fixed top-0 left-0 z-[99999] flex items-center justify-center bg-white mix-blend-difference transform-gpu transition-all duration-300 ease-out overflow-hidden ${
         isVisible ? 'opacity-100' : 'opacity-0'
+      } ${
+        isExpanded
+          ? 'px-3 py-1.5 rounded-md shadow-sm'
+          : 'w-3.5 h-3.5 rounded-sm'
       }`}
-    />
+    >
+      {cursorText && (
+        <span className="font-bebas text-base sm:text-lg leading-none tracking-wider uppercase text-black text-center select-none whitespace-nowrap translate-y-[1.5px] animate-fadeIn">
+          {cursorText}
+        </span>
+      )}
+    </div>
   );
 }

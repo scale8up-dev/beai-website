@@ -4,9 +4,10 @@ import { useState } from 'react';
 
 const COLORS = [
   { name: 'Light', hex: '#E0DED9', bgClass: 'bg-[#E0DED9]' },
-  { name: 'Dark', hex: '#323232', bgClass: 'bg-[#323232]' },
+  { name: 'Dark', hex: '#111111', bgClass: 'bg-[#111111]' },
   { name: 'Accent', hex: '#0197D1', bgClass: 'bg-[#0197D1]' },
   { name: 'Grey', hex: '#5D5D5D', bgClass: 'bg-[#5D5D5D]' },
+  { name: 'Dark Grey', hex: '#454545', bgClass: 'bg-[#454545]' },
 ];
 
 const FONTS = [

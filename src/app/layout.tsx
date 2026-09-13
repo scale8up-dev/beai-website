@@ -3,6 +3,7 @@ import { Bebas_Neue, Plus_Jakarta_Sans, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import DevToolbar from "@/components/DevToolbar";
 import CursorFollower from "@/components/CursorFollower";
+import ResizeHandler from "@/components/ResizeHandler";
 
 const bebasNeue = Bebas_Neue({
   weight: "400",
@@ -43,6 +44,7 @@ export default function RootLayout({
       <body className="relative min-h-screen bg-dark text-[#e2e2dd] antialiased">
         {/* Grain overlay layer */}
         <div aria-hidden="true" className="grain-overlay" />
+        <ResizeHandler />
         <CursorFollower />
         {children}
         <DevToolbar />

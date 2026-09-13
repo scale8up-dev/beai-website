@@ -1,0 +1,42 @@
+[
+  {
+    "id": "project-1",
+    "year": "2026",
+    "tag": "AI Web Application",
+    "title": "Neural Canvas AI",
+    "link": "#",
+    "imageLink": "/slideshow/1.jpg"
+  },
+  {
+    "id": "project-2",
+    "year": "2026",
+    "tag": "Enterprise SaaS",
+    "title": "Quantum Flow OS",
+    "link": "#",
+    "imageLink": "/slideshow/2.jpg"
+  },
+  {
+    "id": "project-3",
+    "year": "2025",
+    "tag": "Mobile App Platform",
+    "title": "Veloce Mobility",
+    "link": "#",
+    "imageLink": "/slideshow/3.jpg"
+  },
+  {
+    "id": "project-4",
+    "year": "2025",
+    "tag": "AI & Automation",
+    "title": "Apex Health Intelligence",
+    "link": "#",
+    "imageLink": "/slideshow/4.png"
+  },
+  {
+    "id": "project-5",
+    "year": "2024",
+    "tag": "FinTech Solution",
+    "title": "Synergy Enterprise",
+    "link": "#",
+    "imageLink": "/slideshow/5.png"
+  }
+]

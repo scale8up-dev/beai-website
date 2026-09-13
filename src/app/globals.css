@@ -2,9 +2,10 @@
 
 @theme {
   --color-light: #E0DED9;
-  --color-dark: #323232;
+  --color-dark: #111111;
   --color-accent: #0197D1;
   --color-grey: #5D5D5D;
+  --color-dark-grey: #454545;
 
   --font-bebas: var(--font-bebas-neue), 'Bebas Neue', sans-serif;
   --font-ibm-mono: var(--font-ibm-plex-mono), 'IBM Plex Mono', monospace;
@@ -27,16 +28,21 @@
   color: #5D5D5D;
 }
 
+.text-dark-grey {
+  color: #454545;
+}
+
 :root {
   --light: #E0DED9;
-  --dark: #323232;
+  --dark: #111111;
   --accent: #0197D1;
   --grey: #5D5D5D;
+  --dark-grey: #454545;
 }
 
 body {
-  background-color: var(--dark);
-  color: var(--light);
+  background-color: var(--light);
+  color: var(--dark);
   font-family: var(--font-jakarta);
   min-height: 100vh;
 }
@@ -79,4 +85,12 @@ body {
 .animate-hero-slideshow {
   animation: heroSlideshow 35s linear infinite;
   will-change: transform;
+}
+
+/* Disable all transitions & animations instantly during window resizing */
+.resize-animation-stopper *,
+.resize-animation-stopper *::before,
+.resize-animation-stopper *::after {
+  transition: none !important;
+  animation-duration: 0s !important;
 }

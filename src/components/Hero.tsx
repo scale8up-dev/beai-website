@@ -17,7 +17,7 @@ function HeroSlideshow() {
   const images = [...SLIDESHOW_IMAGES, ...SLIDESHOW_IMAGES];
 
   return (
-    <div className="relative w-full h-full overflow-hidden bg-[#323232]">
+    <div className="relative w-full h-full overflow-hidden bg-[#111111]">
       <div className="flex w-max h-full animate-hero-slideshow">
         {images.map((src, idx) => (
           <div
@@ -139,15 +139,31 @@ function StaggeredByBeai({ mounted }: { mounted: boolean }) {
 
 export default function Hero() {
   const [mounted, setMounted] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
     setMounted(true);
+
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const parallaxOffset = scrollY * 0.35;
+  const heroOpacity = Math.max(0, 1 - scrollY / 950);
 
   return (
     <section
       data-theme="light"
-      className="w-full min-h-[calc(100vh-80px)] flex flex-col justify-between items-start text-left px-4 pt-3 md:pt-6 pb-2 md:pb-4 bg-light text-dark relative overflow-hidden"
+      className="sticky top-0 z-0 w-full min-h-screen flex flex-col justify-between items-start text-left px-4 pt-20 md:pt-24 pb-4 bg-light text-dark overflow-hidden transform-gpu will-change-transform"
+      style={{
+        transform: `translate3d(0, -${parallaxOffset}px, 0)`,
+        opacity: heroOpacity,
+      }}
     >
       {/* Top Left Title with Staggered Character Popup Animation */}
       <div className="w-full pt-6 md:pt-1">
@@ -167,7 +183,7 @@ export default function Hero() {
           style={{ transitionDelay: '1150ms' }}
         >
           {/* Slideshow Card */}
-          <div className="@container w-full aspect-[16/10] shrink-0 rounded-sm border-[2px] border-solid border-[#323232] overflow-hidden bg-[#323232] shadow-md">
+          <div className="@container w-full aspect-[16/10] shrink-0 rounded-sm border-[2px] border-solid border-[#111111] overflow-hidden bg-[#111111] shadow-md">
             <HeroSlideshow />
           </div>
 
@@ -175,7 +191,7 @@ export default function Hero() {
           <div className="flex items-center gap-2.5 w-full pt-0.5">
             <StaggeredByBeai mounted={mounted} />
             <div
-              className={`h-[1px] bg-[#323232] flex-1 origin-left transition-transform duration-700 ease-out transform-gpu ${
+              className={`h-[1px] bg-[#111111] flex-1 origin-left transition-transform duration-700 ease-out transform-gpu ${
                 mounted ? 'scale-x-100' : 'scale-x-0'
               }`}
               style={{ transitionDelay: '1350ms' }}
