@@ -496,6 +496,7 @@ export default function AdminProjectsPage() {
                             src={project.image}
                             alt={project.name}
                             fill
+                            sizes="48px"
                             className="object-cover"
                           />
                         ) : (
@@ -556,6 +557,7 @@ export default function AdminProjectsPage() {
                     src={project.image}
                     alt={project.name}
                     fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     className="object-cover"
                   />
                 ) : (
@@ -781,6 +783,7 @@ export default function AdminProjectsPage() {
                       src={formData.image}
                       alt="Preview"
                       fill
+                      sizes="(max-width: 640px) 100vw, 400px"
                       className="object-cover"
                       unoptimized={formData.image.startsWith('http')}
                     />

@@ -427,6 +427,7 @@ export default function AdminTeamPage() {
                         src={member.image}
                         alt={member.name}
                         fill
+                        sizes="56px"
                         className="object-cover"
                       />
                     ) : (
@@ -494,6 +495,7 @@ export default function AdminTeamPage() {
                             src={member.image}
                             alt={member.name}
                             fill
+                            sizes="40px"
                             className="object-cover"
                           />
                         ) : (
@@ -662,6 +664,7 @@ export default function AdminTeamPage() {
                         src={formData.image}
                         alt="Preview"
                         fill
+                        sizes="48px"
                         className="object-cover"
                         unoptimized={formData.image.startsWith('http')}
                       />
