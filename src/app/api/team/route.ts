@@ -12,11 +12,12 @@ export async function GET(request: NextRequest) {
 
     const query: Record<string, unknown> = {};
 
-    if (search) {
+    if (search && search.trim()) {
+      const sanitized = search.trim().slice(0, 100).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
       query.$or = [
-        { name: { $regex: search, $options: 'i' } },
-        { title: { $regex: search, $options: 'i' } },
-        { description: { $regex: search, $options: 'i' } },
+        { name: { $regex: sanitized, $options: 'i' } },
+        { title: { $regex: sanitized, $options: 'i' } },
+        { description: { $regex: sanitized, $options: 'i' } },
       ];
     }
 

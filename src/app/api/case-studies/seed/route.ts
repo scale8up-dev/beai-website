@@ -1,12 +1,21 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { readFile } from 'fs/promises';
 import path from 'path';
 import connectToDatabase from '@/lib/mongodb';
 import CaseStudy from '@/models/CaseStudy';
 import defaultCaseStudies from '@/data/caseStudies.json';
+import { getAuthUser } from '@/lib/auth';
 
-export async function POST() {
+export async function POST(request: NextRequest) {
   try {
+    const authUser = await getAuthUser(request);
+    if (!authUser) {
+      return NextResponse.json(
+        { success: false, error: 'Unauthorized. Please log in to CMS.' },
+        { status: 401 }
+      );
+    }
+
     await connectToDatabase();
 
     const existingCount = await CaseStudy.countDocuments();
@@ -38,6 +47,7 @@ export async function POST() {
 
         return {
           title: cs.title,
+          slug: cs.id,
           client: cs.client,
           shortDescription: shortDesc,
           metrics: (cs.results || []).slice(0, 3).map((r) => ({

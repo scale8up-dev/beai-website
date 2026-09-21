@@ -13,13 +13,14 @@ export async function GET(request: NextRequest) {
 
     const query: Record<string, unknown> = {};
 
-    if (search) {
+    if (search && search.trim()) {
+      const sanitized = search.trim().slice(0, 100).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
       query.$or = [
-        { title: { $regex: search, $options: 'i' } },
-        { client: { $regex: search, $options: 'i' } },
-        { category: { $regex: search, $options: 'i' } },
-        { shortDescription: { $regex: search, $options: 'i' } },
-        { tags: { $in: [new RegExp(search, 'i')] } },
+        { title: { $regex: sanitized, $options: 'i' } },
+        { client: { $regex: sanitized, $options: 'i' } },
+        { category: { $regex: sanitized, $options: 'i' } },
+        { shortDescription: { $regex: sanitized, $options: 'i' } },
+        { tags: { $in: [new RegExp(sanitized, 'i')] } },
       ];
     }
 
@@ -57,6 +58,7 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
     const {
       title,
+      cardTitle,
       client,
       shortDescription,
       metrics,
@@ -79,6 +81,16 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    if (cardTitle && cardTitle.trim().length > 25) {
+      return NextResponse.json(
+        {
+          success: false,
+          error: 'Card title cannot exceed 25 characters.',
+        },
+        { status: 400 }
+      );
+    }
+
     if (shortDescription.trim().length > 150) {
       return NextResponse.json(
         {
@@ -92,9 +104,15 @@ export async function POST(request: NextRequest) {
     const formattedMetrics = Array.isArray(metrics) ? metrics.slice(0, 3) : [];
     const formattedTags = Array.isArray(tags) ? tags.slice(0, 5) : [];
     const formattedDeliverables = Array.isArray(deliverables) ? deliverables : [];
+    const derivedSlug = (body.slug || title)
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/(^-|-$)/g, '');
 
     const newCaseStudy = await CaseStudy.create({
       title: title.trim(),
+      cardTitle: cardTitle ? cardTitle.trim().slice(0, 25) : undefined,
+      slug: derivedSlug,
       client: client.trim(),
       shortDescription: shortDescription.trim(),
       metrics: formattedMetrics,

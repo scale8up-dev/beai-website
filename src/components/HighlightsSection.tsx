@@ -49,6 +49,7 @@ export default function HighlightsSection() {
       ref={containerRef}
       id="highlights"
       data-theme="dark"
+      data-theme-offset="100vh"
       className="w-full bg-dark text-light py-16 sm:py-24 px-4 z-30 relative"
     >
       <div className="w-full">

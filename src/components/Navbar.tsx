@@ -73,7 +73,21 @@ export default function Navbar() {
       for (let i = sections.length - 1; i >= 0; i--) {
         const section = sections[i];
         const rect = section.getBoundingClientRect();
-        if (rect.top <= sampleY && rect.bottom > sampleY) {
+        
+        let offsetPx = 0;
+        const offsetAttr = section.getAttribute('data-theme-offset');
+        if (offsetAttr) {
+          if (offsetAttr.endsWith('vh')) {
+            offsetPx = (parseFloat(offsetAttr) / 100) * window.innerHeight;
+          } else if (offsetAttr.endsWith('px')) {
+            offsetPx = parseFloat(offsetAttr);
+          } else {
+            offsetPx = parseFloat(offsetAttr) || 0;
+          }
+        }
+
+        const effectiveTop = rect.top - offsetPx;
+        if (effectiveTop <= sampleY && rect.bottom > sampleY) {
           const sectionTheme = section.getAttribute('data-theme') as 'light' | 'dark';
           if (sectionTheme) {
             setTheme(sectionTheme);

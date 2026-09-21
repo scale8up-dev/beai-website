@@ -1,8 +1,10 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { usePathname } from 'next/navigation';
 
 export default function CursorFollower() {
+  const pathname = usePathname();
   const followerRef = useRef<HTMLDivElement>(null);
   const targetPos = useRef({ x: -100, y: -100 });
   const currentPos = useRef({ x: -100, y: -100 });
@@ -10,7 +12,10 @@ export default function CursorFollower() {
   const [cursorText, setCursorText] = useState<string>('');
   const animationFrameId = useRef<number | null>(null);
 
+  const isAdmin = pathname?.startsWith('/admin');
+
   useEffect(() => {
+    if (isAdmin) return;
     // Only activate cursor follower on fine pointer devices (mouse/trackpad)
     const isPointerFine = window.matchMedia('(pointer: fine)').matches;
     if (!isPointerFine) return;
@@ -91,6 +96,10 @@ export default function CursorFollower() {
       }
     };
   }, [isVisible]);
+
+  if (isAdmin) {
+    return null;
+  }
 
   const isExpanded = Boolean(cursorText);
 

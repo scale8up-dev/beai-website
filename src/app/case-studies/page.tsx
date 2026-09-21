@@ -1,21 +1,29 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import CtaSection from '@/components/CtaSection';
 import Footer from '@/components/Footer';
-import caseStudiesData from '@/data/caseStudies.json';
 
-const FILTER_CATEGORIES = [
-  'All',
-  'AI & HealthTech',
-  'GenAI & Publishing',
-  'Enterprise Directory & SaaS',
-  'PropTech & Predictive AI',
-] as const;
-
-type FilterCategory = (typeof FILTER_CATEGORIES)[number];
+interface CaseStudyCardItem {
+  id: string;
+  slug?: string;
+  _id?: string;
+  title: string;
+  cardTitle?: string;
+  client: string;
+  category: string;
+  timeline?: string;
+  tagline?: string;
+  summary?: string;
+  shortDescription?: string;
+  tags: string[];
+  deliverables?: string[];
+  results: { value: string; label: string }[];
+  link?: string;
+  markdown?: string;
+}
 
 function StaggeredCaseStudiesTitle({ mounted }: { mounted: boolean }) {
   const text = 'CASE STUDIES';
@@ -90,20 +98,84 @@ function StaggeredCaseStudiesTagline({
 
 export default function CaseStudiesPage() {
   const [mounted, setMounted] = useState(false);
-  const [activeFilter, setActiveFilter] = useState<FilterCategory>('All');
+  const [caseStudies, setCaseStudies] = useState<CaseStudyCardItem[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [activeFilter, setActiveFilter] = useState<string>('All');
   const [currentPage, setCurrentPage] = useState(1);
   const ITEMS_PER_PAGE = 10;
 
   useEffect(() => {
     setMounted(true);
+    async function loadCaseStudies() {
+      try {
+        setLoading(true);
+        const res = await fetch('/api/case-studies');
+        const data = await res.json();
+        if (data.success && Array.isArray(data.data)) {
+          const mapped: CaseStudyCardItem[] = data.data.map((item: {
+            _id?: string;
+            slug?: string;
+            id?: string;
+            title: string;
+            cardTitle?: string;
+            client: string;
+            category: string;
+            duration?: string;
+            timeline?: string;
+            shortDescription?: string;
+            summary?: string;
+            tagline?: string;
+            tags?: string[];
+            deliverables?: string[];
+            metrics?: { value: string; label: string }[];
+            results?: { value: string; label: string }[];
+            link?: string;
+            markdown?: string;
+          }) => ({
+            id: item.slug || item._id || item.id || '',
+            slug: item.slug || item._id,
+            _id: item._id,
+            title: item.title,
+            cardTitle: item.cardTitle || item.title,
+            client: item.client,
+            category: item.category,
+            timeline: item.duration || item.timeline || '8 Weeks',
+            summary: item.shortDescription || item.summary || '',
+            tagline: item.shortDescription || item.tagline || '',
+            tags: item.tags || [],
+            deliverables: item.deliverables || [],
+            results: item.metrics && item.metrics.length > 0 ? item.metrics : item.results || [],
+            link: item.link || '#',
+            markdown: item.markdown || '',
+          }));
+          setCaseStudies(mapped);
+        } else {
+          setCaseStudies([]);
+        }
+      } catch (err) {
+        console.error('Failed to load case studies from API:', err);
+        setCaseStudies([]);
+      } finally {
+        setLoading(false);
+      }
+    }
+    loadCaseStudies();
   }, []);
 
-  const handleFilterChange = (category: FilterCategory) => {
+  const categories = useMemo(() => {
+    const set = new Set<string>();
+    caseStudies.forEach((cs) => {
+      if (cs.category) set.add(cs.category);
+    });
+    return ['All', ...Array.from(set)];
+  }, [caseStudies]);
+
+  const handleFilterChange = (category: string) => {
     setActiveFilter(category);
     setCurrentPage(1);
   };
 
-  const filteredCaseStudies = caseStudiesData.filter((item) => {
+  const filteredCaseStudies = caseStudies.filter((item) => {
     if (activeFilter === 'All') return true;
     return item.category === activeFilter;
   });
@@ -145,7 +217,7 @@ export default function CaseStudiesPage() {
           }`}
           style={{ transitionDelay: '750ms' }}
         >
-          {FILTER_CATEGORIES.map((category) => {
+          {categories.map((category) => {
             const isActive = activeFilter === category;
             return (
               <button
@@ -173,8 +245,8 @@ export default function CaseStudiesPage() {
         >
           {paginatedCaseStudies.map((study) => (
             <Link
-              key={study.id}
-              href={`/case-studies/${study.id}`}
+              key={study.id || study._id}
+              href={`/case-studies/${study.slug || study.id || study._id}`}
               data-cursor-text="READ STUDY"
               className="group w-full h-full flex flex-col justify-between bg-dark/[0.02] border border-dark/10 rounded-2xl p-5 sm:p-6 text-left hover:border-dark/25 transition-colors duration-300 cursor-pointer block"
             >
@@ -183,7 +255,7 @@ export default function CaseStudiesPage() {
                 {/* Title & Client */}
                 <div>
                   <h2 className="font-bebas text-3xl sm:text-4xl text-dark tracking-wide uppercase leading-tight line-clamp-1">
-                    {study.title}
+                    {study.cardTitle || study.title}
                   </h2>
                   <span className="font-ibm-mono text-[11px] uppercase text-[#666666] font-medium tracking-wider mt-0.5 block truncate">
                     {study.client}
@@ -226,8 +298,8 @@ export default function CaseStudiesPage() {
             </Link>
           ))}
           {paginatedCaseStudies.length === 0 && (
-            <div className="col-span-full py-16 text-center text-[#777777] font-jakarta font-medium text-base sm:text-lg">
-              No case studies found in this category.
+            <div className="col-span-full py-20 text-center text-[#777777] font-jakarta font-medium text-base sm:text-lg">
+              {loading ? 'Loading case studies...' : 'No case studies found.'}
             </div>
           )}
         </div>

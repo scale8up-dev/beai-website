@@ -8,8 +8,6 @@ import Navbar from '@/components/Navbar';
 import Button from '@/components/Button';
 import Footer from '@/components/Footer';
 import ReactMarkdown from 'react-markdown';
-import { CASE_STUDY_MARKDOWN } from '@/lib/caseStudyContent';
-import caseStudiesData from '@/data/caseStudies.json';
 
 function CountUpMetric({
   value,
@@ -80,6 +78,19 @@ function CountUpMetric({
   );
 }
 
+interface CaseStudyDetailData {
+  title: string;
+  client: string;
+  category: string;
+  timeline?: string;
+  tagline?: string;
+  results: { value: string; label: string }[];
+  deliverables?: string[];
+  tags: string[];
+  link?: string;
+  markdown: string;
+}
+
 interface CaseStudyPageProps {
   params: Promise<{ slug: string }>;
 }
@@ -87,24 +98,68 @@ interface CaseStudyPageProps {
 export default function CaseStudyDetailPage({ params }: CaseStudyPageProps) {
   const { slug } = use(params);
   const [mounted, setMounted] = useState(false);
+  const [study, setStudy] = useState<CaseStudyDetailData | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [notFoundState, setNotFoundState] = useState(false);
 
   useEffect(() => {
     setMounted(true);
-  }, []);
 
-  const currentIndex = caseStudiesData.findIndex(
-    (item) => item.id.toLowerCase() === slug.toLowerCase()
-  );
+    async function loadDetail() {
+      try {
+        setLoading(true);
+        const res = await fetch(`/api/case-studies/${slug}`);
+        const data = await res.json();
+        if (data.success && data.data) {
+          const d = data.data;
+          setStudy({
+            title: d.title,
+            client: d.client,
+            category: d.category,
+            timeline: d.duration || d.timeline || '8 Weeks',
+            tagline: d.shortDescription || d.tagline || '',
+            results:
+              d.metrics && d.metrics.length > 0
+                ? d.metrics
+                : d.results || [],
+            deliverables: d.deliverables || [],
+            tags: d.tags || [],
+            link: d.link || '#',
+            markdown: d.markdown || '',
+          });
+          setNotFoundState(false);
+        } else {
+          setNotFoundState(true);
+          setStudy(null);
+        }
+      } catch (err) {
+        console.error('Failed to fetch case study from CMS:', err);
+        setNotFoundState(true);
+        setStudy(null);
+      } finally {
+        setLoading(false);
+      }
+    }
 
-  if (currentIndex === -1) {
+    loadDetail();
+  }, [slug]);
+
+  if (notFoundState) {
     notFound();
   }
 
-  const study = caseStudiesData[currentIndex];
-  const markdownContent =
-    CASE_STUDY_MARKDOWN[study.id.toLowerCase()] ||
-    CASE_STUDY_MARKDOWN[slug.toLowerCase()] ||
-    '';
+  if (loading || !study) {
+    return (
+      <main className="w-full min-h-screen bg-light text-dark flex items-center justify-center">
+        <Navbar />
+        <div className="text-center font-jakarta text-gray-500">
+          Loading case study...
+        </div>
+      </main>
+    );
+  }
+
+  const markdownContent = study.markdown || '';
 
   return (
     <main className="w-full min-h-screen bg-light text-dark selection:bg-accent selection:text-light">
@@ -166,30 +221,32 @@ export default function CaseStudyDetailPage({ params }: CaseStudyPageProps) {
         </div>
 
         {/* Key Metrics Row (Horizontally Centered, Unboxed, Animated Count-Up) */}
-        <div
-          className={`w-full grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 md:gap-10 py-10 sm:py-12 md:py-14 border-b border-dark/15 transition-all duration-700 ease-out transform-gpu ${
-            mounted ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'
-          }`}
-          style={{ transitionDelay: '450ms' }}
-        >
-          {study.results.map((res, idx) => (
-            <div
-              key={idx}
-              className="w-full flex flex-col items-center text-center justify-center"
-            >
-              <span className="font-bebas text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-dark leading-none select-none tabular-nums">
-                <CountUpMetric
-                  value={res.value}
-                  mounted={mounted}
-                  delay={550 + idx * 120}
-                />
-              </span>
-              <span className="font-ibm-mono text-xs sm:text-sm uppercase tracking-wider text-[#666666] font-semibold mt-2 sm:mt-3 text-center">
-                {res.label}
-              </span>
-            </div>
-          ))}
-        </div>
+        {study.results && study.results.length > 0 && (
+          <div
+            className={`w-full flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-14 md:gap-20 lg:gap-28 py-10 sm:py-12 md:py-14 border-b border-dark/15 transition-all duration-700 ease-out transform-gpu ${
+              mounted ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'
+            }`}
+            style={{ transitionDelay: '450ms' }}
+          >
+            {study.results.map((res, idx) => (
+              <div
+                key={idx}
+                className="w-full sm:w-auto sm:flex-1 sm:max-w-[300px] flex flex-col items-center text-center justify-center"
+              >
+                <span className="font-bebas text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-dark leading-none select-none tabular-nums">
+                  <CountUpMetric
+                    value={res.value}
+                    mounted={mounted}
+                    delay={550 + idx * 120}
+                  />
+                </span>
+                <span className="font-ibm-mono text-xs sm:text-sm uppercase tracking-wider text-[#666666] font-semibold mt-2 sm:mt-3 text-center">
+                  {res.label}
+                </span>
+              </div>
+            ))}
+          </div>
+        )}
 
         {/* Deep-Dive Narrative Section */}
         <div
@@ -238,8 +295,12 @@ export default function CaseStudyDetailPage({ params }: CaseStudyPageProps) {
                   </span>
                   <ul className="space-y-2">
                     {study.deliverables.map((item, dIdx) => (
-                      <li key={dIdx} className="text-xs sm:text-sm font-jakarta text-[#555555] font-medium leading-relaxed">
-                        {item}
+                      <li
+                        key={dIdx}
+                        className="flex items-start gap-2 text-xs sm:text-sm font-jakarta text-dark font-medium leading-relaxed"
+                      >
+                        <span className="text-dark select-none text-sm leading-none mt-1 shrink-0">•</span>
+                        <span>{item}</span>
                       </li>
                     ))}
                   </ul>

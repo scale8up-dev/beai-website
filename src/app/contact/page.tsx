@@ -112,20 +112,46 @@ export default function ContactPage() {
 
   const isSubmitDisabled = isSubmitting || !isFormValid;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!isFormValid || isSubmitting) return;
+
     setIsSubmitting(true);
     setStatus('idle');
-    setTimeout(() => {
-      setIsSubmitting(false);
-      // Simulating failed state as requested for testing
+
+    try {
+      const response = await fetch('https://formspree.io/f/xnnloyna', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          company: formData.company,
+          message: formData.message,
+        }),
+      });
+
+      if (response.ok) {
+        setStatus('success');
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          company: '',
+          message: '',
+        });
+      } else {
+        setStatus('error');
+      }
+    } catch {
       setStatus('error');
-      // Fields are preserved (not cleared) on error
-      setTimeout(() => {
-        setStatus('idle');
-      }, 5000);
-    }, 2000);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -290,10 +316,12 @@ export default function ContactPage() {
                 {/* Input Fields Row: Name & Email */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="flex flex-col space-y-1.5">
-                    <label className="font-ibm-mono text-xs uppercase tracking-wider text-dark/70 font-semibold">
+                    <label htmlFor="contact-name" className="font-ibm-mono text-xs uppercase tracking-wider text-dark/70 font-semibold">
                       Your Name *
                     </label>
                     <input
+                      id="contact-name"
+                      name="name"
                       type="text"
                       required
                       placeholder="Alex Morgan"
@@ -306,10 +334,12 @@ export default function ContactPage() {
                     />
                   </div>
                   <div className="flex flex-col space-y-1.5">
-                    <label className="font-ibm-mono text-xs uppercase tracking-wider text-dark/70 font-semibold">
+                    <label htmlFor="contact-email" className="font-ibm-mono text-xs uppercase tracking-wider text-dark/70 font-semibold">
                       Work Email *
                     </label>
                     <input
+                      id="contact-email"
+                      name="email"
                       type="email"
                       required
                       placeholder="alex@company.com"
@@ -330,10 +360,12 @@ export default function ContactPage() {
                 {/* Input Fields Row: Phone & Company */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="flex flex-col space-y-1.5">
-                    <label className="font-ibm-mono text-xs uppercase tracking-wider text-dark/70 font-semibold">
+                    <label htmlFor="contact-phone" className="font-ibm-mono text-xs uppercase tracking-wider text-dark/70 font-semibold">
                       Phone Number
                     </label>
                     <input
+                      id="contact-phone"
+                      name="phone"
                       type="tel"
                       placeholder="+1 (555) 000-0000"
                       value={formData.phone}
@@ -345,10 +377,12 @@ export default function ContactPage() {
                     />
                   </div>
                   <div className="flex flex-col space-y-1.5">
-                    <label className="font-ibm-mono text-xs uppercase tracking-wider text-dark/70 font-semibold">
+                    <label htmlFor="contact-company" className="font-ibm-mono text-xs uppercase tracking-wider text-dark/70 font-semibold">
                       Company / Organization
                     </label>
                     <input
+                      id="contact-company"
+                      name="company"
                       type="text"
                       placeholder="Acme Ventures or Stealth Startup"
                       value={formData.company}
@@ -363,10 +397,12 @@ export default function ContactPage() {
 
                 {/* Message Textarea */}
                 <div className="flex flex-col space-y-1.5">
-                  <label className="font-ibm-mono text-xs uppercase tracking-wider text-dark/70 font-semibold">
+                  <label htmlFor="contact-message" className="font-ibm-mono text-xs uppercase tracking-wider text-dark/70 font-semibold">
                     Project Overview / Objectives *
                   </label>
                   <textarea
+                    id="contact-message"
+                    name="message"
                     required
                     rows={4}
                     placeholder="Tell us about what you want to achieve, timeline, and key technical goals..."
@@ -400,7 +436,7 @@ export default function ContactPage() {
                   >
                     {status === 'error'
                       ? 'Something went wrong. Please try again or email us directly.'
-                      : 'Message received, we\'ll get back to you shortly'}
+                      : "Message received, we'll get back to you shortly"}
                   </p>
                 </div>
               </form>

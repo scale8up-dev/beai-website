@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Bebas_Neue, Plus_Jakarta_Sans, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
-import DevToolbar from "@/components/DevToolbar";
-import CursorFollower from "@/components/CursorFollower";
+import SiteOverlays from "@/components/SiteOverlays";
 import ResizeHandler from "@/components/ResizeHandler";
+import SmoothScroll from "@/components/SmoothScroll";
 
 const bebasNeue = Bebas_Neue({
   weight: "400",
@@ -26,8 +26,16 @@ export const metadata: Metadata = {
   title: "Business Evolution AI",
   description: "Next.js App Router with TypeScript and Tailwind CSS v4",
   icons: {
-    icon: '/brand/icon.svg',
-    apple: '/brand/favicon.png',
+    icon: [
+      { url: '/brand/tab-icon.svg', type: 'image/svg+xml' },
+      { url: '/brand/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/brand/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon.ico', sizes: 'any' },
+    ],
+    shortcut: '/brand/tab-icon.svg',
+    apple: [
+      { url: '/brand/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
   },
 };
 
@@ -42,12 +50,10 @@ export default function RootLayout({
       className={`${bebasNeue.variable} ${plusJakartaSans.variable} ${ibmPlexMono.variable}`}
     >
       <body className="relative min-h-screen bg-dark text-[#e2e2dd] antialiased">
-        {/* Grain overlay layer */}
-        <div aria-hidden="true" className="grain-overlay" />
+        <SmoothScroll />
+        <SiteOverlays />
         <ResizeHandler />
-        <CursorFollower />
         {children}
-        <DevToolbar />
       </body>
     </html>
   );

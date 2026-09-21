@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import mongoose from 'mongoose';
 import connectToDatabase from '@/lib/mongodb';
 import CaseStudy from '@/models/CaseStudy';
 import { getAuthUser } from '@/lib/auth';
@@ -12,7 +13,19 @@ export async function GET(request: NextRequest, context: RouteContext) {
     const { id } = await context.params;
     await connectToDatabase();
 
-    const caseStudy = await CaseStudy.findById(id).lean();
+    let caseStudy = null;
+    if (mongoose.Types.ObjectId.isValid(id)) {
+      caseStudy = await CaseStudy.findById(id).lean();
+    }
+    if (!caseStudy) {
+      caseStudy = await CaseStudy.findOne({
+        $or: [
+          { slug: id.toLowerCase() },
+          { title: { $regex: new RegExp(`^${id.replace(/-/g, ' ')}$`, 'i') } },
+        ],
+      }).lean();
+    }
+
     if (!caseStudy) {
       return NextResponse.json(
         { success: false, error: 'Case study not found' },
@@ -47,6 +60,7 @@ export async function PUT(request: NextRequest, context: RouteContext) {
     const body = await request.json();
     const {
       title,
+      cardTitle,
       client,
       shortDescription,
       metrics,
@@ -61,6 +75,15 @@ export async function PUT(request: NextRequest, context: RouteContext) {
 
     const updateData: Record<string, unknown> = {};
     if (title !== undefined) updateData.title = title.trim();
+    if (cardTitle !== undefined) {
+      if (cardTitle.trim().length > 25) {
+        return NextResponse.json(
+          { success: false, error: 'Card title cannot exceed 25 characters.' },
+          { status: 400 }
+        );
+      }
+      updateData.cardTitle = cardTitle.trim().slice(0, 25);
+    }
     if (client !== undefined) updateData.client = client.trim();
     if (shortDescription !== undefined) {
       if (shortDescription.trim().length > 150) {
@@ -84,13 +107,30 @@ export async function PUT(request: NextRequest, context: RouteContext) {
     }
     if (link !== undefined) updateData.link = link.trim();
     if (markdown !== undefined) updateData.markdown = markdown.trim();
+    if (body.slug !== undefined) {
+      updateData.slug = body.slug.trim().toLowerCase();
+    } else if (title !== undefined) {
+      updateData.slug = title
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/(^-|-$)/g, '');
+    }
     if (order !== undefined) updateData.order = Number(order);
 
-    const updatedCaseStudy = await CaseStudy.findByIdAndUpdate(
-      id,
-      { $set: updateData },
-      { new: true, runValidators: true }
-    );
+    let updatedCaseStudy = null;
+    if (mongoose.Types.ObjectId.isValid(id)) {
+      updatedCaseStudy = await CaseStudy.findByIdAndUpdate(
+        id,
+        { $set: updateData },
+        { new: true, runValidators: true }
+      );
+    } else {
+      updatedCaseStudy = await CaseStudy.findOneAndUpdate(
+        { slug: id.toLowerCase() },
+        { $set: updateData },
+        { new: true, runValidators: true }
+      );
+    }
 
     if (!updatedCaseStudy) {
       return NextResponse.json(
@@ -127,7 +167,13 @@ export async function DELETE(request: NextRequest, context: RouteContext) {
     const { id } = await context.params;
     await connectToDatabase();
 
-    const deletedCaseStudy = await CaseStudy.findByIdAndDelete(id);
+    let deletedCaseStudy = null;
+    if (mongoose.Types.ObjectId.isValid(id)) {
+      deletedCaseStudy = await CaseStudy.findByIdAndDelete(id);
+    } else {
+      deletedCaseStudy = await CaseStudy.findOneAndDelete({ slug: id.toLowerCase() });
+    }
+
     if (!deletedCaseStudy) {
       return NextResponse.json(
         { success: false, error: 'Case study not found' },

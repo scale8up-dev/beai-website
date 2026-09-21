@@ -7,6 +7,8 @@ export interface IMetric {
 
 export interface ICaseStudy extends Document {
   title: string;
+  cardTitle?: string;
+  slug?: string;
   client: string;
   shortDescription: string;
   metrics: IMetric[];
@@ -35,6 +37,16 @@ const CaseStudySchema: Schema = new Schema<ICaseStudy>(
       type: String,
       required: [true, 'Case study title is required'],
       trim: true,
+    },
+    cardTitle: {
+      type: String,
+      maxlength: [25, 'Card title cannot exceed 25 characters'],
+      trim: true,
+    },
+    slug: {
+      type: String,
+      trim: true,
+      lowercase: true,
     },
     client: {
       type: String,
@@ -95,6 +107,10 @@ const CaseStudySchema: Schema = new Schema<ICaseStudy>(
     timestamps: true,
   }
 );
+
+if (mongoose.models && mongoose.models.CaseStudy) {
+  delete mongoose.models.CaseStudy;
+}
 
 const CaseStudy: Model<ICaseStudy> =
   mongoose.models.CaseStudy ||

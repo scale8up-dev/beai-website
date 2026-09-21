@@ -199,7 +199,7 @@ export default function AdminLayout({
             </div>
 
             <Link
-              href="/"
+              href="https://www.businessevolutionai.com"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-gray-200 text-xs font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 transition-colors"

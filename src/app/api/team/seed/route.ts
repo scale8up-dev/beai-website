@@ -1,10 +1,19 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import connectToDatabase from '@/lib/mongodb';
 import TeamMember from '@/models/TeamMember';
 import defaultTeam from '@/data/teamList.json';
+import { getAuthUser } from '@/lib/auth';
 
-export async function POST() {
+export async function POST(request: NextRequest) {
   try {
+    const authUser = await getAuthUser(request);
+    if (!authUser) {
+      return NextResponse.json(
+        { success: false, error: 'Unauthorized. Please log in to CMS.' },
+        { status: 401 }
+      );
+    }
+
     await connectToDatabase();
 
     const formattedMembers = defaultTeam.map((m, index) => ({

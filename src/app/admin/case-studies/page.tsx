@@ -32,6 +32,7 @@ interface MetricItem {
 interface CaseStudyItem {
   _id: string;
   title: string;
+  cardTitle?: string;
   client: string;
   shortDescription: string;
   metrics: MetricItem[];
@@ -74,6 +75,7 @@ export default function AdminCaseStudiesPage() {
 
   // Form State
   const [title, setTitle] = useState('');
+  const [cardTitle, setCardTitle] = useState('');
   const [client, setClient] = useState('');
   const [shortDescription, setShortDescription] = useState('');
   const [metrics, setMetrics] = useState<MetricItem[]>([
@@ -152,6 +154,7 @@ export default function AdminCaseStudiesPage() {
   const handleOpenCreate = () => {
     setEditingId(null);
     setTitle('');
+    setCardTitle('');
     setClient('');
     setShortDescription('');
     setMetrics([{ label: '', value: '' }]);
@@ -173,6 +176,7 @@ export default function AdminCaseStudiesPage() {
   const handleOpenEdit = (item: CaseStudyItem) => {
     setEditingId(item._id);
     setTitle(item.title);
+    setCardTitle(item.cardTitle || '');
     setClient(item.client);
     setShortDescription(item.shortDescription);
     setMetrics(
@@ -264,6 +268,11 @@ export default function AdminCaseStudiesPage() {
       return;
     }
 
+    if (cardTitle.trim().length > 25) {
+      showToast('Card title cannot exceed 25 characters.', 'error');
+      return;
+    }
+
     if (shortDescription.trim().length > 150) {
       showToast('Short description cannot exceed 150 characters.', 'error');
       return;
@@ -276,6 +285,7 @@ export default function AdminCaseStudiesPage() {
 
     const payload = {
       title: title.trim(),
+      cardTitle: cardTitle.trim().slice(0, 25),
       client: client.trim(),
       shortDescription: shortDescription.trim(),
       metrics: cleanMetrics,
@@ -576,7 +586,14 @@ export default function AdminCaseStudiesPage() {
               {filteredStudies.map((cs) => (
                 <tr key={cs._id} className="hover:bg-gray-50/75 transition-colors">
                   <td className="py-3 px-4">
-                    <div className="font-semibold text-gray-900">{cs.title}</div>
+                    <div className="font-semibold text-gray-900 flex items-center gap-2">
+                      <span>{cs.title}</span>
+                      {cs.cardTitle && (
+                        <span className="text-[10px] bg-blue-50 text-blue-700 border border-blue-200 px-1.5 py-0.5 rounded font-mono">
+                          Card: {cs.cardTitle}
+                        </span>
+                      )}
+                    </div>
                     <div className="text-xs text-gray-500 flex items-center gap-1 mt-0.5">
                       <Building2 className="w-3 h-3 text-gray-400" />
                       <span>{cs.client}</span>
@@ -668,8 +685,13 @@ export default function AdminCaseStudiesPage() {
                 </div>
 
                 <div>
-                  <h3 className="font-bold text-gray-900 text-lg line-clamp-1">
-                    {cs.title}
+                  <h3 className="font-bold text-gray-900 text-lg line-clamp-1 flex items-center gap-2">
+                    <span>{cs.title}</span>
+                    {cs.cardTitle && (
+                      <span className="text-[10px] bg-blue-50 text-blue-700 border border-blue-200 px-1.5 py-0.5 rounded font-mono shrink-0">
+                        Card: {cs.cardTitle}
+                      </span>
+                    )}
                   </h3>
                   <div className="text-xs text-gray-500 flex items-center gap-1 mt-0.5">
                     <Building2 className="w-3.5 h-3.5 text-gray-400 shrink-0" />
@@ -775,20 +797,49 @@ export default function AdminCaseStudiesPage() {
             </div>
 
             <form onSubmit={handleSubmitForm} className="space-y-5">
-              {/* Title & Client */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {/* Title, Card Title & Client */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <div>
                   <label className="block text-xs font-semibold text-gray-700 uppercase tracking-wider mb-1">
-                    Title *
+                    Main Title *
                   </label>
                   <input
                     type="text"
                     required
-                    placeholder="e.g. CuerPOWER"
+                    placeholder="e.g. CuerPOWER Adaptive AI Engine"
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-900"
                   />
+                  <span className="text-[10px] text-gray-400 mt-1 block">
+                    Full title on detail page
+                  </span>
+                </div>
+
+                <div>
+                  <div className="flex items-center justify-between mb-1">
+                    <label className="block text-xs font-semibold text-gray-700 uppercase tracking-wider">
+                      Card Title (Max 25)
+                    </label>
+                    <span
+                      className={`text-xs font-mono ${
+                        cardTitle.length > 25 ? 'text-red-600 font-bold' : 'text-gray-400'
+                      }`}
+                    >
+                      {cardTitle.length}/25
+                    </span>
+                  </div>
+                  <input
+                    type="text"
+                    maxLength={25}
+                    placeholder="e.g. CuerPOWER"
+                    value={cardTitle}
+                    onChange={(e) => setCardTitle(e.target.value)}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-900"
+                  />
+                  <span className="text-[10px] text-gray-400 mt-1 block">
+                    Used on overview cards
+                  </span>
                 </div>
 
                 <div>
@@ -803,6 +854,9 @@ export default function AdminCaseStudiesPage() {
                     onChange={(e) => setClient(e.target.value)}
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-900"
                   />
+                  <span className="text-[10px] text-gray-400 mt-1 block">
+                    Client or company name
+                  </span>
                 </div>
               </div>
 
