@@ -117,7 +117,7 @@ export default function ServicesPage() {
         >
           {/* Title at the top */}
           <div className="w-full flex flex-col items-center justify-start pt-2 sm:pt-4">
-            <h1 className="font-bebas text-[36vw] sm:text-[40vw] md:text-[36vw] lg:text-[32vw] xl:text-[440px] 2xl:text-[520px] leading-[0.80] tracking-tighter uppercase text-light flex flex-col items-center gap-1 sm:gap-3 md:gap-4 select-none">
+            <h1 className="font-bebas text-[min(24vw,18vh)] sm:text-[min(24vw,20vh)] md:text-[min(22vw,22vh)] lg:text-[min(18vw,24vh)] xl:text-[min(180px,25vh)] 2xl:text-[min(220px,26vh)] leading-[0.80] tracking-tight uppercase text-light flex flex-col items-center gap-1 sm:gap-2 md:gap-3 select-none">
               <span
                 className={`block transition-all duration-700 ease-out transform-gpu ${
                   mounted ? 'translate-y-0 opacity-100' : 'translate-y-12 sm:translate-y-16 opacity-0'
