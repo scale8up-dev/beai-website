@@ -1,6 +1,5 @@
+import { put } from '@vercel/blob';
 import { NextRequest, NextResponse } from 'next/server';
-import { writeFile, mkdir } from 'fs/promises';
-import path from 'path';
 import { getAuthUser } from '@/lib/auth';
 
 export async function POST(request: NextRequest) {
@@ -49,25 +48,17 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const bytes = await file.arrayBuffer();
-    const buffer = Buffer.from(bytes);
-
-    const uploadDir = path.join(process.cwd(), 'public', 'uploads', 'projects');
-    await mkdir(uploadDir, { recursive: true });
-
     const originalName = file.name.replace(/[^a-zA-Z0-9.-]/g, '_');
-    const timestamp = Date.now();
-    const fileName = `${timestamp}-${originalName}`;
-    const filePath = path.join(uploadDir, fileName);
-
-    await writeFile(filePath, buffer);
-
-    const publicUrl = `/uploads/projects/${fileName}`;
+    const blob = await put(`uploads/projects/${originalName}`, file, {
+      access: 'public',
+      addRandomSuffix: true,
+      contentType: file.type,
+    });
 
     return NextResponse.json({
       success: true,
-      url: publicUrl,
-      fileName,
+      url: blob.url,
+      fileName: blob.pathname,
       message: 'Image uploaded successfully',
     });
   } catch (error: unknown) {
