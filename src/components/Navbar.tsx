@@ -51,12 +51,16 @@ function StaggeredText({
   );
 }
 
+let hasAnimatedNavbar = false;
+
 export default function Navbar() {
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
+  const [isFirstLoad] = useState(() => !hasAnimatedNavbar);
+  const [mounted, setMounted] = useState(() => hasAnimatedNavbar);
 
   useEffect(() => {
+    hasAnimatedNavbar = true;
     setMounted(true);
   }, []);
 
@@ -113,9 +117,11 @@ export default function Navbar() {
             e.preventDefault();
             window.location.href = '/';
           }}
-          className={`flex items-center gap-3 cursor-pointer group transition-all duration-600 ease-out transform-gpu ${mounted ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'
+          className={`flex items-center gap-3 cursor-pointer group transform-gpu ${isFirstLoad
+              ? `transition-all duration-600 ease-out ${mounted ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'}`
+              : 'translate-x-0 opacity-100'
             }`}
-          style={{ transitionDelay: '150ms' }}
+          style={{ transitionDelay: isFirstLoad ? '150ms' : '0ms' }}
         >
           <Image
             src={isDark ? '/brand/icon-light.svg' : '/brand/icon-dark.svg'}
@@ -134,38 +140,55 @@ export default function Navbar() {
           </div>
         </a>
 
-        {/* Center: 3 Hollow Buttons (Viewport Centered, Staggered Top to Bottom Entrance) */}
-        <div className="absolute left-1/2 -translate-x-1/2 hidden md:flex items-center gap-3">
+        {/* Center: 4 Hollow Buttons (Viewport Centered, Staggered Top to Bottom Entrance) */}
+        <div className="absolute left-1/2 -translate-x-1/2 hidden md:flex items-center gap-2 lg:gap-3">
           <div
-            className={`transition-all duration-600 ease-out transform-gpu ${mounted ? 'translate-y-0 opacity-100' : '-translate-y-8 opacity-0'
+            className={`transform-gpu ${isFirstLoad
+                ? `transition-all duration-600 ease-out ${mounted ? 'translate-y-0 opacity-100' : '-translate-y-8 opacity-0'}`
+                : 'translate-y-0 opacity-100'
               }`}
-            style={{ transitionDelay: '300ms' }}
+            style={{ transitionDelay: isFirstLoad ? '300ms' : '0ms' }}
           >
-            <HollowButton text="Services" link="#services" variant={buttonVariant} />
+            <HollowButton text="Services" link="/services" variant={buttonVariant} />
           </div>
           <div
-            className={`transition-all duration-600 ease-out transform-gpu ${mounted ? 'translate-y-0 opacity-100' : '-translate-y-8 opacity-0'
+            className={`transform-gpu ${isFirstLoad
+                ? `transition-all duration-600 ease-out ${mounted ? 'translate-y-0 opacity-100' : '-translate-y-8 opacity-0'}`
+                : 'translate-y-0 opacity-100'
               }`}
-            style={{ transitionDelay: '420ms' }}
+            style={{ transitionDelay: isFirstLoad ? '380ms' : '0ms' }}
           >
-            <HollowButton text="Team" link="#team" variant={buttonVariant} />
+            <HollowButton text="Team" link="/team" variant={buttonVariant} />
           </div>
           <div
-            className={`transition-all duration-600 ease-out transform-gpu ${mounted ? 'translate-y-0 opacity-100' : '-translate-y-8 opacity-0'
+            className={`transform-gpu ${isFirstLoad
+                ? `transition-all duration-600 ease-out ${mounted ? 'translate-y-0 opacity-100' : '-translate-y-8 opacity-0'}`
+                : 'translate-y-0 opacity-100'
               }`}
-            style={{ transitionDelay: '540ms' }}
+            style={{ transitionDelay: isFirstLoad ? '460ms' : '0ms' }}
           >
-            <HollowButton text="Work" link="#work" variant={buttonVariant} />
+            <HollowButton text="Work" link="/work" variant={buttonVariant} />
+          </div>
+          <div
+            className={`transform-gpu ${isFirstLoad
+                ? `transition-all duration-600 ease-out ${mounted ? 'translate-y-0 opacity-100' : '-translate-y-8 opacity-0'}`
+                : 'translate-y-0 opacity-100'
+              }`}
+            style={{ transitionDelay: isFirstLoad ? '540ms' : '0ms' }}
+          >
+            <HollowButton text="Case Studies" link="/case-studies" variant={buttonVariant} />
           </div>
         </div>
 
         {/* Right side: Contact button + Mobile Menu button (Right to Left Entrance) */}
         <div
-          className={`flex items-center gap-2 sm:gap-3 transition-all duration-600 ease-out transform-gpu ${mounted ? 'translate-x-0 opacity-100' : 'translate-x-10 opacity-0'
+          className={`flex items-center gap-2 sm:gap-3 transform-gpu ${isFirstLoad
+              ? `transition-all duration-600 ease-out ${mounted ? 'translate-x-0 opacity-100' : 'translate-x-10 opacity-0'}`
+              : 'translate-x-0 opacity-100'
             }`}
-          style={{ transitionDelay: '600ms' }}
+          style={{ transitionDelay: isFirstLoad ? '600ms' : '0ms' }}
         >
-          <Button text="Contact" link="#contact" variant={buttonVariant} />
+          <Button text="Contact" link="/contact" variant={buttonVariant} />
           <div className="md:hidden">
             <HollowButton
               text="Menu"
@@ -197,39 +220,46 @@ export default function Navbar() {
           {/* Navigation Links with Kinetic Staggered Character Rise */}
           <nav className="flex flex-col space-y-0.5 text-left py-1">
             <a
-              href="#"
+              href="/"
               onClick={() => setIsMenuOpen(false)}
               className="group w-fit font-bebas text-5xl leading-[0.85] text-dark tracking-wide py-0.5 overflow-hidden"
             >
               <StaggeredText text="Home" isMenuOpen={isMenuOpen} delayIndex={0} />
             </a>
             <a
-              href="#contact"
+              href="/contact"
               onClick={() => setIsMenuOpen(false)}
               className="group w-fit font-bebas text-5xl leading-[0.85] text-dark tracking-wide py-0.5 overflow-hidden"
             >
               <StaggeredText text="Contact" isMenuOpen={isMenuOpen} delayIndex={1} />
             </a>
             <a
-              href="#services"
+              href="/services"
               onClick={() => setIsMenuOpen(false)}
               className="group w-fit font-bebas text-5xl leading-[0.85] text-dark tracking-wide py-0.5 overflow-hidden"
             >
               <StaggeredText text="Services" isMenuOpen={isMenuOpen} delayIndex={2} />
             </a>
             <a
-              href="#team"
+              href="/team"
               onClick={() => setIsMenuOpen(false)}
               className="group w-fit font-bebas text-5xl leading-[0.85] text-dark tracking-wide py-0.5 overflow-hidden"
             >
               <StaggeredText text="Team" isMenuOpen={isMenuOpen} delayIndex={3} />
             </a>
             <a
-              href="#work"
+              href="/work"
               onClick={() => setIsMenuOpen(false)}
               className="group w-fit font-bebas text-5xl leading-[0.85] text-dark tracking-wide py-0.5 overflow-hidden"
             >
               <StaggeredText text="Work" isMenuOpen={isMenuOpen} delayIndex={4} />
+            </a>
+            <a
+              href="/case-studies"
+              onClick={() => setIsMenuOpen(false)}
+              className="group w-fit font-bebas text-5xl leading-[0.85] text-dark tracking-wide py-0.5 overflow-hidden"
+            >
+              <StaggeredText text="Case Studies" isMenuOpen={isMenuOpen} delayIndex={5} />
             </a>
           </nav>
         </div>

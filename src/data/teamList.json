@@ -1,0 +1,44 @@
+[
+  {
+    "id": "domingo",
+    "name": "Domingo M. Silvas III",
+    "role": "CEO & Founder",
+    "department": "Executive Leadership",
+    "bio": "Visionary entrepreneur who has built and scaled ventures to eight-figure valuations across global markets.",
+    "image": "/team/domingo.svg",
+    "index": "01",
+    "tags": ["Ventures Scaling", "Global Strategy", "AI Commercialization"],
+    "stat": {
+      "value": "8-Figure",
+      "label": "Ventures Scaled"
+    }
+  },
+  {
+    "id": "hamza",
+    "name": "Hamza Adnan",
+    "role": "CTO and Founder",
+    "department": "AI & Systems Engineering",
+    "bio": "Machine Learning Engineer expert in GenAI, LLMs, and MLOps. AWS Solutions Architect building scalable AI-powered systems.",
+    "image": "/team/hamza.svg",
+    "index": "02",
+    "tags": ["GenAI & LLMs", "MLOps Architecture", "AWS Solutions"],
+    "stat": {
+      "value": "Top 1%",
+      "label": "AI Architecture"
+    }
+  },
+  {
+    "id": "gregory",
+    "name": "Gregory Vaughn",
+    "role": "COO - Director of Operations",
+    "department": "Operational Excellence",
+    "bio": "Over 30 years of leadership in large-scale project management, ensuring operational excellence and scalable AI solutions with measurable impact.",
+    "image": "/team/gregory.svg",
+    "index": "03",
+    "tags": ["Operations", "Large-Scale PM", "Strategic Execution"],
+    "stat": {
+      "value": "30+ Yrs",
+      "label": "Leadership Impact"
+    }
+  }
+]

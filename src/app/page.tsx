@@ -6,6 +6,7 @@ import AboutSection from "@/components/AboutSection";
 import HighlightsSection from "@/components/HighlightsSection";
 import FaqSection from "@/components/FaqSection";
 import CtaSection from "@/components/CtaSection";
+import Footer from "@/components/Footer";
 
 export default function HomePage() {
   return (
@@ -18,6 +19,7 @@ export default function HomePage() {
       <HighlightsSection />
       <FaqSection />
       <CtaSection />
+      <Footer />
     </main>
   );
 }

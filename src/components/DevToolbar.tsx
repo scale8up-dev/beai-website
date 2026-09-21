@@ -153,16 +153,14 @@ export default function DevToolbar() {
 
                     <div className="space-y-2">
                       <div
-                        className={`${font.fontClass} text-2xl text-white tracking-wide leading-tight ${
-                          isUpper ? 'uppercase' : ''
-                        }`}
+                        className={`${font.fontClass} text-2xl text-white tracking-wide leading-tight ${isUpper ? 'uppercase' : ''
+                          }`}
                       >
                         {SAMPLE_TEXT}
                       </div>
                       <div
-                        className={`${font.fontClass} text-base text-[#E0DED9]/70 ${
-                          isUpper ? 'uppercase tracking-widest' : ''
-                        }`}
+                        className={`${font.fontClass} text-base text-[#E0DED9]/70 ${isUpper ? 'uppercase tracking-widest' : ''
+                          }`}
                       >
                         {isUpper
                           ? 'ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789'

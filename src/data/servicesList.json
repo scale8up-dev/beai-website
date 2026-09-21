@@ -1,42 +1,57 @@
 [
   {
-    "id": "design",
-    "title": "Design",
-    "description": "Every successful website starts with a clear plan. Guided by this plan, I design websites that evoke emotions, build trust, and strategically turn visitors into customers.",
+    "id": "ai-software",
+    "title": "AI & Software Development",
+    "mobileTitle": "Software Development",
+    "description": "Our core specialty is designing, building, deploying, and operating complete digital products and AI systems, from machine learning models and user experience through cloud infrastructure and production delivery.",
     "list": [
-      "Customer Journey",
-      "Design Concept",
-      "Responsive Design"
+      "Machine Learning, GenAI, NLP, and Computer Vision",
+      "Custom Web and Mobile Product Development",
+      "UI/UX Research, Prototyping, and Design Systems",
+      "Cloud Architecture, DevOps, and CI/CD",
+      "MLOps, Model Deployment, and Monitoring",
+      "APIs, Platform Integrations, and Automation",
+      "Data Engineering and Predictive Analytics",
+      "Quality Engineering, Security, and Performance"
     ]
   },
   {
-    "id": "development",
-    "title": "Development",
-    "description": "I transform the design into a living, fluid web experience. With Framer, I build everything to load fast, run stable, and allow you to update content yourself anytime.",
+    "id": "ai-strategy",
+    "title": "AI Strategy",
+    "description": "We identify where AI can create meaningful value, define the priorities, and turn them into a practical roadmap your team can execute.",
     "list": [
-      "Framer Development",
-      "CMS Integration",
-      "Custom Interactions"
+      "AI Opportunity Discovery",
+      "Prioritized AI Roadmaps",
+      "AI Strategy Consulting",
+      "Transformation Planning",
+      "Product and Workflow Definition"
     ]
   },
   {
-    "id": "seo",
-    "title": "SEO",
-    "description": "Your website shouldn't just look good, but it should also be found. I optimize your website so you generate more organic traffic and reach your target audience.",
+    "id": "marketing-growth",
+    "title": "Marketing & Growth Systems",
+    "mobileTitle": "Marketing",
+    "description": "We build and manage the connected marketing engine behind predictable growth, from demand generation and lead capture through nurture, sales conversion, attribution, and reporting.",
     "list": [
-      "Technical SEO",
-      "On-Page Optimization",
-      "Keyword Research"
+      "GoHighLevel Setup and Optimization",
+      "Lead Generation and Paid Media",
+      "Funnels and Conversion Journeys",
+      "CRM and Pipeline Automation",
+      "Email and SMS Nurture",
+      "Conversion Rate Optimization",
+      "Attribution, Dashboards, and Reporting"
     ]
   },
   {
-    "id": "automation",
-    "title": "AI & Automation",
-    "description": "We integrate cutting-edge AI features and custom automated workflows into your applications to save hours of manual effort and skyrocket productivity.",
+    "id": "client-success",
+    "title": "Client Success",
+    "description": "We stay accountable after launch with implementation support, proactive optimization, and clear ownership of the work ahead.",
     "list": [
-      "AI Workflow Integration",
-      "Custom LLM Pipelines",
-      "Process Automation"
+      "Guided Implementation",
+      "Ongoing Technical Support",
+      "Performance Optimization",
+      "Account Management",
+      "Continuous Improvement"
     ]
   }
 ]

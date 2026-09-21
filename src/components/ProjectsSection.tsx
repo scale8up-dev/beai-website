@@ -1,8 +1,28 @@
-import React from 'react';
+'use client';
+
+import React, { useState, useEffect } from 'react';
 import Project from './Project';
-import projectsData from '@/data/projectsList.json';
+import Button from './Button';
+import defaultProjects from '@/data/projectsList.json';
 
 export default function ProjectsSection() {
+  const [projects, setProjects] = useState(defaultProjects);
+
+  useEffect(() => {
+    async function loadProjects() {
+      try {
+        const res = await fetch('/api/projects');
+        const data = await res.json();
+        if (data.success && Array.isArray(data.data) && data.data.length > 0) {
+          setProjects(data.data);
+        }
+      } catch (err) {
+        console.error('Failed to fetch projects from API:', err);
+      }
+    }
+    loadProjects();
+  }, []);
+
   return (
     <section
       id="projects"
@@ -27,11 +47,28 @@ export default function ProjectsSection() {
         </div>
       </div>
 
-      {/* Projects List Container - Full Width */}
+      {/* Projects List Container - Full Width (Capped at 5) */}
       <div className="w-full flex flex-col pt-14 md:pt-20">
-        {projectsData.map((item) => (
-          <Project key={item.id} project={item} />
+        {projects.slice(0, 5).map((item) => (
+          <Project
+            key={
+              ('id' in item ? item.id : undefined) ||
+              ('_id' in item ? String((item as { _id?: string })._id) : undefined) ||
+              ('name' in item ? (item as { name?: string }).name : undefined)
+            }
+            project={item}
+          />
         ))}
+      </div>
+
+      {/* See All Projects Button */}
+      <div className="w-full flex justify-center items-center pt-10 sm:pt-14 pb-4 sm:pb-6">
+        <Button
+          text="SEE ALL PROJECTS"
+          link="/work"
+          size="lg"
+          className="px-8 sm:px-10 h-[48px] sm:h-[54px] text-xl sm:text-2xl"
+        />
       </div>
     </section>
   );

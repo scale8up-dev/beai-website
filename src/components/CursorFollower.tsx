@@ -103,12 +103,12 @@ export default function CursorFollower() {
         isVisible ? 'opacity-100' : 'opacity-0'
       } ${
         isExpanded
-          ? 'w-[72px] h-[30px] rounded-md shadow-sm'
+          ? 'w-auto px-3.5 h-[32px] rounded-md shadow-sm'
           : 'w-3.5 h-3.5 rounded-sm'
       }`}
     >
       {cursorText && (
-        <span className="font-bebas text-base sm:text-lg leading-none tracking-wider uppercase text-black text-center select-none whitespace-nowrap translate-y-[1.5px]">
+        <span className="font-bebas text-base sm:text-lg leading-none tracking-wider uppercase text-black text-center select-none whitespace-nowrap translate-y-[1.5px] px-0.5">
           {cursorText}
         </span>
       )}

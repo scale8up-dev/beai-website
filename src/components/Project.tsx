@@ -5,11 +5,14 @@ import Image from 'next/image';
 
 export interface ProjectData {
   id?: string;
+  _id?: string;
   year: string;
   tag: string;
-  title: string;
+  title?: string;
+  name?: string;
   link: string;
   imageLink?: string;
+  image?: string;
 }
 
 export interface ProjectProps {
@@ -49,9 +52,9 @@ export default function Project({
 }: ProjectProps) {
   const itemYear = year || project?.year || '';
   const itemTag = tag || project?.tag || '';
-  const itemTitle = title || project?.title || '';
+  const itemTitle = title || project?.title || project?.name || '';
   const itemLink = link || project?.link || '#';
-  const itemImage = imageLink || project?.imageLink || '';
+  const itemImage = imageLink || project?.imageLink || project?.image || '';
 
   return (
     <a
@@ -79,7 +82,7 @@ export default function Project({
               alt={itemTitle}
               fill
               className="object-cover"
-              sizes="100vw"
+              sizes="(max-width: 768px) calc(100vw - 32px), 350px"
             />
           </div>
         )}

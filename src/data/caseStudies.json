@@ -1,0 +1,224 @@
+[
+  {
+    "id": "cuerpower",
+    "title": "CuerPOWER",
+    "client": "CuerPOWER Inc.",
+    "category": "AI & HealthTech",
+    "timeline": "10 Weeks",
+    "tagline": "24/7 intelligent AI coach for fitness, nutrition, and personalized habit accountability.",
+    "summary": "We engineered an intelligent, conversational AI coach integrated with wearable data to deliver real-time personalized guidance on nutrition, fitness regimens, and daily accountability.",
+    "challenge": "Generic fitness apps suffered from high churn and lacked true conversational personalization. Users needed adaptive daily encouragement and immediate answers to nutrition questions based on dynamic workout history and biometric feedback.",
+    "solution": "Built a custom multi-agent LLM pipeline combining retrieval-augmented generation (RAG) with user biometric tracking, instant meal logging via computer vision, and adaptive weekly routine calibrations.",
+    "overview": "CuerPOWER is a next-generation health companion engineered to bridge the gap between static workout trackers and human personal trainers. By synthesizing continuous health metrics from wearables with proprietary nutrition intelligence models, the platform delivers context-aware, empathetic, and actionable coaching in real-time.",
+    "deliverables": [
+      "Multi-agent conversational LLM coaching pipeline",
+      "Cross-platform iOS & Android application in React Native",
+      "Sub-350ms RAG knowledge retrieval backend in FastAPI",
+      "Automated biometric data aggregation & caloric sync microservice",
+      "Real-time streak retention & intelligent push notification engine"
+    ],
+    "architecture": [
+      "Hybrid RAG architecture combining Milvus vector embeddings with structured relational telemetry",
+      "Asynchronous message streaming over WebSockets for zero-perceived-latency AI responses",
+      "End-to-end HIPAA-compliant encrypted user data pipelines hosted on AWS ECS"
+    ],
+    "testimonial": {
+      "quote": "Business Evolution AI transformed our vision into an intuitive, lightning-fast product that our users genuinely engage with multiple times every single day.",
+      "author": "Marcus Vance",
+      "role": "Founder & CEO, CuerPOWER"
+    },
+    "results": [
+      { "label": "Active Retention", "value": "92%" },
+      { "label": "Daily Interactions", "value": "4.8x" },
+      { "label": "Response Latency", "value": "<350ms" }
+    ],
+    "tags": ["AI Coach", "NLP", "React Native", "FastAPI", "Python"],
+    "image": "/slideshow/1.jpg",
+    "link": "https://cuerpower.app/"
+  },
+  {
+    "id": "primeagefit",
+    "title": "PrimeAgeFit",
+    "client": "Prime Age Fit, LLC",
+    "category": "AI Fitness & Wellness",
+    "timeline": "12 Weeks",
+    "tagline": "Hyper-personalized adaptive fitness and nutrition plans tailored for individuals over 40.",
+    "summary": "Developed a full-stack digital product and intelligent algorithmic engine that adapts exercise loads, joint-friendly workouts, and metabolic nutrition tracking for longevity-focused fitness.",
+    "challenge": "Most fitness platforms focus on high-impact workouts unsuitable for mature adults. The client required an intuitive interface with strict biomechanical safety rules, progressive overload prevention, and custom AI progression curves.",
+    "solution": "Architected a React and Node.js platform with specialized ML models trained on longevity exercise science, automatic form coaching, and GoHighLevel client retention automation.",
+    "overview": "PrimeAgeFit addresses the specific physiological demands of fitness enthusiasts over 40. The platform replaces generic high-impact workout libraries with a dynamic routine generator that factors in joint history, recovery scores, and metabolic targets to optimize longevity without injury.",
+    "deliverables": [
+      "Custom algorithmic workout planner tailored to joint load tolerances",
+      "High-converting Next.js responsive web application & member dashboard",
+      "Automated client onboarding and retention workflows via GoHighLevel",
+      "Video stream library with low-latency CDN delivery",
+      "Tiered membership subscription billing via Stripe"
+    ],
+    "architecture": [
+      "Serverless architecture with Next.js App Router and PostgreSQL on Supabase",
+      "Automated event webhooks triggering personalized SMS and email accountability flows",
+      "Edge-cached content delivery ensuring instant page loads globally"
+    ],
+    "testimonial": {
+      "quote": "Our membership conversion skyrocketed after launching the new platform. The attention to detail and user flow is second to none.",
+      "author": "Elena Rostova",
+      "role": "Co-Founder, Prime Age Fit"
+    },
+    "results": [
+      { "label": "Member Growth", "value": "310%" },
+      { "label": "Workout Completion", "value": "88%" },
+      { "label": "App Store Rating", "value": "4.9" }
+    ],
+    "tags": ["React", "Node.js", "AI Fitness", "PostgreSQL", "AWS"],
+    "image": "/slideshow/2.jpg",
+    "link": "https://primeagefit.com/"
+  },
+  {
+    "id": "praxis-media",
+    "title": "Praxis Media",
+    "client": "Praxis AI Media",
+    "category": "GenAI & Publishing",
+    "timeline": "8 Weeks",
+    "tagline": "Interactive AI reading experience providing instant semantic search and deep insights.",
+    "summary": "Transformed long-form literature and educational content into interactive, querying knowledge bases where readers can converse with documents, extract concepts, and explore citations in real-time.",
+    "challenge": "Navigating complex research and lengthy books caused reader fatigue. Static PDF and e-book formats offered no contextual understanding, cross-referencing capabilities, or interactive synthesis.",
+    "solution": "Engineered a vector embedding retrieval architecture using Milvus, LangChain, and a responsive reading UI with instant chapter summaries, entity graphs, and personalized AI comprehension tutors.",
+    "overview": "Praxis Media redefines how knowledge workers interact with deep literature. By indexing entire book corpora and technical papers into vector spaces, users can pose natural language queries, generate comparative synthesis across chapters, and receive sourced citations instantly.",
+    "deliverables": [
+      "Interactive reader interface with synchronized contextual AI assistant",
+      "High-throughput vector indexing pipeline for multi-format publications",
+      "Semantic search engine with millisecond keyword & concept matching",
+      "Automated AI synthesis, study guides, and executive chapter briefs",
+      "User highlight sync and cloud-based knowledge graph visualizer"
+    ],
+    "architecture": [
+      "LangChain and Milvus vector clustering with semantic chunking algorithms",
+      "FastAPI microservice handling document chunking, embeddings, and token streaming",
+      "Next.js frontend with optimistic UI updates and dark/light reading modes"
+    ],
+    "testimonial": {
+      "quote": "The platform has transformed how our readers digest dense literature. It turns passive reading into an active dialogue.",
+      "author": "Julian Thorne",
+      "role": "Chief Editor, Praxis AI Media"
+    },
+    "results": [
+      { "label": "Reading Speed", "value": "+65%" },
+      { "label": "Knowledge Retention", "value": "3.4x" },
+      { "label": "User Engagement", "value": "42m/day" }
+    ],
+    "tags": ["React", "Vector DB", "LangChain", "NLP", "TypeScript"],
+    "image": "/slideshow/3.jpg",
+    "link": "https://praxisaimedia.com/"
+  },
+  {
+    "id": "strategic-divorce-directory",
+    "title": "Strategic Divorce Directory",
+    "client": "Positive Communication Systems",
+    "category": "Enterprise Directory & SaaS",
+    "timeline": "6 Weeks",
+    "tagline": "High-trust nationwide directory connecting individuals with vetted family law and mediation experts.",
+    "summary": "Designed and deployed a modern, secure directory platform featuring intelligent geo-location matching, automated lead distribution, and seamless CRM integrations.",
+    "challenge": "The client needed a trustworthy, lightning-fast directory platform that could handle high-intent leads, protect sensitive user confidentiality, and integrate directly with GoHighLevel marketing automations.",
+    "solution": "Built a high-performance Next.js and PostgreSQL platform with multi-tiered membership subscriptions, automated review validation, and instant appointment booking workflows.",
+    "overview": "Strategic Divorce Directory is an authoritative nationwide resource designed to simplify connecting families with specialized legal and financial mediators during life transitions. The platform ensures strict privacy standards while maximizing lead qualification efficiency.",
+    "deliverables": [
+      "Nationwide verified expert directory with zip-code radius proximity lookup",
+      "Multi-tier professional subscription onboarding with Stripe billing",
+      "Automated lead routing and CRM synchronization via GoHighLevel",
+      "Client inquiry screening system with fraud protection and rate limiting",
+      "SEO-optimized directory pages generating organic search traffic"
+    ],
+    "architecture": [
+      "Next.js App Router with Server-Side Rendering (SSR) for instant SEO indexing",
+      "PostgreSQL database on AWS RDS with spatial PostGIS querying",
+      "Bidirectional GoHighLevel REST API integration for real-time lead capture"
+    ],
+    "testimonial": {
+      "quote": "The directory launched seamlessly on schedule. We saw immediate inbound volume and received universal praise from our listing attorneys.",
+      "author": "David Callahan",
+      "role": "Director of Operations, Positive Communication Systems"
+    },
+    "results": [
+      { "label": "Verified Experts", "value": "1,200+" },
+      { "label": "Match Rate", "value": "96%" },
+      { "label": "Search Speed", "value": "45ms" }
+    ],
+    "tags": ["Next.js", "PostgreSQL", "AWS", "GoHighLevel", "Stripe"],
+    "image": "/slideshow/4.png",
+    "link": "https://stage.strategicdivorcedirectory.com/"
+  },
+  {
+    "id": "foreclosurebid-ai",
+    "title": "Foreclosurebid AI",
+    "client": "ForeclosureBid Technologies",
+    "category": "PropTech & Predictive AI",
+    "timeline": "14 Weeks",
+    "tagline": "AI-driven real estate rankings, risk analysis, and automated market insights nationwide.",
+    "summary": "Created an algorithmic property scoring platform that aggregates county auction datasets, predicts auction margins, and generates automated risk scores for institutional real estate investors.",
+    "challenge": "Real estate auction data is fragmented across thousands of county portals with missing metadata, unrecorded liens, and volatile pricing histories, making manual valuation painfully slow and risky.",
+    "solution": "Developed automated ETL web scrapers, computer vision for property image inspection, and gradient-boosted pricing models to evaluate over 500,000 active foreclosures daily.",
+    "overview": "Foreclosurebid AI empowers distressed asset funds and real estate investors with predictive intelligence. By unifying county recorder datasets, tax liens, neighborhood velocity, and satellite imagery, the platform surfaces high-alpha auction opportunities in minutes.",
+    "deliverables": [
+      "Distributed ETL scraper pipelines pulling county auction feeds across 48 states",
+      "Proprietary predictive valuation & repair cost estimation ML model",
+      "Interactive map dashboard with spatial filtering and risk HeatMaps",
+      "Institutional portfolio export tools and automated deal alert webhooks",
+      "Enterprise multi-seat tenant management and permissioning"
+    ],
+    "architecture": [
+      "Python microservices orchestrated with Celery and Redis message queues",
+      "PostgreSQL data warehouse with spatial geometry indexing",
+      "Modern React and Tailwind frontend with WebGL map rendering"
+    ],
+    "testimonial": {
+      "quote": "Foreclosurebid AI reduced our deal evaluation timeframe from days to seconds. The data accuracy is unmatched in the industry.",
+      "author": "Harrison Reid",
+      "role": "Managing Partner, Beacon Hill Capital"
+    },
+    "results": [
+      { "label": "Valuation Accuracy", "value": "98.4%" },
+      { "label": "Daily Properties", "value": "500K+" },
+      { "label": "Deal Finding Time", "value": "-80%" }
+    ],
+    "tags": ["Python", "Machine Learning", "Real Estate API", "React", "Docker"],
+    "image": "/slideshow/5.png",
+    "link": "https://foreclosurebidai.com/"
+  },
+  {
+    "id": "cory-ai",
+    "title": "CORY AI Intelligence",
+    "client": "CORY AI Systems",
+    "category": "Enterprise AI Workflow",
+    "timeline": "10 Weeks",
+    "tagline": "Operating environment that turns business methodology into autonomous guided execution.",
+    "summary": "A sophisticated enterprise execution OS that orchestrates multiple autonomous AI agents to manage project lifecycles, draft documentation, and monitor strategic KPIs.",
+    "challenge": "Enterprise teams lost hundreds of hours executing routine operational workflows, manually compiling status updates, and coordinating across fragmented SaaS tools without centralized intelligence.",
+    "solution": "Constructed an event-driven agent orchestration framework with bidirectional CRM/ERP integrations, automated audit logging, and intuitive drag-and-drop workflow builders.",
+    "overview": "CORY AI is a comprehensive enterprise operating environment where autonomous software agents execute complex multi-step standard operating procedures (SOPs). From strategy decks to operational tasking, CORY coordinates organizational intelligence into measurable execution.",
+    "deliverables": [
+      "Autonomous agent workflow engine supporting multi-agent collaboration",
+      "Visual flowchart drag-and-drop SOP editor with live execution monitoring",
+      "Enterprise connector suite for Jira, Slack, Salesforce, and Google Workspace",
+      "Complete compliance auditing logs and deterministic execution controls",
+      "Executive KPI dashboard tracking labor savings and task turnaround"
+    ],
+    "architecture": [
+      "Event-driven architecture with FastAPI, Redis streams, and RabbitMQ",
+      "Stateful agent memory stores utilizing PostgreSQL and Redis cache",
+      "SOC2-compliant audit trails and enterprise role-based access control (RBAC)"
+    ],
+    "testimonial": {
+      "quote": "CORY AI has become the central nervous system for our team. Tasks that took days now resolve autonomously in minutes.",
+      "author": "Sarah Jenkins",
+      "role": "VP of Product, CORY AI Systems"
+    },
+    "results": [
+      { "label": "Task Automation", "value": "74%" },
+      { "label": "Weekly Hours Saved", "value": "18h/user" },
+      { "label": "Deployment Time", "value": "<1 Day" }
+    ],
+    "tags": ["React", "Agentic AI", "FastAPI", "Redis", "Cloud"],
+    "image": "/slideshow/1.jpg",
+    "link": "https://coryai.io/"
+  }
+]

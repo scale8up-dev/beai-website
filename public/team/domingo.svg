@@ -1,0 +1,39 @@
+<svg width="600" height="600" viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="600" fill="#141414"/>
+  
+  <!-- Subtle Grid Background -->
+  <defs>
+    <pattern id="grid-domingo-sq" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#222222" stroke-width="1"/>
+    </pattern>
+    <radialGradient id="glow-domingo-sq" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#0CA3D6" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#141414" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="avatar-grad-domingo-sq" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#242424"/>
+      <stop offset="100%" stop-color="#181818"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="600" height="600" fill="url(#grid-domingo-sq)"/>
+  <circle cx="300" cy="300" r="220" fill="url(#glow-domingo-sq)"/>
+
+  <!-- Stylized Silhouette Portrait Placeholder -->
+  <g transform="translate(300, 300)">
+    <!-- Outer Ring -->
+    <circle cx="0" cy="0" r="130" stroke="#0CA3D6" stroke-opacity="0.3" stroke-width="1.5" stroke-dasharray="6 6"/>
+    <circle cx="0" cy="0" r="110" fill="url(#avatar-grad-domingo-sq)" stroke="#333333" stroke-width="2"/>
+    
+    <!-- Monogram Initial -->
+    <text x="0" y="24" font-family="'Plus Jakarta Sans', sans-serif" font-size="64" font-weight="700" fill="#E0DED9" text-anchor="middle" letter-spacing="2">DS</text>
+  </g>
+
+  <!-- Technical Overlay Elements -->
+  <text x="40" y="55" font-family="'IBM Plex Mono', monospace" font-size="12" fill="#0CA3D6" letter-spacing="3">BEAI / LEADERSHIP</text>
+  <text x="560" y="55" font-family="'IBM Plex Mono', monospace" font-size="12" fill="#555555" text-anchor="end">01 // EXEC</text>
+
+  <line x1="40" y1="545" x2="560" y2="545" stroke="#2A2A2A" stroke-width="1"/>
+  <text x="40" y="575" font-family="'IBM Plex Mono', monospace" font-size="11" fill="#777777" letter-spacing="1">DOMINGO M. SILVAS III</text>
+  <text x="560" y="575" font-family="'IBM Plex Mono', monospace" font-size="11" fill="#0CA3D6" text-anchor="end">CEO &amp; FOUNDER</text>
+</svg>

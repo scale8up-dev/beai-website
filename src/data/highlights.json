@@ -1,44 +1,44 @@
 [
   {
-    "id": "individual",
-    "title": "Individual.",
-    "icon": "Palette",
-    "tagline": "Every design is created from scratch, tailored precisely to your brand."
+    "id": "ai-innovation",
+    "title": "AI Innovation",
+    "icon": "Cpu",
+    "tagline": "Machine learning, GenAI, and intelligent automation built for production scale."
   },
   {
-    "id": "details",
-    "title": "Details.",
-    "icon": "Sparkles",
-    "tagline": "Thoughtful animations, smooth transitions, precise typography."
+    "id": "accountability",
+    "title": "Accountability",
+    "icon": "Users",
+    "tagline": "Four unified divisions working as one team with zero handoff gaps."
   },
   {
-    "id": "fixed-price",
-    "title": "Fixed price.",
-    "icon": "Tag",
-    "tagline": "You know from the start what the project will cost."
+    "id": "agile-sprints",
+    "title": "Agile Sprints",
+    "icon": "Zap",
+    "tagline": "Sprint-based delivery cycles with visible progress and rapid iteration."
   },
   {
-    "id": "feedback",
-    "title": "Feedback.",
-    "icon": "RefreshCw",
-    "tagline": "Revisions are an integral part of the process. Until everything is just right."
+    "id": "full-stack",
+    "title": "Full-Stack",
+    "icon": "Code2",
+    "tagline": "End-to-end execution from UI/UX design to cloud architecture and APIs."
+  },
+  {
+    "id": "growth-systems",
+    "title": "Growth Systems",
+    "icon": "TrendingUp",
+    "tagline": "Connected CRM, GoHighLevel pipelines, and nurture funnels built to drive revenue."
   },
   {
     "id": "communication",
-    "title": "Communication.",
+    "title": "Communication",
     "icon": "MessageCircle",
-    "tagline": "Simple and straightforward via Email or WhatsApp."
+    "tagline": "Transparent processes, regular sprint updates, and direct channel access."
   },
   {
-    "id": "simple",
-    "title": "Simple.",
-    "icon": "Edit3",
-    "tagline": "You can easily update your new website yourself after launch."
-  },
-  {
-    "id": "support",
-    "title": "Support.",
+    "id": "client-success",
+    "title": "Client Success",
     "icon": "Headphones",
-    "tagline": "Still here for you even after launch."
+    "tagline": "Proactive optimization, dedicated support, and long-term partnership after launch."
   }
 ]

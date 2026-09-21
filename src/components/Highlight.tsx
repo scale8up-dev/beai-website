@@ -10,6 +10,12 @@ import {
   Cpu,
   Zap,
   ShieldCheck,
+  Layers,
+  Users,
+  Code2,
+  TrendingUp,
+  Target,
+  Rocket,
   LucideIcon,
 } from 'lucide-react';
 
@@ -24,6 +30,12 @@ const iconMap: Record<string, LucideIcon> = {
   Cpu,
   Zap,
   ShieldCheck,
+  Layers,
+  Users,
+  Code2,
+  TrendingUp,
+  Target,
+  Rocket,
 };
 
 interface HighlightProps {
@@ -51,6 +63,8 @@ export default function Highlight({
     ? 'text-light transition-colors duration-300'
     : 'text-dark-grey transition-colors duration-300';
 
+  const cleanTitle = title.replace(/\.$/, '');
+
   return (
     <div
       data-highlight-row
@@ -63,7 +77,7 @@ export default function Highlight({
         {/* Title and Icon in the same line */}
         <div className="flex items-center justify-between gap-3">
           <h3 className={`font-jakarta text-lg sm:text-xl font-semibold ${textColorClass}`}>
-            {title.endsWith('.') ? title : `${title}.`}
+            {cleanTitle}
           </h3>
           <div className={`shrink-0 ${textColorClass}`}>
             <IconComponent className="w-6 h-6 sm:w-7 sm:h-7" />
@@ -81,7 +95,7 @@ export default function Highlight({
         {/* Title on Left */}
         <div className="md:col-span-4 text-right">
           <h3 className={`font-jakarta text-xl md:text-2xl font-semibold ${textColorClass}`}>
-            {title.endsWith('.') ? title : `${title}.`}
+            {cleanTitle}
           </h3>
         </div>
 

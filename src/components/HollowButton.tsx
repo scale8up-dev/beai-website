@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 
 export interface HollowButtonProps {
   text: string;
@@ -33,9 +34,9 @@ export default function HollowButton({
 
   if (link) {
     return (
-      <a href={link} onClick={onClick} className={combinedClasses}>
+      <Link href={link} onClick={onClick} className={combinedClasses}>
         {content}
-      </a>
+      </Link>
     );
   }
 
@@ -45,3 +46,4 @@ export default function HollowButton({
     </button>
   );
 }
+

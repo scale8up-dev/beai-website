@@ -3,7 +3,7 @@
 @theme {
   --color-light: #E0DED9;
   --color-dark: #111111;
-  --color-accent: #9EC0C5;
+  --color-accent: #0CA3D6;
   --color-grey: #5D5D5D;
   --color-dark-grey: #454545;
 
@@ -35,7 +35,7 @@
 :root {
   --light: #E0DED9;
   --dark: #111111;
-  --accent: #9EC0C5;
+  --accent: #0CA3D6;
   --grey: #5D5D5D;
   --dark-grey: #454545;
 }
@@ -47,14 +47,18 @@ body {
   min-height: 100vh;
 }
 
+a {
+  text-decoration: none;
+}
+
 /* Custom Text Selection Styling */
 ::selection {
-  background-color: var(--color-accent, #9EC0C5);
+  background-color: var(--color-accent, #0CA3D6);
   color: var(--color-light, #E0DED9);
 }
 
 ::-moz-selection {
-  background-color: var(--color-accent, #9EC0C5);
+  background-color: var(--color-accent, #0CA3D6);
   color: var(--color-light, #E0DED9);
 }
 
