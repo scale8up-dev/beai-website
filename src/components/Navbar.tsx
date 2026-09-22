@@ -73,7 +73,7 @@ export default function Navbar() {
       for (let i = sections.length - 1; i >= 0; i--) {
         const section = sections[i];
         const rect = section.getBoundingClientRect();
-        
+
         let offsetPx = 0;
         const offsetAttr = section.getAttribute('data-theme-offset');
         if (offsetAttr) {
@@ -132,8 +132,8 @@ export default function Navbar() {
             window.location.href = '/';
           }}
           className={`flex items-center gap-3 cursor-pointer group transform-gpu ${isFirstLoad
-              ? `transition-all duration-600 ease-out ${mounted ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'}`
-              : 'translate-x-0 opacity-100'
+            ? `transition-all duration-600 ease-out ${mounted ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'}`
+            : 'translate-x-0 opacity-100'
             }`}
           style={{ transitionDelay: isFirstLoad ? '150ms' : '0ms' }}
         >
@@ -158,8 +158,8 @@ export default function Navbar() {
         <div className="absolute left-1/2 -translate-x-1/2 hidden md:flex items-center gap-2 lg:gap-3">
           <div
             className={`transform-gpu ${isFirstLoad
-                ? `transition-all duration-600 ease-out ${mounted ? 'translate-y-0 opacity-100' : '-translate-y-8 opacity-0'}`
-                : 'translate-y-0 opacity-100'
+              ? `transition-all duration-600 ease-out ${mounted ? 'translate-y-0 opacity-100' : '-translate-y-8 opacity-0'}`
+              : 'translate-y-0 opacity-100'
               }`}
             style={{ transitionDelay: isFirstLoad ? '300ms' : '0ms' }}
           >
@@ -167,8 +167,8 @@ export default function Navbar() {
           </div>
           <div
             className={`transform-gpu ${isFirstLoad
-                ? `transition-all duration-600 ease-out ${mounted ? 'translate-y-0 opacity-100' : '-translate-y-8 opacity-0'}`
-                : 'translate-y-0 opacity-100'
+              ? `transition-all duration-600 ease-out ${mounted ? 'translate-y-0 opacity-100' : '-translate-y-8 opacity-0'}`
+              : 'translate-y-0 opacity-100'
               }`}
             style={{ transitionDelay: isFirstLoad ? '380ms' : '0ms' }}
           >
@@ -176,8 +176,8 @@ export default function Navbar() {
           </div>
           <div
             className={`transform-gpu ${isFirstLoad
-                ? `transition-all duration-600 ease-out ${mounted ? 'translate-y-0 opacity-100' : '-translate-y-8 opacity-0'}`
-                : 'translate-y-0 opacity-100'
+              ? `transition-all duration-600 ease-out ${mounted ? 'translate-y-0 opacity-100' : '-translate-y-8 opacity-0'}`
+              : 'translate-y-0 opacity-100'
               }`}
             style={{ transitionDelay: isFirstLoad ? '460ms' : '0ms' }}
           >
@@ -185,8 +185,8 @@ export default function Navbar() {
           </div>
           <div
             className={`transform-gpu ${isFirstLoad
-                ? `transition-all duration-600 ease-out ${mounted ? 'translate-y-0 opacity-100' : '-translate-y-8 opacity-0'}`
-                : 'translate-y-0 opacity-100'
+              ? `transition-all duration-600 ease-out ${mounted ? 'translate-y-0 opacity-100' : '-translate-y-8 opacity-0'}`
+              : 'translate-y-0 opacity-100'
               }`}
             style={{ transitionDelay: isFirstLoad ? '540ms' : '0ms' }}
           >
@@ -197,8 +197,8 @@ export default function Navbar() {
         {/* Right side: Contact button + Mobile Menu button (Right to Left Entrance) */}
         <div
           className={`flex items-center gap-2 sm:gap-3 transform-gpu ${isFirstLoad
-              ? `transition-all duration-600 ease-out ${mounted ? 'translate-x-0 opacity-100' : 'translate-x-10 opacity-0'}`
-              : 'translate-x-0 opacity-100'
+            ? `transition-all duration-600 ease-out ${mounted ? 'translate-x-0 opacity-100' : 'translate-x-10 opacity-0'}`
+            : 'translate-x-0 opacity-100'
             }`}
           style={{ transitionDelay: isFirstLoad ? '600ms' : '0ms' }}
         >
