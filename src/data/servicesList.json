@@ -9,10 +9,7 @@
       "Custom Web and Mobile Product Development",
       "UI/UX Research, Prototyping, and Design Systems",
       "Cloud Architecture, DevOps, and CI/CD",
-      "MLOps, Model Deployment, and Monitoring",
-      "APIs, Platform Integrations, and Automation",
-      "Data Engineering and Predictive Analytics",
-      "Quality Engineering, Security, and Performance"
+      "MLOps, Data Engineering, and Automation"
     ]
   },
   {
@@ -47,9 +44,7 @@
     "list": [
       "Guided Implementation",
       "Ongoing Technical Support",
-      "Performance Optimization",
-      "Account Management",
-      "Continuous Improvement"
+      "Performance Optimization"
     ]
   }
 ]

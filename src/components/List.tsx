@@ -80,24 +80,24 @@ export default function List({ data = [], className = '' }: ListProps) {
               {/* Description and Inner Sub-list */}
               <div className="flex-1 flex flex-col gap-4 w-full">
                 {/* Description */}
-                <p className="font-jakarta text-base sm:text-lg md:text-xl text-[#9A9A9A] font-semibold leading-relaxed max-w-md py-1 md:py-3">
+                <p className="font-jakarta text-sm sm:text-base md:text-lg text-[#9A9A9A] font-semibold leading-relaxed max-w-md py-1 md:py-2">
                   {item.description}
                 </p>
 
                 {/* Numbered Sub-list */}
                 {item.list && item.list.length > 0 && (
-                  <div className="flex flex-col gap-4 pt-3 md:pt-4 w-full">
-                    {item.list.map((subTitle, subIdx) => {
+                  <div className="flex flex-col gap-3 md:gap-3.5 pt-2 md:pt-3 w-full">
+                    {item.list.slice(0, 5).map((subTitle, subIdx) => {
                       const subNumber = String(subIdx + 1).padStart(2, '0');
                       return (
                         <div
                           key={subIdx}
-                          className="flex items-center gap-5 md:gap-6 pb-2.5 border-b border-[#2D2D2D] w-full"
+                          className="flex items-center gap-4 md:gap-5 pb-2 md:pb-2.5 border-b border-[#2D2D2D] w-full"
                         >
-                          <span className="font-ibm-mono text-base sm:text-lg md:text-xl text-dark-grey font-semibold select-none">
+                          <span className="font-ibm-mono text-sm sm:text-base md:text-base text-dark-grey font-semibold select-none">
                             {subNumber}
                           </span>
-                          <span className="font-bebas text-xl sm:text-2xl md:text-3xl text-[#9A9A9A] tracking-wide uppercase leading-none">
+                          <span className="font-bebas text-lg sm:text-xl md:text-2xl text-[#9A9A9A] tracking-wide uppercase leading-none">
                             {subTitle}
                           </span>
                         </div>
