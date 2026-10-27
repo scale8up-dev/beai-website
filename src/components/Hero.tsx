@@ -2,35 +2,53 @@
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import Button from './Button';
 import HollowButton from './HollowButton';
 
-const SLIDESHOW_IMAGES = [
-  '/slideshow/1.jpg',
-  '/slideshow/2.jpg',
-  '/slideshow/3.jpg',
-  '/slideshow/4.png',
-  '/slideshow/5.png',
-];
-
 function HeroSlideshow() {
-  const images = [...SLIDESHOW_IMAGES, ...SLIDESHOW_IMAGES];
+  const [projects, setProjects] = useState<{ image: string; name: string }[]>([]);
+
+  useEffect(() => {
+    const controller = new AbortController();
+    async function loadRecentProjects() {
+      try {
+        const response = await fetch('/api/projects', { signal: controller.signal });
+        if (!response.ok) return;
+        const result = await response.json();
+        if (!result.success || !Array.isArray(result.data)) return;
+        const recent = result.data
+          .filter((project: { image?: string }) => typeof project.image === 'string' && project.image.trim())
+          .sort((a: { createdAt?: string }, b: { createdAt?: string }) => (b.createdAt || '').localeCompare(a.createdAt || ''))
+          .slice(0, 5)
+          .map((project: { image: string; name: string }) => ({ image: project.image, name: project.name }));
+        if (recent.length > 0) setProjects(recent);
+      } catch (error) {
+        if (!controller.signal.aborted) console.error('Failed to load recent project images:', error);
+      }
+    }
+    loadRecentProjects();
+    return () => controller.abort();
+  }, []);
+
+  const images = [...projects, ...projects];
 
   return (
     <div className="relative w-full h-full overflow-hidden bg-[#111111]">
-      <div className="flex w-max h-full animate-hero-slideshow">
-        {images.map((src, idx) => (
+      <div className="flex w-max h-full animate-hero-slideshow motion-reduce:animate-none">
+        {images.map((project, idx) => (
           <div
             key={idx}
+            aria-hidden={idx >= projects.length}
             className="relative h-full aspect-[16/10] shrink-0 overflow-hidden"
           >
             <Image
-              src={src}
-              alt={`Slideshow image ${(idx % SLIDESHOW_IMAGES.length) + 1}`}
+              src={project.image}
+              alt={project.name}
               fill
-              priority
+              loading={idx === 0 ? 'eager' : 'lazy'}
               className="object-cover"
-              sizes="(max-width: 768px) 240px, 340px"
+              sizes="(max-width: 639px) 220px, (max-width: 767px) 250px, (max-width: 1023px) 280px, 320px"
             />
           </div>
         ))}
@@ -194,9 +212,9 @@ export default function Hero() {
           style={{ transitionDelay: '600ms' }}
         >
           {/* Slideshow Card */}
-          <div className="w-full aspect-[16/10] shrink-0 rounded-sm border-[2px] border-solid border-[#111111] overflow-hidden bg-[#111111] shadow-md">
+          <Link href="/work" aria-label="Explore our recent projects" className="block w-full aspect-[16/10] shrink-0 rounded-sm border-[2px] border-solid border-[#111111] overflow-hidden bg-[#111111] shadow-md transition-colors hover:border-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-dark">
             <HeroSlideshow />
-          </div>
+          </Link>
 
           {/* BY BEAI Subtitle Row with popup text and growing horizontal line */}
           <div className="flex items-center gap-2.5 w-full pt-0.5">

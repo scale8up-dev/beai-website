@@ -12,7 +12,10 @@
 ## Featured testimonials
 
 Edit quotes and attribution in `src/data/testimonials.json`. The first entry is
-shown initially; visitors can select the other reviews manually. Move an entry
+shown initially. Reviews auto-advance while visible, allowing reading time for
+each quote, and pause on hover, focus, or when the tab is hidden. Visitors can
+pause autoplay or select a review with the arrows/dots. Reduced-motion mode
+disables autoplay and sliding. Move an entry
 within the array to reorder it. These testimonials
 are repository-managed, not part of the admin CMS.
 
