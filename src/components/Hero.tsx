@@ -230,7 +230,7 @@ export default function Hero() {
                 }`}
               style={{ transitionDelay: '650ms' }}
             >
-              <HollowButton text="See work" link="#work" />
+              <HollowButton text="See work" link="/work" />
             </div>
           </div>
         </div>
