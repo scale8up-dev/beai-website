@@ -14,9 +14,9 @@ export default function HomePage() {
     <main className="w-full min-h-screen bg-light">
       <Navbar />
       <Hero />
+      <TestimonialsSection />
       <ServicesSection />
       <ProjectsSection />
-      <TestimonialsSection />
       <AboutSection />
       <HighlightsSection />
       <FaqSection />

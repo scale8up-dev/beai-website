@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react';
 import FaqItem from './FaqItem';
-import FaqReviews from './FaqReviews';
 import faqsData from '@/data/faqs.json';
 
 export default function FaqSection() {
@@ -12,7 +11,7 @@ export default function FaqSection() {
     <section
       id="faq"
       data-theme="light"
-      className="w-full min-h-[90vh] bg-light text-dark pt-0 pb-2 sm:pb-3 md:pb-4 px-4 z-30 relative flex flex-col justify-between"
+      className="w-full bg-light text-dark pt-0 pb-8 sm:pb-12 md:pb-16 px-4 z-30 relative flex flex-col"
     >
       {/* Top Section Content */}
       <div className="w-full flex flex-col justify-start">
@@ -46,12 +45,6 @@ export default function FaqSection() {
         </div>
       </div>
 
-      {/* Bottom Left: Client Reviews */}
-      <div className="w-full pt-6 sm:pt-10 flex justify-start items-end mt-auto">
-        <div className="w-full lg:max-w-md">
-          <FaqReviews />
-        </div>
-      </div>
     </section>
   );
 }

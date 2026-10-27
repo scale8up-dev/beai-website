@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import Button from '@/components/Button';
 import Project from '@/components/Project';
@@ -235,6 +236,9 @@ export default function WorkPage() {
               text="Explore our latest work building high-performance AI web applications, mobile platforms, and enterprise software."
               mounted={mounted}
             />
+            <Link href="/#testimonials" className="mt-4 inline-flex min-h-11 items-center font-jakarta text-base font-semibold underline underline-offset-4 hover:text-grey focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-dark">
+              Client testimonials
+            </Link>
           </div>
         </div>
 

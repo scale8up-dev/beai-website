@@ -207,6 +207,9 @@ export default function CaseStudiesPage() {
               text="In-depth breakdowns of how we architect, build, and deploy production-grade AI systems, intelligent workflows, and high-impact digital platforms."
               mounted={mounted}
             />
+            <Link href="/#testimonials" className="mt-4 inline-flex min-h-11 items-center font-jakarta text-base font-semibold underline underline-offset-4 hover:text-grey focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-dark">
+              Client testimonials
+            </Link>
           </div>
         </div>
 
